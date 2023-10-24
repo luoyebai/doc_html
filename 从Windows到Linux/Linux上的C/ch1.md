@@ -67,7 +67,7 @@ vim frist_c.c
 ----
 ### vim的使用
 好了，我们学成归来，知道了 vim 有很多个模式的，<br>
-Linux下辑文件，我们就需要**按的意思是递归创建模式）**<br>
+按下**i** 进入插入模式（编辑模式）<br>
 >  依照惯例，输出hello ubuntu以示尊敬。
 ```c
 #include <stdio.h>
@@ -106,6 +106,3 @@ Linux下的编译貌似有点繁琐，感觉，**不如。。。Windows 编译�
 <br><red>TODO(待更新)</red>
 
 ----
-
-
-
