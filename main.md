@@ -1,0 +1,7 @@
+# 视觉Linux教程 
+
+---
+##  从Windows到Linux
+
+1. [初识Linux](./从Windows到Linux/初识linux/dist/index.html)
+2. [尝试在Linux上编写c程序](./从Windows到Linux/Linux上的C/dist/index.html)
