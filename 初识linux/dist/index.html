@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="./static/css/base.css" rel="stylesheet">
+    <link href="./static/css/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.font.im/css?family=Source+Serif+Pro%7CLato%7CInconsolata" rel="stylesheet"
+        type="text/css">
+    <title> ch1 </title>
+    <!-- browser favicon -->
+    <link rel="shortcut icon" href="./static/img/favicon.png">
+    <style>
+        .font-sans {
+            font-family: 'Lato', 'SimHei', 'STHeiti', 'SimHei', 'Serif';
+        }
+
+        .font-serif {
+            font-family: 'Source Serif Pro', 'Songti SC', 'SimSun', 'Serif', serif;
+        }
+    </style>
+    <!-- <link rel="stylesheet" href="https://jyywiki.cn/static/katex/katex.min.css">
+    <script defer src="https://jyywiki.cn/static/katex/katex.min.js"></script> -->
+    <link rel="stylesheet" href="./static/katex/katex.min.css">
+    <script defer src="./static/katex/katex.min.js"></script>
+    <!-- <script defer src="https://jyywiki.cn/static/katex/auto-render.min.js"
+        integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
+        crossorigin="anonymous"></script> -->
+    <script defer src="./static/katex/auto-render.min.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            renderMathInElement(document.body, {
+                // customised options
+                // &#8226; auto-render specific keys, e.g.:
+                delimiters: [
+                    { left: '$$', right: '$$', display: true },
+                    { left: '$', right: '$', display: false },
+                    { left: '\\(', right: '\\)', display: false },
+                    { left: '\\[', right: '\\]', display: true }
+                ],
+                // &#8226; rendering keys, e.g.:
+                throwOnError: false
+            });
+        });
+    </script>
+
+    <link rel="stylesheet" href="./static/reveal/reveal.css">
+    <link rel="stylesheet" href="./static/reveal/theme/simple.css" id="theme">
+    <link rel="stylesheet" href="./static/jyy/jyy.css">
+
+</head>
+
+<body class="d-flex flex-column h-100">
+
+    <div class="reveal">
+        <div class="slides">
+            <section><section><div class="center middle"><div style="width:100%"><div><h1 id="linux" class="text-2xl mt-2 font-sans">初识linux</h1>
+<h2 id="_1" class="text-xl mt-2 pb-2 font-sans">概述</h2>
+<ul class="list-disc font-serif">
+<li class="ml-8"><strong>Q1</strong> 什么是linux？</li>
+<li class="ml-8"><strong>Q2</strong> 为什么要使用linux？</li>
+<li class="ml-8"><strong>Q3</strong> linux如何<del>启动</del>使用？</li>
+</ul>
+<p class="font-serif my-1"><img class="float-right" src="./static/img/69f236cb23b9427fbca7954d055ad0b4.png"/></p></div></div></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="q1linux" class="text-2xl mt-2 font-sans">Q1：什么是linux？</h1></div></div></div></section><section><div><p class="font-serif my-1">你在此处不要走动，我去翻翻维基百科<br/>
+<a href="https://zh.wikipedia.org/wiki/Linux">点击查看linux</a></p>
+<p class="font-serif my-1">所以，什么是linux？
+<del>其实就是一堆c代码(</del><br/>
+其实就是一堆很🐮的c代码写出来的操作系统内核<br/>
+<br/>
+而且你可以在github上阅读linux源代码<br/>
+<a href="https://github.com/torvalds/linux">放心大胆地读源码吧！<del>反正看不懂</del></a><br/>
+<br/>
+然后，各大厂商在Linux内核代码的基础上，开发出了一些操作系统。</p></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="q2-linux" class="text-2xl mt-2 font-sans">Q2 为什么要使用linux？</h1>
+<p class="font-serif my-1">说到操作系统，那就不得不和Windows对比一下了。<br/>
+为神魔药用Linux而不是Windows呢？</p></div></div></div></section><section><div><h2 id="windows-vs-linux" class="text-xl mt-2 pb-2 font-sans">Windows VS Linux</h2>
+<p class="font-serif my-1"><img class="float-right" src="./static/img/5065343c248945dea69f4aa43b41b495.png"/></p></div></section><section><div><blockquote>
+<h3 id="_1">第一回合！</h3>
+</blockquote>
+<p class="font-serif my-1">Windows <strong>要钱</strong> <del>虽然这难不倒中国用户</del><br/>
+Linux <strong>免费！自由！</strong>double free<br/>
+Linux 这波，遥遥领先。</p>
+<p class="font-serif my-1"><img class="float-left" src="./static/img/d1cece7fd93c41cb93caf8bbea96e4a2.png"/></p></div></section><section><div><blockquote>
+<h3 id="_1">第二回合！</h3>
+</blockquote>
+<p class="font-serif my-1">Windows 不如 Linux 流畅、稳定、安全<br/></p>
+<p class="font-serif my-1">Linux对开发者十分友好，而且便捷<br/></p>
+<p class="font-serif my-1">ex: 大部分Linux发行版自带python</p>
+<p class="font-serif my-1">Linux 继续领先！<br/></p></div></section><section><div><blockquote>
+<h3 id="_1">让我们直接进入第三回合！</h3>
+</blockquote>
+<p class="font-serif my-1">让我们看看Windows怎么说<br/>
+Windows: 我对英伟达支持友好。<br/>
+Linus(Linux它爹):<strong>so nvidia fxxk you!</strong>
+<img class="float-left" src="./static/img/821878b3fc074950a701a02d55a86197.png"/></p></div></section><section><div><h3 id="_1">好好，让我暂时先忽略刚才的图片</h3>
+<p class="font-serif my-1">总而言之，Linux对程序员来说，是很不错的一个系统。<br/>
+而说到 Linux 各大发行版，作为 Arch 神教的一员。<br/>
+<br/>
+给各位推荐的发行版自然是----<strong>Ubuntu 22.04</strong><br/>
+<del>(初学者用什么arch，真的是)</del><br/>
+<br/>
+等学得差不多了，也可以尝试一下其他的发行版。<br/>
+<a href="https://distrochooser.de/zh-hans">测试一下你最适合哪个发行版</a>
+<br/><br/>
+终于还是到了这个时候吗？<br/>
+是时候了，Linux，启动！</p></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="q3linux" class="text-2xl mt-2 font-sans">Q3:linux如何<del>启动</del>使用？</h1>
+<p class="font-serif my-1">以Ubuntu22.04为例，尝试安装</p></div></div></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">启动盘制作</h2>
+<p class="font-serif my-1">先准备好一个16G左右的U盘，制作成Ventoy。<br/>
+U盘会被格式化，请提前做好文件备份。<br/>
+<a href="https://www.ventoy.net/cn/doc_start.html">这里是教程</a>
+<br/></p>
+<p class="font-serif my-1">制作好的U盘名字会变成Ventoy</p>
+<p class="font-serif my-1"><img alt="如图" src="./static/img/2597cad8cc6a443ab1ca38a91a937c40.png"/></p></div></section><section><div><h2 id="ubuntu" class="text-xl mt-2 pb-2 font-sans">Ubuntu镜像下载</h2>
+<p class="font-serif my-1"><a href="https://releases.ubuntu.com/22.04/ubuntu-22.04.3-desktop-amd64.iso">这是ubuntu22.04.3的ISO镜像</a><br/>
+把ubuntu的ISO镜像拖到制作好的U盘上即可。<br/>
+查询自己电脑的Bios启动按钮，然后在开机的时候多次按，通常为F10,F2之类的。<br/>
+接下来插上U盘，尝试通过U盘来启动ubuntu安装程序。<br/>
+大概长这样：
+<a href="https://cn.linux-console.net/common-images/use-ventoy/Ventoy-boot-screen.png">启动界面</a>
+然后按照指引一步一步走就好了。</p></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">注意事项</h2>
+<ul class="list-disc font-serif">
+<li class="ml-8"><a href="https://zhuanlan.zhihu.com/p/60704389">解除磁盘锁</a></li>
+<li class="ml-8"><a href="https://zhuanlan.zhihu.com/p/146554549">初始分配空间不够，扩磁盘空间</a></li>
+<li class="ml-8"><a href="https://zhuanlan.zhihu.com/p/94105263">timeshift备份，防止系统崩溃，环境重配</a></li>
+<li class="ml-8"><a href="https://zhuanlan.zhihu.com/p/393152883">安装显卡驱动！<strong>慎重</strong>，一定要做好备份</a></li>
+</ul></div></section></section>
+        </div>
+    </div>
+
+    <script src="./static/reveal/reveal.js"></script>
+
+    <script>
+        Reveal.initialize({
+
+            width: 1024, height: 768,
+
+            slideNumber: 'c/t',
+            controlsTutorial: false,
+            progress: false,
+            hash: true,
+            center: false,
+            autoAnimateUnmatched: true,
+            autoAnimateEasing: 'ease-out',
+            autoAnimateDuration: 0.3,
+            transitionSpeed: 'fast'
+        });
+    </script>
+</body>
+
+</html>
