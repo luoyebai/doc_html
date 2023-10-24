@@ -1,3 +1,3 @@
 window.onload = function() {
-  document.getElementById('main-content').innerHTML = '这里是最简单的静态页面'
+  document.getElementById('main-content').innerHTML = '视觉Linux相关教程'
 }
