@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="./static/css/base.css" rel="stylesheet">
+    <link href="./static/css/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.font.im/css?family=Source+Serif+Pro%7CLato%7CInconsolata" rel="stylesheet"
+        type="text/css">
+    <title> ch1 </title>
+    <!-- browser favicon -->
+    <link rel="shortcut icon" href="./static/img/favicon.png">
+    <style>
+        .font-sans {
+            font-family: 'Lato', 'SimHei', 'STHeiti', 'SimHei', 'Serif';
+        }
+
+        .font-serif {
+            font-family: 'Source Serif Pro', 'Songti SC', 'SimSun', 'Serif', serif;
+        }
+    </style>
+    <!-- <link rel="stylesheet" href="https://jyywiki.cn/static/katex/katex.min.css">
+    <script defer src="https://jyywiki.cn/static/katex/katex.min.js"></script> -->
+    <link rel="stylesheet" href="./static/katex/katex.min.css">
+    <script defer src="./static/katex/katex.min.js"></script>
+    <!-- <script defer src="https://jyywiki.cn/static/katex/auto-render.min.js"
+        integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
+        crossorigin="anonymous"></script> -->
+    <script defer src="./static/katex/auto-render.min.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            renderMathInElement(document.body, {
+                // customised options
+                // &#8226; auto-render specific keys, e.g.:
+                delimiters: [
+                    { left: '$$', right: '$$', display: true },
+                    { left: '$', right: '$', display: false },
+                    { left: '\\(', right: '\\)', display: false },
+                    { left: '\\[', right: '\\]', display: true }
+                ],
+                // &#8226; rendering keys, e.g.:
+                throwOnError: false
+            });
+        });
+    </script>
+
+    <link rel="stylesheet" href="./static/reveal/reveal.css">
+    <link rel="stylesheet" href="./static/reveal/theme/simple.css" id="theme">
+    <link rel="stylesheet" href="./static/jyy/jyy.css">
+
+</head>
+
+<body class="d-flex flex-column h-100">
+
+    <div class="reveal">
+        <div class="slides">
+            <section><section><div class="center middle"><div style="width:100%"><div><h1 id="_1" class="text-2xl mt-2 font-sans">从指针来理解程序的执行</h1>
+<h2 id="_2" class="text-xl mt-2 pb-2 font-sans">概述</h2>
+<ul class="list-disc font-serif">
+<li class="ml-8"><strong>Q1</strong> 地址，数组，指针？</li>
+<li class="ml-8"><strong>Q2</strong> 万物皆地址？</li>
+<li class="ml-8"><strong>Q3</strong> 一个程序里，指针到底是？</li>
+</ul></div></div></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="q1" class="text-2xl mt-2 font-sans">Q1：地址，数组，指针</h1>
+<blockquote>
+<p class="font-serif my-1">address array pointer</p>
+</blockquote></div></div></div></section><section><div><ol>
+<li class="ml-8"><strong>是什么？</strong></li>
+</ol>
+<p class="font-serif my-1">先来看看官方的定义</p>
+<blockquote>
+<p class="font-serif my-1">c语言下的定义（<a href="https://zh.cppreference.com/w/c">你们从来不看的</a>)
+<del>求求了，看一眼吧</del>
+<img class="float-right" src="./static/img/afe0855057ab4926ac77674680df0b62.png"/></p>
+</blockquote>
+<hr/>
+<ul class="list-disc font-serif">
+<li class="ml-8">
+<p class="font-serif my-1">地址</p>
+<ul class="list-disc font-serif">
+<li class="ml-8">现实中的地址（<a href="https://zh.wikipedia.org/wiki/%E5%9C%B0%E5%9D%80">Wiki</a>）</li>
+<li class="ml-8">计算机中地址（<red>非IP地址</red>）</li>
+</ul>
+</li>
+<li class="ml-8">
+<p class="font-serif my-1">数组 （<a href="https://zh.cppreference.com/w/c/language/array">array</a>）</p>
+</li>
+<li class="ml-8">
+<p class="font-serif my-1">指针 （<a href="https://zh.cppreference.com/w/c/language/pointer">pointer</a>）</p>
+</li>
+</ul>
+<hr/></div></section><section><div><p class="font-serif my-1">不那么官方的解释：</p>
+<blockquote>
+<p class="font-serif my-1">xxx的地址就是xxx在<blue>空间（内存）</blue>上所占的一块位置。<br/>
+（操作系统就是<del>国家</del>分配内存的那位大人)</p>
+</blockquote>
+<p class="font-serif my-1">然后是数组，数组大家应该很熟悉了。<br/>
+有趣但容易<red>误解</red>的例子：</p>
+<div class="codehilite"><pre class="bg-gray-100 overflow-x-auto rounded p-2 mb-2 mt-2"><span/><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">114</span><span class="p">,</span><span class="w"> </span><span class="mi">514</span><span class="p">};</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"x[0]:%d,x[1]:%d"</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">[</span><span class="n">x</span><span class="p">],</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">[</span><span class="n">x</span><span class="p">]);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p class="font-serif my-1"><strong>！！！这玩意能编译运行？</strong><br/></p></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">确实能，那问题来了，为什么能？<br/></h2>
+<p class="font-serif my-1"><br/>
+计算机的世界里，没有<strong>黑魔法</strong><br/>
+那些看起来<red>“不正常”</red>的行为都是<blue>有原因的</blue><br/>
+<br/>
+这段代码可以解释为什么<a href="../code/implicit_conversionb.c">implicit_conversionb</a></p>
+<blockquote>
+<p class="font-serif my-1">看得很清楚，x[1]和1[x]的地址一样<br/></p>
+</blockquote>
+<p class="font-serif my-1"><br/>
+这说明他们俩<blue>站在同一个地方</blue></p>
+<p class="font-serif my-1">站在同一个地方，自然是同一个数据。<br/>
+这是由于c语言的隐式转换导致的。<br/>
+这个地方的<strong>x数组</strong>被<blue>当作指针</blue>来处理了。<br/></p></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">来看看指针</h2>
+<blockquote>
+<p class="font-serif my-1">别急，我们回到地址这边，利用地址来理解指针。</p>
+</blockquote>
+<p class="font-serif my-1">很简单的一块内存分布。<del>地址编号就是家庭地址（经纬度更恰当）</del></p>
+<p class="font-serif my-1"><img alt="" src="./static/img/ddfd7218c2d44d8e933f12ae28e34819.png"/></p></div></section><section><div><p class="font-serif my-1">一段简单的实例代码</p>
+<div class="codehilite"><pre class="bg-gray-100 overflow-x-auto rounded p-2 mb-2 mt-2"><span/><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">pa</span><span class="p">;</span>
+<span class="w">    </span><span class="n">pa</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">a</span><span class="p">;</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"通过pa提供的地址，找到a=%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">pa</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p class="font-serif my-1"><img alt="" src="./static/img/0d4197c12a3a4aba906b4a8d716842df.png"/>
+没什么特别的，指针也是变量，指针也需要内存来存放<br/>
+<strong>指针就是存放地址编号的变量</strong><br/></p>
+<blockquote>
+<p class="font-serif my-1"><blue><strong>思考</strong></blue>：指针只是编号的话，那为什么指针要声明类型？</p>
+</blockquote></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">指针可以<strong>歪着指</strong></h2>
+<p class="font-serif my-1">指针需要记录地址编号的开头，这我们很清楚。<br/>
+我们自然而然得想到，指针是否需要知道地址编号的结尾。<br/>
+如果指针知道它指向的变量有多大（内存）<br/>
+那它也就知道了结尾<del>（做个加法罢了）</del><br/></p>
+<blockquote>
+<p class="font-serif my-1">那什么叫指针可以歪着指？</p>
+</blockquote>
+<p class="font-serif my-1">还是看代码</p>
+<div class="codehilite"><pre class="bg-gray-100 overflow-x-auto rounded p-2 mb-2 mt-2"><span/><code><span class="c1">// 紧接上文</span>
+<span class="o">++</span><span class="n">pa</span><span class="p">;</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">"通过pa提供的地址，找到a下面的数据=%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">pa</span><span class="p">);</span>
+</code></pre></div>
+
+<p class="font-serif my-1"><br/>
+现在我们就知道了，前面那个看起来有点奇怪的<strong>黑魔法</strong>是什么了<br/></p></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="q2" class="text-2xl mt-2 font-sans">Q2：万物皆地址？</h1></div></div></div></section><section><div><p class="font-serif my-1">我们已经知道指针是什么了<br/>
+那么很显然，所有的变量，都可以被指针找到，然后<strong>读取/修改</strong><br/>
+<red>哇，这太可怕了</red>
+<del>会指针的C语言大佬恐怖如斯</del>
+<img alt="" src="./static/img/068a1fd2966f42e48c9c8bd4d7b3515e.png"/>
+但是，细细想来，真的所有东西都可以被指针访问修改吗？</p>
+<blockquote>
+<p class="font-serif my-1">想想那个奇怪的代码，
+<br/>
+我们在对x[2]赋值的时候，程序发生了什么？</p>
+</blockquote></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">操作系统可不是吃干饭的</h2>
+<p class="font-serif my-1">我们貌似不能对<strong>x[2]</strong>赋值，操作系统拒绝了这个赋值？</p>
+<blockquote>
+<p class="font-serif my-1">真的是这样吗？ gdb 调试一下？</p>
+</blockquote>
+<p class="font-serif my-1"><br/>
+调试过后，我们可以看到，操作系统没有拒绝这个写入。<br/>
+只不过在<strong>退出程序</strong>的时候，它报错了。<br/>
+<br/></p>
+<blockquote>
+<p class="font-serif my-1"><red> <strong>*** stack smashing detected ***: terminated</strong><br/>
+[1]    xxxx IOT instruction (core dumped)  ./a.out</red> </p>
+</blockquote>
+<h3 id="_2"><blue>有没有办法绕过这个报错？</blue></h3></div></section><section><div><p class="font-serif my-1">当然是：提前终止程序就好了</p>
+<blockquote>
+<p class="font-serif my-1">是的，c语言就是这么简单易懂，不需要ptrace改写变量值，<br/>
+更不需要其他syscall指令</p>
+</blockquote>
+<p class="font-serif my-1">事实上在程序结尾加上<strong>while(1);</strong>也可以 做到类似的效果<br/>
+c语言没有限制我们对内存的一些<red>不合法</red>操作</p>
+<blockquote>
+<p class="font-serif my-1">这意味着什么？</p>
+</blockquote>
+<p class="font-serif my-1">我们可以做一些<red><strong>很危险</strong></red>但是有用的操作。</p>
+<h3 id="power"><red><strong>指针真正的Power！</strong></red></h3></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="q3" class="text-2xl mt-2 font-sans">Q3：一个程序里，指针到底是？</h1>
+<p class="font-serif my-1">是否可以指向函数？代码片段？</p></div></div></div></section><section><div><h2 id="power" class="text-xl mt-2 pb-2 font-sans">指针的<red>Power！</red> <del>我的王之力！</del></h2>
+<p class="font-serif my-1">我要修改！main函数！<strong><del>(狂)</del></strong><br/></p>
+<p class="font-serif my-1"><a href="../code/callback_model.c">神奇的代码</a></p>
+<blockquote>
+<p class="font-serif my-1">通过函数指针，可以写了一个十分通用的<strong><blue>callback模型</blue></strong><br/></p>
+</blockquote>
+<p class="font-serif my-1">这样就可以很方便地使用回调函数了
+<img class="float-right" src="./static/img/672e8dbf6e7047f1a03cbfc17ac3dc36.png"/></p>
+<p class="font-serif my-1">我们还能做什么？我们现在知道了，函数也可以用指针访问。<br/>
+我们接着就要问了，<red>能不能直接修改？</red><br/>
+到底能不能？<br/>
+<strong>如能。</strong></p></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">我要修改函数！</h2>
+<blockquote>
+<p class="font-serif my-1"><red>这会不会很危险？</red></p>
+</blockquote>
+<p class="font-serif my-1"><a href="../code/dangerous.c">危险的代码</a><br/></p>
+<blockquote>
+<p class="font-serif my-1">[1] xxxx segmentation fault (core dumped)  ./a.out</p>
+</blockquote>
+<p class="font-serif my-1"><strong><red>啊，报错了！<del>我的王之力！</del></red></strong>
+<img class="float-right" src="./static/img/1c0d09c02ec644f8b0711dcc7c1741f2.png"/></p>
+<p class="font-serif my-1">为什么会报错？操作系统不认可这个赋值。<br/>
+为什么？<br/>
+这个时候应该意识到，<strong>不是所有的内存都能读写(当然还有执行)</strong><br/>
+我们能不能知道，哪些是<strong>可读</strong>的？那些是<strong>可写</strong>的？
+这是很自然的需求<br/>
+有需求就有<blue>代码（程序）</blue></p></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">操作系统真没吃干饭</h2>
+<div class="codehilite"><pre class="bg-gray-100 overflow-x-auto rounded p-2 mb-2 mt-2"><span/><code><span class="c1"># Linux下使用pmap查看</span>
+pmap<span class="w"> </span><span class="nv">$pid</span><span class="w"> </span>
+</code></pre></div></div></section><section><div/></section></section>
+        </div>
+    </div>
+
+    <script src="./static/reveal/reveal.js"></script>
+
+    <script>
+        Reveal.initialize({
+
+            width: 1024, height: 768,
+
+            slideNumber: 'c/t',
+            controlsTutorial: false,
+            progress: false,
+            hash: true,
+            center: false,
+            autoAnimateUnmatched: true,
+            autoAnimateEasing: 'ease-out',
+            autoAnimateDuration: 0.3,
+            transitionSpeed: 'fast'
+        });
+    </script>
+</body>
+
+</html>

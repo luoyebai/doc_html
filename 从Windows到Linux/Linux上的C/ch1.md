@@ -103,6 +103,56 @@ Linux下的编译貌似有点繁琐，感觉，**不如。。。Windows 编译�
 
 # Q2：感觉，**不如...Windows 编译。**
 真的是这样吗？为什么要用这样繁琐的编译方式？
-<br><red>TODO(待更新)</red>
 
 ----
+
+> 思考：Windows 下的编译和 Linux 有什么不同？
+
+无论是devc++，Visual Studio，还是别的IDE<br>
+本质上都需要调用编译器来编译。<br>
+> gcc 就是一个编译器。
+
+同样地，Linux下也是有诸多IDE的。<br>
+它们都同样会去调用CLI（命令行）下的工具---编译器。<br>
+所以，其实不存在Linux编译不如Windows的情况。（大抵如此）<br>
+<br>
+而Linux的命令行工具，很大程度上给了我们自由。<br>
+我可以很清楚地知道，我的命令是干什么的。<br>
+<del>（当然Windows也可以做到，但是Linux更方便）</del><br>
+
+----
+很自然地，我们想问
+
+## Linux 能否做到更多？
+是的，这是肯定的，Linux 能做到更多。<br>
+### <red>先从CLI开始。</red><br>
+例 :
+<hr>
++ 补全 
+Linux 可以在命令行终端下按**Tab**来补全命令。
+```shell
+cd <Tab> <Tab>
+```
++ 脚本 
+Linux 下的所有命令都可以作为脚本的一部分来执行。<br>
+```shell
+#!/bin/bash 
+# 编译后只保留.out文件
+gcc ./*.c && rm ./*.c
+```
+<hr>
+
+----
+
+这些简单的例子貌似无法体现出Linux的强大。<br>
+那么让我们领略<blue>Linux真正的强大之处吧。</blue><br>
+<red>从gdb开撕c语言，Linux的彪悍之处</red>
+
+> Talk is cheap,show your code!
+
+---
+# Q3：Linux真正的强大之处！何在？
+从gdb开始的彪悍调试人生！
+
+----
+## 来看一段奇怪的c代码

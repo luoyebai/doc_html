@@ -66,7 +66,7 @@
 <li class="ml-8"><strong>Q3</strong> Linux正真的强大之处！何在？</li>
 </ul></div></div></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="q1linuxc" class="text-2xl mt-2 font-sans">Q1：Linux下的C程序要如何运行？</h1></div></div></div></section><section><div><p class="font-serif my-1">首先！同时按下<strong>ctrl+alt+t</strong>，启动终端。
 大概这样：
-<img alt="" src="./static/img/4814733e30d14a9c92f62984856b89a7.png"/></p></div></section><section><div><p class="font-serif my-1">然后输入</p>
+<img alt="" src="./static/img/703e6a22642d4ac8bc2e7a3f5ba65004.png"/></p></div></section><section><div><p class="font-serif my-1">然后输入</p>
 <div class="codehilite"><pre class="bg-gray-100 overflow-x-auto rounded p-2 mb-2 mt-2"><span/><code><span class="c1"># sudo是类似于Win中“使用管理员身份运行”的命令，一般在行首。</span>
 sudo<span class="w"> </span>passwd<span class="w"> </span>root<span class="w"> </span>
 </code></pre></div>
@@ -132,8 +132,50 @@ ls<span class="w"> </span>.
 
 <p class="font-serif my-1">Linux下该可以在终端界面看到输出的文字了。<br/><br/>
 Linux下的编译貌似有点繁琐，感觉，<strong>不如。。。Windows 编译。</strong></p></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="q2windows" class="text-2xl mt-2 font-sans">Q2：感觉，<strong>不如...Windows 编译。</strong></h1>
-<p class="font-serif my-1">真的是这样吗？为什么要用这样繁琐的编译方式？
-<br/><red>TODO(待更新)</red></p></div></div></div></section><section><div/></section></section>
+<p class="font-serif my-1">真的是这样吗？为什么要用这样繁琐的编译方式？</p></div></div></div></section><section><div><blockquote>
+<p class="font-serif my-1">思考：Windows 下的编译和 Linux 有什么不同？</p>
+</blockquote>
+<p class="font-serif my-1">无论是devc++，Visual Studio，还是别的IDE<br/>
+本质上都需要调用编译器来编译。<br/></p>
+<blockquote>
+<p class="font-serif my-1">gcc 就是一个编译器。</p>
+</blockquote>
+<p class="font-serif my-1">同样地，Linux下也是有诸多IDE的。<br/>
+它们都同样会去调用CLI（命令行）下的工具---编译器。<br/>
+所以，其实不存在Linux编译不如Windows的情况。（大抵如此）<br/>
+<br/>
+而Linux的命令行工具，很大程度上给了我们自由。<br/>
+我可以很清楚地知道，我的命令是干什么的。<br/>
+<del>（当然Windows也可以做到，但是Linux更方便）</del><br/></p></div></section><section><div><p class="font-serif my-1">很自然地，我们想问</p>
+<h2 id="linux" class="text-xl mt-2 pb-2 font-sans">Linux 能否做到更多？</h2>
+<p class="font-serif my-1">是的，这是肯定的，Linux 能做到更多。<br/></p>
+<h3 id="cli"><red>先从CLI开始。</red><br/></h3>
+<p class="font-serif my-1">例 :</p>
+<hr/>
+<ul class="list-disc font-serif">
+<li class="ml-8">补全 
+Linux 可以在命令行终端下按<strong>Tab</strong>来补全命令。</li>
+</ul>
+<div class="codehilite"><pre class="bg-gray-100 overflow-x-auto rounded p-2 mb-2 mt-2"><span/><code><span class="nb">cd</span><span class="w"> </span>&lt;Tab&gt;<span class="w"> </span>&lt;Tab&gt;
+</code></pre></div>
+
+<ul class="list-disc font-serif">
+<li class="ml-8">脚本 
+Linux 下的所有命令都可以作为脚本的一部分来执行。<br/></li>
+</ul>
+<div class="codehilite"><pre class="bg-gray-100 overflow-x-auto rounded p-2 mb-2 mt-2"><span/><code><span class="ch">#!/bin/bash </span>
+<span class="c1"># 编译后只保留.out文件</span>
+gcc<span class="w"> </span>./*.c<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>rm<span class="w"> </span>./*.c
+</code></pre></div>
+
+<hr/></div></section><section><div><p class="font-serif my-1">这些简单的例子貌似无法体现出Linux的强大。<br/>
+那么让我们领略<blue>Linux真正的强大之处吧。</blue><br/>
+<red>从gdb开撕c语言，Linux的彪悍之处</red></p>
+<blockquote>
+<p class="font-serif my-1">Talk is cheap,show your code!</p>
+</blockquote></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="q3linux" class="text-2xl mt-2 font-sans">Q3：Linux真正的强大之处！何在？</h1>
+<p class="font-serif my-1">从gdb开始的彪悍调试人生！</p></div></div></div></section><section><div><h2 id="c" class="text-xl mt-2 pb-2 font-sans">来看一段奇怪的c代码</h2>
+<p class="font-serif my-1"><a href="../code/test.c">test.c</a></p></div></section></section>
         </div>
     </div>
 
