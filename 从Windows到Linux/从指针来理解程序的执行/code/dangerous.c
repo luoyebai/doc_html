@@ -19,7 +19,7 @@ int main(){
 	int* ptr = (int*)&main;
 	ptr -=5;
 	printf("ptr存下的地址:%X\n",ptr);
-	// while(1);
+	getchar();
 	*ptr = 114514;
 	return 0;
 }

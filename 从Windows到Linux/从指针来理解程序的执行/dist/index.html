@@ -62,8 +62,9 @@
 <h2 id="_2" class="text-xl mt-2 pb-2 font-sans">概述</h2>
 <ul class="list-disc font-serif">
 <li class="ml-8"><strong>Q1</strong> 地址，数组，指针？</li>
-<li class="ml-8"><strong>Q2</strong> 万物皆地址？</li>
+<li class="ml-8"><strong>Q2</strong> 万物皆指针？</li>
 <li class="ml-8"><strong>Q3</strong> 一个程序里，指针到底是？</li>
+<li class="ml-8"><strong>总结</strong> </li>
 </ul></div></div></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="q1" class="text-2xl mt-2 font-sans">Q1：地址，数组，指针</h1>
 <blockquote>
 <p class="font-serif my-1">address array pointer</p>
@@ -74,7 +75,7 @@
 <blockquote>
 <p class="font-serif my-1">c语言下的定义（<a href="https://zh.cppreference.com/w/c">你们从来不看的</a>)
 <del>求求了，看一眼吧</del>
-<img class="float-right" src="./static/img/afe0855057ab4926ac77674680df0b62.png"/></p>
+<img class="float-right" src="./static/img/1b984df5beb8489ba6f192f5cacc22de.png"/></p>
 </blockquote>
 <hr/>
 <ul class="list-disc font-serif">
@@ -93,12 +94,18 @@
 </li>
 </ul>
 <hr/></div></section><section><div><p class="font-serif my-1">不那么官方的解释：</p>
+<h2 id="_1" class="text-xl mt-2 pb-2 font-sans">首先是地址</h2>
 <blockquote>
-<p class="font-serif my-1">xxx的地址就是xxx在<blue>空间（内存）</blue>上所占的一块位置。<br/>
-（操作系统就是<del>国家</del>分配内存的那位大人)</p>
+<p class="font-serif my-1">地址就是在<blue>空间（内存）</blue>上所占的一块位置的开头。<br/>
+地址只是地址头，是<strong>页码编号，无法决定分配的内存。</strong><br/>
+（操作系统才是<del>国家</del>分配内存的那位大人)</p>
 </blockquote>
-<p class="font-serif my-1">然后是数组，数组大家应该很熟悉了。<br/>
-有趣但容易<red>误解</red>的例子：</p>
+<h3 id="_2">地址和内存遥相呼应。<br/></h3>
+<p class="font-serif my-1">地址标记了内存的某一个位置，像极了箭头。</p></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">然后是数组（数组大家应该很熟悉了。）<br/></h2>
+<blockquote>
+<p class="font-serif my-1">数组无非是<strong>一组相同类型的数据</strong>的集合的类型</p>
+</blockquote>
+<p class="font-serif my-1">有趣但容易<red>误解</red>的例子：</p>
 <div class="codehilite"><pre class="bg-gray-100 overflow-x-auto rounded p-2 mb-2 mt-2"><span/><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
@@ -108,7 +115,8 @@
 <span class="p">}</span>
 </code></pre></div>
 
-<p class="font-serif my-1"><strong>！！！这玩意能编译运行？</strong><br/></p></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">确实能，那问题来了，为什么能？<br/></h2>
+<p class="font-serif my-1"><strong>！！！这玩意能编译运行？</strong><br/>
+确实能，那问题来了，为什么能？<br/></p></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">终于是指针<br/></h2>
 <p class="font-serif my-1"><br/>
 计算机的世界里，没有<strong>黑魔法</strong><br/>
 那些看起来<red>“不正常”</red>的行为都是<blue>有原因的</blue><br/>
@@ -121,12 +129,12 @@
 这说明他们俩<blue>站在同一个地方</blue></p>
 <p class="font-serif my-1">站在同一个地方，自然是同一个数据。<br/>
 这是由于c语言的隐式转换导致的。<br/>
-这个地方的<strong>x数组</strong>被<blue>当作指针</blue>来处理了。<br/></p></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">来看看指针</h2>
+这个地方的<strong>x数组</strong>被<blue>当作指针</blue>来处理了。<br/></p></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">所以来看看指针</h2>
 <blockquote>
 <p class="font-serif my-1">别急，我们回到地址这边，利用地址来理解指针。</p>
 </blockquote>
 <p class="font-serif my-1">很简单的一块内存分布。<del>地址编号就是家庭地址（经纬度更恰当）</del></p>
-<p class="font-serif my-1"><img alt="" src="./static/img/ddfd7218c2d44d8e933f12ae28e34819.png"/></p></div></section><section><div><p class="font-serif my-1">一段简单的实例代码</p>
+<p class="font-serif my-1"><img alt="" src="./static/img/c37d5086b107440889dd340d42f357d0.png"/></p></div></section><section><div><p class="font-serif my-1">一段简单的实例代码</p>
 <div class="codehilite"><pre class="bg-gray-100 overflow-x-auto rounded p-2 mb-2 mt-2"><span/><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span>
@@ -136,7 +144,7 @@
 <span class="p">}</span>
 </code></pre></div>
 
-<p class="font-serif my-1"><img alt="" src="./static/img/0d4197c12a3a4aba906b4a8d716842df.png"/>
+<p class="font-serif my-1"><img alt="" src="./static/img/dec559eee768453da669ac1de9af491a.png"/>
 没什么特别的，指针也是变量，指针也需要内存来存放<br/>
 <strong>指针就是存放地址编号的变量</strong><br/></p>
 <blockquote>
@@ -156,25 +164,25 @@
 </code></pre></div>
 
 <p class="font-serif my-1"><br/>
-现在我们就知道了，前面那个看起来有点奇怪的<strong>黑魔法</strong>是什么了<br/></p></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="q2" class="text-2xl mt-2 font-sans">Q2：万物皆地址？</h1></div></div></div></section><section><div><p class="font-serif my-1">我们已经知道指针是什么了<br/>
+现在我们就知道了，前面那个看起来有点奇怪的<strong>黑魔法</strong>是什么了<br/></p></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="q2" class="text-2xl mt-2 font-sans">Q2：万物皆指针？</h1></div></div></div></section><section><div><p class="font-serif my-1">我们已经知道指针是什么了<br/>
 那么很显然，所有的变量，都可以被指针找到，然后<strong>读取/修改</strong><br/>
 <red>哇，这太可怕了</red>
 <del>会指针的C语言大佬恐怖如斯</del>
-<img alt="" src="./static/img/068a1fd2966f42e48c9c8bd4d7b3515e.png"/>
+<img alt="" src="./static/img/ebcd8e849ef34fde89aa1c3a244b5017.png"/>
 但是，细细想来，真的所有东西都可以被指针访问修改吗？</p>
 <blockquote>
 <p class="font-serif my-1">想想那个奇怪的代码，
 <br/>
 我们在对x[2]赋值的时候，程序发生了什么？</p>
-</blockquote></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">操作系统可不是吃干饭的</h2>
+</blockquote></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">操作系统貌似在吃干饭。</h2>
+<p class="font-serif my-1"><del><blue>像极了一些西方国家政府</blue></del><br/></p>
 <p class="font-serif my-1">我们貌似不能对<strong>x[2]</strong>赋值，操作系统拒绝了这个赋值？</p>
 <blockquote>
 <p class="font-serif my-1">真的是这样吗？ gdb 调试一下？</p>
 </blockquote>
 <p class="font-serif my-1"><br/>
 调试过后，我们可以看到，操作系统没有拒绝这个写入。<br/>
-只不过在<strong>退出程序</strong>的时候，它报错了。<br/>
-<br/></p>
+只不过在<strong>退出程序</strong>的时候，它报错了。<br/></p>
 <blockquote>
 <p class="font-serif my-1"><red> <strong>*** stack smashing detected ***: terminated</strong><br/>
 [1]    xxxx IOT instruction (core dumped)  ./a.out</red> </p>
@@ -187,18 +195,18 @@
 <p class="font-serif my-1">事实上在程序结尾加上<strong>while(1);</strong>也可以 做到类似的效果<br/>
 c语言没有限制我们对内存的一些<red>不合法</red>操作</p>
 <blockquote>
-<p class="font-serif my-1">这意味着什么？</p>
+<p class="font-serif my-1">这意味着什么？<del>操作系统，认真吃饭！</del></p>
 </blockquote>
 <p class="font-serif my-1">我们可以做一些<red><strong>很危险</strong></red>但是有用的操作。</p>
 <h3 id="power"><red><strong>指针真正的Power！</strong></red></h3></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="q3" class="text-2xl mt-2 font-sans">Q3：一个程序里，指针到底是？</h1>
 <p class="font-serif my-1">是否可以指向函数？代码片段？</p></div></div></div></section><section><div><h2 id="power" class="text-xl mt-2 pb-2 font-sans">指针的<red>Power！</red> <del>我的王之力！</del></h2>
-<p class="font-serif my-1">我要修改！main函数！<strong><del>(狂)</del></strong><br/></p>
+<p class="font-serif my-1">我要用指针使用！main函数！<strong><del>(狂)</del></strong><br/></p>
 <p class="font-serif my-1"><a href="../code/callback_model.c">神奇的代码</a></p>
 <blockquote>
 <p class="font-serif my-1">通过函数指针，可以写了一个十分通用的<strong><blue>callback模型</blue></strong><br/></p>
 </blockquote>
 <p class="font-serif my-1">这样就可以很方便地使用回调函数了
-<img class="float-right" src="./static/img/672e8dbf6e7047f1a03cbfc17ac3dc36.png"/></p>
+<img class="float-right" src="./static/img/27fd4b4319944d94a97392ff7ac029a3.png"/></p>
 <p class="font-serif my-1">我们还能做什么？我们现在知道了，函数也可以用指针访问。<br/>
 我们接着就要问了，<red>能不能直接修改？</red><br/>
 到底能不能？<br/>
@@ -210,17 +218,85 @@ c语言没有限制我们对内存的一些<red>不合法</red>操作</p>
 <blockquote>
 <p class="font-serif my-1">[1] xxxx segmentation fault (core dumped)  ./a.out</p>
 </blockquote>
-<p class="font-serif my-1"><strong><red>啊，报错了！<del>我的王之力！</del></red></strong>
-<img class="float-right" src="./static/img/1c0d09c02ec644f8b0711dcc7c1741f2.png"/></p>
-<p class="font-serif my-1">为什么会报错？操作系统不认可这个赋值。<br/>
-为什么？<br/>
+<p class="font-serif my-1"><img class="float-right" src="./static/img/74a2c3d5990f4ea0a07e5fe1944b76d7.png"/>
+<strong><red>啊，报错了！<del>我的王之力！</del></red></strong></p>
+<p class="font-serif my-1">为什么会报错？操作系统拒绝了这个赋值。<del>突然矜持</del><br/>
 这个时候应该意识到，<strong>不是所有的内存都能读写(当然还有执行)</strong><br/>
 我们能不能知道，哪些是<strong>可读</strong>的？那些是<strong>可写</strong>的？
-这是很自然的需求<br/>
-有需求就有<blue>代码（程序）</blue></p></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">操作系统真没吃干饭</h2>
+这是很自然的需求<br/></p></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">操作系统真没吃干饭</h2>
+<p class="font-serif my-1">有需求就有<blue>代码（程序）</blue></p>
 <div class="codehilite"><pre class="bg-gray-100 overflow-x-auto rounded p-2 mb-2 mt-2"><span/><code><span class="c1"># Linux下使用pmap查看</span>
 pmap<span class="w"> </span><span class="nv">$pid</span><span class="w"> </span>
-</code></pre></div></div></section><section><div/></section></section>
+</code></pre></div>
+
+<p class="font-serif my-1">我们可以看到一个进程分配的空间。<br/>
+以及它的地址啊，<strong>读写权限。</strong><br/></p>
+<blockquote>
+<p class="font-serif my-1">都是操作系统提供的帮助。</p>
+</blockquote>
+<p class="font-serif my-1">当然，Linux下你是可以<red>直接看到进程文件的</red><br/></p>
+<blockquote>
+<p class="font-serif my-1">万物皆文件（虚拟化，持久化）</p>
+</blockquote></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">我们也许需要更多信息</h2>
+<div class="codehilite"><pre class="bg-gray-100 overflow-x-auto rounded p-2 mb-2 mt-2"><span/><code><span class="c1"># 直接看maps</span>
+cat<span class="w"> </span>/proc/<span class="nv">$pid</span>/maps
+</code></pre></div>
+
+<p class="font-serif my-1">是的，我们可以看到进程的内存是如何分布的。</p>
+<blockquote>
+<p class="font-serif my-1"><blue>指针是内存的指针</blue></p>
+</blockquote>
+<p class="font-serif my-1">有没有方法<red>直接修改</red>不可写的内存区域？<br/>
+好了，先别想这么多。因为，这都是很危险的操作。<br/>
+<strong>一不小心，程序就boom了</strong><br/>
+所以谨慎地使用指针吧。<br/>
+现在介绍，最简单的，指针开辟空间方法。<blue>也是最常用的</blue><br/></p></div></section><section><div><h2 id="malloc-free" class="text-xl mt-2 pb-2 font-sans">malloc 和 free</h2>
+<p class="font-serif my-1">看代码（<a href="../code/save.c">安全的代码</a>）</p>
+<blockquote>
+<p class="font-serif my-1">思考：我们能不能用数组开辟？<br/>
+这个操作是不是真的安全，有没有隐患？</p>
+</blockquote>
+<p class="font-serif my-1"><red>如果在<strong>free(ptr)</strong>之前程序终止了。</red><br/></p>
+<p class="font-serif my-1"><img class="float-right" src="./static/img/5b234b011fd64d33847ab8b03381e415.png"/></p>
+<p class="font-serif my-1">会怎么样？<br/>
+ptr开辟的空间怎么办？<br/>
+如果有个程序反复开辟空间，不free，我们的电脑会怎么样？<br/>
+是的，会<strong><red>boom！</red></strong></p>
+<p class="font-serif my-1">Boom的代码（<a href="../code/boom.c">防止超过2GB</a>）</p>
+<p class="font-serif my-1">指针差不多就这么多内容（</p></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="_1" class="text-2xl mt-2 font-sans">总结</h1>
+<p class="font-serif my-1">奇怪的知识增加了</p>
+<!-- ![](./static/img/18b55b49ad32494bbd28be45bcf0fdb7.png) -->
+<p class="font-serif my-1"><img alt="" src="./static/img/bb686d85d9fd48c5a3f6db6931a7df2c.png" style="display: inline-block;"/></p></div></div></div></section><section><div><h2 id="q1" class="text-xl mt-2 pb-2 font-sans">Q1 地址，数组，指针？</h2>
+<ol>
+<li class="ml-8">地址在计算机中就类似书的页码，行列。</li>
+<li class="ml-8">数组是一组同类型的数据的集合的变量类型。</li>
+<li class="ml-8">指针是存储地址的变量类型。</li>
+</ol>
+<p class="font-serif my-1"><strong><red>数组不是指针</red></strong><br/>
+ 就像 int 不是 float 一样
+ <br/>
+ <br/></p>
+<blockquote>
+<p class="font-serif my-1">所以指针就是变量类型罢了。</p>
+</blockquote></div></section><section><div><h2 id="q2" class="text-xl mt-2 pb-2 font-sans">Q2 万物皆指针？</h2>
+<p class="font-serif my-1">计算机里，万物都需要内存来存储，<br/>
+指针能不能访问那块内存得看操作系统。</p>
+<p class="font-serif my-1"><del>指针：我成跪着要饭的了。</del>
+<img class="float" src="./static/img/1b68fe5c80f446cabf5a8740cbe622ae.png"/>
+<br/></p>
+<blockquote>
+<p class="font-serif my-1"><strong><blue>还得看操作系统的脸色。</blue></strong></p>
+</blockquote></div></section><section><div><h2 id="q3" class="text-xl mt-2 pb-2 font-sans">Q3 一个程序里，指针到底是？</h2>
+<p class="font-serif my-1">指针只不过是，通过寻址，然后<strong>间接</strong>进行读写执行的一种手段。<br/></p>
+<p class="font-serif my-1"><blue>至于指针的指针的指针的指针。。。(此处省略)</blue><br/>
+<br/>
+1024级指针：<a href="../code/n_level_pointer.c">当然这是没必要的</a></p>
+<p class="font-serif my-1"><br/></p>
+<blockquote>
+<p class="font-serif my-1"><red>使用指针时要谨慎。</red></p>
+</blockquote>
+<p class="font-serif my-1"><br/></p>
+<p class="font-serif my-1"><blue>最后，希望各位能善待指针。<red><del>（被指针善待）</del></red><br/><br/><strong>以上</strong></blue></p></div></section></section>
         </div>
     </div>
 
