@@ -45,7 +45,6 @@ remalloc:
 
 end:
 	free(ptr);
-	while(1);
 	return 0;
 }
 
