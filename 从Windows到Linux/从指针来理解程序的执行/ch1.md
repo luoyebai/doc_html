@@ -262,7 +262,7 @@ ptr开辟的空间怎么办？<br>
 如果有个程序反复开辟空间，不free，我们的电脑会怎么样？<br>
 是的，会**<red>boom！</red>**
 
-Boom的代码（[防止超过2GB](../code/boom.c)）
+Boom的代码（[需要sudo的Boom](../code/boom.c)）
 
 指针差不多就这么多内容（
 
