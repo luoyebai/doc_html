@@ -1,0 +1,124 @@
+a.out 2844882 26359.876032:          1 cycles:Pu: 
+	    7fa1cf007f83 _IO_file_underflow+0x153 (/usr/lib/libc.so.6)
+	               0 [unknown] ([unknown])
+
+a.out 2844882 26359.876043:          1 cycles:Pu: 
+	    55cb997b513d [unknown] ([unknown])
+	    7fa1cefabcd0 [unknown] (/usr/lib/libc.so.6)
+
+a.out 2844882 26359.876049:        105 cycles:Pu: 
+	    7fa1cf004990 getchar+0x0 (/usr/lib/libc.so.6)
+	    7fa1cefabcd0 [unknown] (/usr/lib/libc.so.6)
+
+a.out 2844882 26359.876054:      22445 cycles:Pu: 
+	    7fa1cf0049a3 getchar+0x13 (/usr/lib/libc.so.6)
+	    7fa1cf1ce000 [unknown] ([unknown])
+	    55cb99a162a1 [unknown] ([unknown])
+
+a.out 2844882 26360.596169:    5620360 cycles:Pu: 
+	    7fa1cf004994 getchar+0x4 (/usr/lib/libc.so.6)
+	    7fa1cefabcd0 [unknown] (/usr/lib/libc.so.6)
+
+a.out 2844882 26360.907690:          1 cycles:Pu: 
+	    7fa1cf007f83 _IO_file_underflow+0x153 (/usr/lib/libc.so.6)
+	               0 [unknown] ([unknown])
+
+a.out 2844882 26360.907706:          1 cycles:Pu: 
+	    55cb997b513d [unknown] ([unknown])
+	    7fa1cefabcd0 [unknown] (/usr/lib/libc.so.6)
+
+a.out 2844882 26360.907713:         74 cycles:Pu: 
+	    7fa1cf004994 getchar+0x4 (/usr/lib/libc.so.6)
+	    7fa1cefabcd0 [unknown] (/usr/lib/libc.so.6)
+
+a.out 2844882 26360.907719:      13126 cycles:Pu: 
+	    7fa1cf0049a7 getchar+0x17 (/usr/lib/libc.so.6)
+	    7fa1cf1ce000 [unknown] ([unknown])
+	    55cb99a162a1 [unknown] ([unknown])
+
+a.out 2844882 26361.460060:    2608357 cycles:Pu: 
+	    7fa1cf007f83 _IO_file_underflow+0x153 (/usr/lib/libc.so.6)
+	               0 [unknown] ([unknown])
+
+a.out 2844882 26362.404148:          1 cycles:Pu: 
+	    7fa1cf007f83 _IO_file_underflow+0x153 (/usr/lib/libc.so.6)
+	               0 [unknown] ([unknown])
+
+a.out 2844882 26362.404174:          1 cycles:Pu: 
+	    7fa1cf007f8f _IO_file_underflow+0x15f (/usr/lib/libc.so.6)
+	               0 [unknown] ([unknown])
+
+a.out 2844882 26362.404182:         47 cycles:Pu: 
+	    7fa1cf004990 getchar+0x0 (/usr/lib/libc.so.6)
+	    7fa1cefabcd0 [unknown] (/usr/lib/libc.so.6)
+
+a.out 2844882 26362.404191:       7068 cycles:Pu: 
+	    7fa1cf004a74 getchar+0xe4 (/usr/lib/libc.so.6)
+	    7fa1cf1ce000 [unknown] ([unknown])
+	    55cb99a162a1 [unknown] ([unknown])
+
+a.out 2844882 26362.555542:    1043164 cycles:Pu: 
+	    7fa1cf007f8f _IO_file_underflow+0x15f (/usr/lib/libc.so.6)
+	               0 [unknown] ([unknown])
+
+a.out 2844882 26363.579136:          1 cycles:Pu: 
+	    7fa1cf007f83 _IO_file_underflow+0x153 (/usr/lib/libc.so.6)
+	               0 [unknown] ([unknown])
+
+a.out 2844882 26363.579153:          1 cycles:Pu: 
+	    55cb997b513d [unknown] ([unknown])
+	    7fa1cefabcd0 [unknown] (/usr/lib/libc.so.6)
+
+a.out 2844882 26363.579160:         71 cycles:Pu: 
+	    7fa1cf004990 getchar+0x0 (/usr/lib/libc.so.6)
+	    7fa1cefabcd0 [unknown] (/usr/lib/libc.so.6)
+
+a.out 2844882 26363.579167:      11914 cycles:Pu: 
+	    7fa1cf0049a7 getchar+0x17 (/usr/lib/libc.so.6)
+	    7fa1cf1ce000 [unknown] ([unknown])
+	    55cb99a162a1 [unknown] ([unknown])
+
+a.out 2844882 26363.658800:    2244634 cycles:Pu: 
+	    7fa1cf004990 getchar+0x0 (/usr/lib/libc.so.6)
+	    7fa1cefabcd0 [unknown] (/usr/lib/libc.so.6)
+
+a.out 2844882 26363.979407:          1 cycles:Pu: 
+	    7fa1cf007f83 _IO_file_underflow+0x153 (/usr/lib/libc.so.6)
+	               0 [unknown] ([unknown])
+
+a.out 2844882 26363.979422:          1 cycles:Pu: 
+	    55cb997b513d [unknown] ([unknown])
+	    7fa1cefabcd0 [unknown] (/usr/lib/libc.so.6)
+
+a.out 2844882 26363.979429:         78 cycles:Pu: 
+	    7fa1cf004994 getchar+0x4 (/usr/lib/libc.so.6)
+	    7fa1cefabcd0 [unknown] (/usr/lib/libc.so.6)
+
+a.out 2844882 26363.979435:      14072 cycles:Pu: 
+	    7fa1cf00a124 __uflow+0xa4 (/usr/lib/libc.so.6)
+	    7fa1cefabcd0 [unknown] (/usr/lib/libc.so.6)
+
+a.out 2844882 26364.098683:    2732411 cycles:Pu: 
+	    7fa1cf007f86 _IO_file_underflow+0x156 (/usr/lib/libc.so.6)
+	               0 [unknown] ([unknown])
+
+a.out 2844882 26364.179433:          1 cycles:Pu: 
+	    7fa1cf007f83 _IO_file_underflow+0x153 (/usr/lib/libc.so.6)
+	               0 [unknown] ([unknown])
+
+a.out 2844882 26364.179456:          1 cycles:Pu: 
+	    55cb997b513d [unknown] ([unknown])
+	    7fa1cefabcd0 [unknown] (/usr/lib/libc.so.6)
+
+a.out 2844882 26364.179461:         54 cycles:Pu: 
+	    7fa1cf004994 getchar+0x4 (/usr/lib/libc.so.6)
+	    7fa1cefabcd0 [unknown] (/usr/lib/libc.so.6)
+
+a.out 2844882 26364.179467:      11741 cycles:Pu: 
+	    7fa1cf00a124 __uflow+0xa4 (/usr/lib/libc.so.6)
+	    7fa1cefabcd0 [unknown] (/usr/lib/libc.so.6)
+
+a.out 2844882 26364.259097:    2796833 cycles:Pu: 
+	    7fa1cf007ea7 _IO_file_underflow+0x77 (/usr/lib/libc.so.6)
+	               0 [unknown] ([unknown])
+

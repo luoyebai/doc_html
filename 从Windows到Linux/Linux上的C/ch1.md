@@ -62,7 +62,7 @@ vim frist_c.c
 这玩意？怎么不能输入啊？<br>
 为了解决这个问题，我们决定上网查阅。
 
-[vim，菜鸟教程](https://www.runoob.com/linux/linux-vim.html)
+[vim，菜鸟教程](https://www.runoob.com/linux/linux-vim.html)(当然，其实vimtutor也不错)
 
 ----
 ### vim的使用
@@ -110,7 +110,7 @@ Linux下的编译貌似有点繁琐，感觉，**不如。。。Windows 编译�
 
 无论是devc++，Visual Studio，还是别的IDE<br>
 本质上都需要调用编译器来编译。<br>
-> gcc 就是一个编译器。
+> gcc 就是一个编译器。[手册捏](https://gcc.gnu.org/onlinedocs/gcc-13.2.0/gcc/)
 
 同样地，Linux下也是有诸多IDE的。<br>
 它们都同样会去调用CLI（命令行）下的工具---编译器。<br>
@@ -152,7 +152,67 @@ gcc ./*.c && rm ./*.c
 
 ---
 # Q3：Linux真正的强大之处！何在？
-从gdb开始的彪悍调试人生！
+从rr开始的彪悍调试人生！
 
 ----
 ## 来看一段奇怪的c代码
+[随机死亡](../code/munmap_chunk.c)
+
+这个代码很好理解，我们经常也会遇到类似的事情<br>
+明明是个很正常的代码，为什么会有些情况下会报错？<br>
+这太不可理喻了，但是想一想，我们真的只能一次又一次地去运行<br>
+或者像无头苍蝇一样看代码吗？<br>
+
+> 也许我们可以把错误的情况完整地保存下来。
+[工具---rr](https://rr-project.org/)
+
+```shell
+sudo apt install rr
+rr record ./a.out
+rr replay
+```
+
+我好好??有用法错误的那一次的代码。<br>
+这很好理解，它把所有本该<red>随机</red>的情况改为<blue>确定</blue>了。<br>
+利用这个工具，我们可以调试，回放，调试。。。
+
+----
+## 分析程序的性能
+![](./img/02.png)
+Windows码农查看程序性能 be like:
+```shell
+githubsu上有用法o的工具好复杂,😭不想用了。
+```
+Linux be like:
+```shell上有用法
+sudo apt install perf
+perf stat ./a.out
+```
+----
+## 更清晰的性能分析 Flame Graph（火焰图）
+```
+sudo apt install git 
+# github上有用法
+git clone https://github.com/brendangregg/FlameGraph.git
+```
+
+[代码](../code/test.c)<br>
+大致的火焰图<br>
+[svg](../img/perf.svg)
+
+---
+# 最后
+
+Linux胜在工具多，对c语言来说，是一个宝地。<br>
+不要害怕命令行，用到后面相信你一定会🥰爱上它的。
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,5 @@
+a.out;[libc.so.6];[unknown] 5
+a.out;[libc.so.6];__uflow 25813
+a.out;[libc.so.6];getchar 7865423
+a.out;[unknown];[unknown];getchar 54553
+a.out;[unknown];_IO_file_underflow 9180772

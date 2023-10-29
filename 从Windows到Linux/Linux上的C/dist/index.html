@@ -66,7 +66,7 @@
 <li class="ml-8"><strong>Q3</strong> Linux正真的强大之处！何在？</li>
 </ul></div></div></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="q1linuxc" class="text-2xl mt-2 font-sans">Q1：Linux下的C程序要如何运行？</h1></div></div></div></section><section><div><p class="font-serif my-1">首先！同时按下<strong>ctrl+alt+t</strong>，启动终端。
 大概这样：
-<img alt="" src="./static/img/703e6a22642d4ac8bc2e7a3f5ba65004.png"/></p></div></section><section><div><p class="font-serif my-1">然后输入</p>
+<img alt="" src="./static/img/749d15bf2f3a4867b11ab14006041ee5.png"/></p></div></section><section><div><p class="font-serif my-1">然后输入</p>
 <div class="codehilite"><pre class="bg-gray-100 overflow-x-auto rounded p-2 mb-2 mt-2"><span/><code><span class="c1"># sudo是类似于Win中“使用管理员身份运行”的命令，一般在行首。</span>
 sudo<span class="w"> </span>passwd<span class="w"> </span>root<span class="w"> </span>
 </code></pre></div>
@@ -100,7 +100,7 @@ vim<span class="w"> </span>frist_c.c
 在我们使用vim的时候，<red><strong>可怕的事情发生了</strong></red><br/><br/>
 这玩意？怎么不能输入啊？<br/>
 为了解决这个问题，我们决定上网查阅。</p>
-<p class="font-serif my-1"><a href="https://www.runoob.com/linux/linux-vim.html">vim，菜鸟教程</a></p></div></section><section><div><h3 id="vim">vim的使用</h3>
+<p class="font-serif my-1"><a href="https://www.runoob.com/linux/linux-vim.html">vim，菜鸟教程</a>(当然，其实vimtutor也不错)</p></div></section><section><div><h3 id="vim">vim的使用</h3>
 <p class="font-serif my-1">好了，我们学成归来，知道了 vim 有很多个模式的，<br/>
 按下<strong>i</strong> 进入插入模式（编辑模式）<br/></p>
 <blockquote>
@@ -138,7 +138,7 @@ Linux下的编译貌似有点繁琐，感觉，<strong>不如。。。Windows �
 <p class="font-serif my-1">无论是devc++，Visual Studio，还是别的IDE<br/>
 本质上都需要调用编译器来编译。<br/></p>
 <blockquote>
-<p class="font-serif my-1">gcc 就是一个编译器。</p>
+<p class="font-serif my-1">gcc 就是一个编译器。<a href="https://gcc.gnu.org/onlinedocs/gcc-13.2.0/gcc/">手册捏</a></p>
 </blockquote>
 <p class="font-serif my-1">同样地，Linux下也是有诸多IDE的。<br/>
 它们都同样会去调用CLI（命令行）下的工具---编译器。<br/>
@@ -174,8 +174,43 @@ gcc<span class="w"> </span>./*.c<span class="w"> </span><span class="o">&amp;&am
 <blockquote>
 <p class="font-serif my-1">Talk is cheap,show your code!</p>
 </blockquote></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="q3linux" class="text-2xl mt-2 font-sans">Q3：Linux真正的强大之处！何在？</h1>
-<p class="font-serif my-1">从gdb开始的彪悍调试人生！</p></div></div></div></section><section><div><h2 id="c" class="text-xl mt-2 pb-2 font-sans">来看一段奇怪的c代码</h2>
-<p class="font-serif my-1"><a href="../code/test.c">test.c</a></p></div></section></section>
+<p class="font-serif my-1">从rr开始的彪悍调试人生！</p></div></div></div></section><section><div><h2 id="c" class="text-xl mt-2 pb-2 font-sans">来看一段奇怪的c代码</h2>
+<p class="font-serif my-1"><a href="../code/munmap_chunk.c">随机死亡</a></p>
+<p class="font-serif my-1">这个代码很好理解，我们经常也会遇到类似的事情<br/>
+明明是个很正常的代码，为什么会有些情况下会报错？<br/>
+这太不可理喻了，但是想一想，我们真的只能一次又一次地去运行<br/>
+或者像无头苍蝇一样看代码吗？<br/></p>
+<blockquote>
+<p class="font-serif my-1">也许我们可以把错误的情况完整地保存下来。
+<a href="https://rr-project.org/">工具---rr</a></p>
+</blockquote>
+<div class="codehilite"><pre class="bg-gray-100 overflow-x-auto rounded p-2 mb-2 mt-2"><span/><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>rr
+rr<span class="w"> </span>record<span class="w"> </span>./a.out
+rr<span class="w"> </span>replay
+</code></pre></div>
+
+<p class="font-serif my-1">我好好??有用法错误的那一次的代码。<br/>
+这很好理解，它把所有本该<red>随机</red>的情况改为<blue>确定</blue>了。<br/>
+利用这个工具，我们可以调试，回放，调试。。。</p></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">分析程序的性能</h2>
+<p class="font-serif my-1"><img alt="" src="./static/img/c7df85a06023449fbcde0295911a0513.png"/>
+Windows码农查看程序性能 be like:</p>
+<div class="codehilite"><pre class="bg-gray-100 overflow-x-auto rounded p-2 mb-2 mt-2"><span/><code>githubsu上有用法o的工具好复杂,😭不想用了。
+</code></pre></div>
+
+<p class="font-serif my-1">Linux be like:</p>
+<div class="codehilite"><pre class="bg-gray-100 overflow-x-auto rounded p-2 mb-2 mt-2"><span/><code>sudo apt install perf
+perf stat ./a.out
+</code></pre></div></div></section><section><div><h2 id="flame-graph" class="text-xl mt-2 pb-2 font-sans">更清晰的性能分析 Flame Graph（火焰图）</h2>
+<div class="codehilite"><pre class="bg-gray-100 overflow-x-auto rounded p-2 mb-2 mt-2"><span/><code><span class="n">sudo</span><span class="w"> </span><span class="n">apt</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">git</span><span class="w"> </span>
+<span class="p">#</span><span class="w"> </span><span class="n">github上有用法</span>
+<span class="n">git</span><span class="w"> </span><span class="n">clone</span><span class="w"> </span><span class="nl">https:</span><span class="c1">//github.com/brendangregg/FlameGraph.git</span>
+</code></pre></div>
+
+<p class="font-serif my-1"><a href="../code/test.c">代码</a><br/>
+大致的火焰图<br/>
+<a href="../img/perf.svg">svg</a></p></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="_1" class="text-2xl mt-2 font-sans">最后</h1>
+<p class="font-serif my-1">Linux胜在工具多，对c语言来说，是一个宝地。<br/>
+不要害怕命令行，用到后面相信你一定会🥰爱上它的。</p></div></div></div></section></section>
         </div>
     </div>
 
