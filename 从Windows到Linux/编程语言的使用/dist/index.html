@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="./static/css/base.css" rel="stylesheet">
+    <link href="./static/css/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.font.im/css?family=Source+Serif+Pro%7CLato%7CInconsolata" rel="stylesheet"
+        type="text/css">
+    <title> ch1 </title>
+    <!-- browser favicon -->
+    <link rel="shortcut icon" href="./static/img/favicon.png">
+    <style>
+        .font-sans {
+            font-family: 'Lato', 'SimHei', 'STHeiti', 'SimHei', 'Serif';
+        }
+
+        .font-serif {
+            font-family: 'Source Serif Pro', 'Songti SC', 'SimSun', 'Serif', serif;
+        }
+    </style>
+    <!-- <link rel="stylesheet" href="https://jyywiki.cn/static/katex/katex.min.css">
+    <script defer src="https://jyywiki.cn/static/katex/katex.min.js"></script> -->
+    <link rel="stylesheet" href="./static/katex/katex.min.css">
+    <script defer src="./static/katex/katex.min.js"></script>
+    <!-- <script defer src="https://jyywiki.cn/static/katex/auto-render.min.js"
+        integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
+        crossorigin="anonymous"></script> -->
+    <script defer src="./static/katex/auto-render.min.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            renderMathInElement(document.body, {
+                // customised options
+                // &#8226; auto-render specific keys, e.g.:
+                delimiters: [
+                    { left: '$$', right: '$$', display: true },
+                    { left: '$', right: '$', display: false },
+                    { left: '\\(', right: '\\)', display: false },
+                    { left: '\\[', right: '\\]', display: true }
+                ],
+                // &#8226; rendering keys, e.g.:
+                throwOnError: false
+            });
+        });
+    </script>
+
+    <link rel="stylesheet" href="./static/reveal/reveal.css">
+    <link rel="stylesheet" href="./static/reveal/theme/simple.css" id="theme">
+    <link rel="stylesheet" href="./static/jyy/jyy.css">
+
+</head>
+
+<body class="d-flex flex-column h-100">
+
+    <div class="reveal">
+        <div class="slides">
+            <section><section><div class="center middle"><div style="width:100%"><div><h1 id="_1" class="text-2xl mt-2 font-sans">编程语言的使用</h1>
+<blockquote>
+<p class="font-serif my-1">语言只是工具，能解决问题的工具就是好工具</p>
+</blockquote></div></div></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">概述</h2>
+<ul class="list-disc font-serif">
+<li class="ml-8"><strong>Q1</strong> shell的使用</li>
+<li class="ml-8"><strong>Q2</strong> C-&gt;C++-&gt;python</li>
+<li class="ml-8"><strong>Q3</strong> 什么时候用什么语言</li>
+</ul>
+<p class="font-serif my-1"><img class="center" src="./static/img/760ac57f8d3c417793e46caa014091b2.png"/></p>
+<!-- ![](./static/img/4dfef7f367884f21859463bb75f4d20b.png) --></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="1shell" class="text-2xl mt-2 font-sans">1：shell的使用？</h1></div></div></div></section><section><div><blockquote>
+<p class="font-serif my-1">为什么要先说shell?</p>
+</blockquote>
+<p class="font-serif my-1"><strong>shell</strong> 是早些年代<del>（当然现在也用</del> 的一款语言，
+它会从<blue>命令行</blue>读取命令然后执行。
+使用Linux少不了shell的陪伴，在介绍其他语言前，自然得先说一下陪伴我们最多的shell。</p>
+<p class="font-serif my-1"><img alt="" src="./static/img/1ea942f466a94d1ea03298ede4a2ca60.png"/></p></div></section><section><div><p class="font-serif my-1">shell 的进化历史</p>
+<blockquote>
+<p class="font-serif my-1">sh -&gt; bash -&gt; zsh/fish （个人推荐使用新手fish）</p>
+</blockquote>
+<p class="font-serif my-1"><a href="https://fishshell.com/">fish官网</a></p>
+<p class="font-serif my-1"><img alt="" src="./static/img/1d2e1b888c584e138949de4dbc4cee1f.png"/></p></div></section><section><div><p class="font-serif my-1">当然为了解shell的历史，还是得看看bash</p>
+<p class="font-serif my-1"><a href="https://manpages.debian.org/unstable/manpages-zh/bash.1.zh_CN.html">点击查看bash</a></p>
+<blockquote>
+<p class="font-serif my-1">也许是更好的文档(但全英文)</p>
+</blockquote>
+<ul class="list-disc font-serif">
+<li class="ml-8">命令行输入</li>
+</ul>
+<div class="codehilite"><pre class="bg-gray-100 overflow-x-auto rounded p-2 mb-2 mt-2"><span/><code>man<span class="w"> </span>sh
+</code></pre></div>
+
+<ul class="list-disc font-serif">
+<li class="ml-8">使用sh意味着我们无时无刻不在编程(</li>
+</ul>
+<div class="codehilite"><pre class="bg-gray-100 overflow-x-auto rounded p-2 mb-2 mt-2"><span/><code><span class="c1"># ex1:我想知道某个程序运行的时间?</span>
+<span class="nb">time</span><span class="w"> </span>&lt;那个程序&gt;
+<span class="c1"># ex2:我想关机?</span>
+poweroff
+<span class="c1">#  我还想...</span>
+</code></pre></div></div></section><section><div><ul class="list-disc font-serif">
+<li class="ml-8">试试fish</li>
+</ul>
+<div class="codehilite"><pre class="bg-gray-100 overflow-x-auto rounded p-2 mb-2 mt-2"><span/><code>fish
+fish_config
+</code></pre></div>
+
+<p class="font-serif my-1"><del>然后自己玩</del></p>
+<ul class="list-disc font-serif">
+<li class="ml-8">也许不只是shell</li>
+</ul>
+<div class="codehilite"><pre class="bg-gray-100 overflow-x-auto rounded p-2 mb-2 mt-2"><span/><code><span class="c1"># 类似shell的方式使用python3</span>
+python3
+<span class="c1"># 对python而言。也许就像fish一样，有更好的交互方式。</span>
+<span class="c1"># 安装ipython （少不了清华源）</span>
+pip3<span class="w"> </span>install<span class="w"> </span>ipython<span class="w"> </span>-i<span class="w"> </span>https://pypi.tuna.tsinghua.edu.cn/simple
+ipython
+</code></pre></div>
+
+<blockquote>
+<p class="font-serif my-1">也许ipython可以让你重新认识python</p>
+</blockquote></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="2c-c-python" class="text-2xl mt-2 font-sans">2：C-&gt;C++-&gt;python</h1>
+<p class="font-serif my-1"><img class="center" src="./static/img/87d36424e99e48a8a0593e7c862b12a3.png"/></p></div></div></div></section><section><div><h2 id="c" class="text-xl mt-2 pb-2 font-sans">C适合做什么?</h2>
+<blockquote>
+<p class="font-serif my-1">接近底层的低抽象程序设计。</p>
+</blockquote>
+<p class="font-serif my-1">个人观点：用C语言写数学题完全是<red>浪费时间</red>。<br/>
+C语言做底层封装更合适，比如</p>
+<ul class="list-disc font-serif">
+<li class="ml-8"><blue>封装大数</blue></li>
+<li class="ml-8"><blue>内存分配器</blue></li>
+<li class="ml-8"><blue>线程池</blue></li>
+</ul>
+<p class="font-serif my-1">简单来说，C语言的模型接近<strong>状态机</strong>，是控制状态的过程。</p></div></section><section><div><h2 id="c" class="text-xl mt-2 pb-2 font-sans">C++适合做什么?</h2>
+<blockquote>
+<p class="font-serif my-1">高性能计算和高抽象设计</p>
+</blockquote>
+<p class="font-serif my-1">C++ 的抽象能力很强，有多种编程范式，面向对象，元编程，函数式编程。<br/></p>
+<ul class="list-disc font-serif">
+<li class="ml-8">最常用的面向对象，模型接近<blue>行为树</blue>。</li>
+<li class="ml-8">元编程，即---编写<blue>生成代码的代码</blue>。</li>
+<li class="ml-8">函数式编程，一切抽象为<blue>表达式求值</blue>。</li>
+</ul>
+<p class="font-serif my-1">C++适合设计，但它最大的毛病也在于此，限制太少，<br/>
+容易写出满是bug的代码，所以<strong>不适合</strong>新手。<br/>
+<del>ps:已经会C语言就不是新手了</del><br/></p></div></section><section><div><h2 id="python" class="text-xl mt-2 pb-2 font-sans">python适合做什么?</h2>
+<blockquote>
+<p class="font-serif my-1">简单小巧的任务</p>
+</blockquote>
+<p class="font-serif my-1"><blue>一句话能说清楚需求的任务</blue>，python再合适不过。<br/>
+比如计算。</p>
+<div class="codehilite"><pre class="bg-gray-100 overflow-x-auto rounded p-2 mb-2 mt-2"><span/><code>&gt;<span class="w">  </span>ipython
+In<span class="w"> </span><span class="o">[</span><span class="m">1</span><span class="o">]</span>:<span class="w"> </span>from<span class="w"> </span>sympy<span class="w"> </span>import<span class="w"> </span>*
+In<span class="w"> </span><span class="o">[</span><span class="m">2</span><span class="o">]</span>:<span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>symbols<span class="o">(</span><span class="s2">"x"</span><span class="o">)</span>
+In<span class="w"> </span><span class="o">[</span><span class="m">3</span><span class="o">]</span>:<span class="w"> </span><span class="nv">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">(</span><span class="m">5</span>**5<span class="o">)</span>*atan<span class="o">(</span>x<span class="o">)</span>
+In<span class="w"> </span><span class="o">[</span><span class="m">4</span><span class="o">]</span>:<span class="w"> </span>y
+Out<span class="o">[</span><span class="m">4</span><span class="o">]</span>:<span class="w"> </span><span class="m">3125</span>*atan<span class="o">(</span>x<span class="o">)</span>
+In<span class="w"> </span><span class="o">[</span><span class="m">5</span><span class="o">]</span>:<span class="w"> </span>y.diff<span class="o">()</span>
+Out<span class="o">[</span><span class="m">5</span><span class="o">]</span>:<span class="w"> </span><span class="m">3125</span>/<span class="o">(</span>x**2<span class="w"> </span>+<span class="w"> </span><span class="m">1</span><span class="o">)</span>
+In<span class="w"> </span><span class="o">[</span><span class="m">6</span><span class="o">]</span>:<span class="w"> </span>y.integrate<span class="o">()</span>
+Out<span class="o">[</span><span class="m">6</span><span class="o">]</span>:<span class="w"> </span><span class="m">3125</span>*x*atan<span class="o">(</span>x<span class="o">)</span><span class="w"> </span>-<span class="w"> </span><span class="m">3125</span>*log<span class="o">(</span>x**2<span class="w"> </span>+<span class="w"> </span><span class="m">1</span><span class="o">)</span>/2
+</code></pre></div></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="3" class="text-2xl mt-2 font-sans">3：什么时候用什么语言</h1>
+<blockquote>
+<p class="font-serif my-1">不要有语言歧视，每种语言都有适合自己的领域</p>
+</blockquote>
+<p class="font-serif my-1"><img class="center" src="./static/img/258d5b2bab6340b4842f676ffb8fef33.png"/></p></div></div></div></section><section><div><p class="font-serif my-1">C++可以应付大部分场景<br/></p>
+<ul class="list-disc font-serif">
+<li class="ml-8">但是如果涉及较多<strong>系统调用</strong>我会先考虑C语言<br/></li>
+<li class="ml-8">如果要做稍微<strong>复杂一点的计算</strong>，我会考虑python<br/></li>
+<li class="ml-8">如果要<strong>日常使用</strong>的命令我会选择shell（当然这个也算不得选择<br/></li>
+</ul>
+<blockquote>
+<p class="font-serif my-1">接下来来点干货（推荐</p>
+</blockquote>
+<p class="font-serif my-1"><img class="center" src="./static/img/feccbf4a6a4e4256ab153e34a2521766.png"/></p></div></section><section><div><ul class="list-disc font-serif">
+<li class="ml-8">通用<ul class="list-disc font-serif">
+<li class="ml-8"><a href="https://chat.openai.com/">ChatGPT</a> </li>
+<li class="ml-8"><a href="https://github.com/PKUFlyingPig/cs-self-learning/blob/master/docs/%E5%BF%85%E5%AD%A6%E5%B7%A5%E5%85%B7/tools.md">工具箱</a></li>
+<li class="ml-8"><a href="https://stackoverflow.com/">解答</a></li>
+<li class="ml-8"><a href="https://github.com/EbookFoundation/free-programming-books/blob/main/books/free-programming-books-zh.md">编程书籍推荐</a></li>
+<li class="ml-8"><a href="https://annas-archive.org">书籍下载</a></li>
+<li class="ml-8"><a href="https://godbolt.org/">在线编译</a></li>
+<li class="ml-8"><a href="https://www.hello-algo.com/">算法</a></li>
+<li class="ml-8"><a href="https://quickref.cn/">代码快速查询手册</a></li>
+</ul>
+</li>
+</ul></div></section><section><div><ul class="list-disc font-serif">
+<li class="ml-8">
+<p class="font-serif my-1">shell</p>
+<ul class="list-disc font-serif">
+<li class="ml-8"><a href="https://github.com/ibraheemdev/modern-unix">modern unix</a></li>
+</ul>
+</li>
+<li class="ml-8">
+<p class="font-serif my-1">c++</p>
+<ul class="list-disc font-serif">
+<li class="ml-8"><a href="https://zh.cppreference.com/w/%E9%A6%96%E9%A1%B5">c++手册</a></li>
+<li class="ml-8"><a href="https://zh-google-styleguide.readthedocs.io/en/latest/google-cpp-styleguide/">谷歌开源风格指南</a></li>
+<li class="ml-8"><a href="https://xmake.io/#/">xmake</a></li>
+<li class="ml-8"><a href="https://github.com/BehaviorTree/BehaviorTree.CPP">c++行为树库</a></li>
+<li class="ml-8"><a href="https://www.behaviortree.dev/groot/">配套的工具</a></li>
+</ul>
+</li>
+<li class="ml-8">
+<p class="font-serif my-1">python</p>
+<ul class="list-disc font-serif">
+<li class="ml-8"><a href="https://jupyter.org/">jupyter</a></li>
+<li class="ml-8"><a href="https://matplotlib.org/">matplotlib</a></li>
+<li class="ml-8"><a href="https://www.sympy.org/zh/">sympy</a></li>
+<li class="ml-8"><a href="https://colab.research.google.com/?pli=1#scrollTo=Nma_JWh-W-IF">谷歌免费机器学习训练</a></li>
+</ul>
+</li>
+</ul></div></section><section><div><p class="font-serif my-1"><img class="center" src="./static/img/e2207a3e13654c36bc68347a0d96f69d.png"/></p>
+<blockquote>
+<p class="font-serif my-1">最后希望大家使用更现代的工具，更好地编程（解决问题）</p>
+</blockquote></div></section></section>
+        </div>
+    </div>
+
+    <script src="./static/reveal/reveal.js"></script>
+
+    <script>
+        Reveal.initialize({
+
+            width: 1024, height: 768,
+
+            slideNumber: 'c/t',
+            controlsTutorial: false,
+            progress: false,
+            hash: true,
+            center: false,
+            autoAnimateUnmatched: true,
+            autoAnimateEasing: 'ease-out',
+            autoAnimateDuration: 0.3,
+            transitionSpeed: 'fast'
+        });
+    </script>
+</body>
+
+</html>
