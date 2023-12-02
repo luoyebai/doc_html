@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="./static/css/base.css" rel="stylesheet">
+    <link href="./static/css/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.font.im/css?family=Source+Serif+Pro%7CLato%7CInconsolata" rel="stylesheet"
+        type="text/css">
+    <title> ch1 </title>
+    <!-- browser favicon -->
+    <link rel="shortcut icon" href="./static/img/favicon.png">
+    <style>
+        .font-sans {
+            font-family: 'Lato', 'SimHei', 'STHeiti', 'SimHei', 'Serif';
+        }
+
+        .font-serif {
+            font-family: 'Source Serif Pro', 'Songti SC', 'SimSun', 'Serif', serif;
+        }
+    </style>
+    <!-- <link rel="stylesheet" href="https://jyywiki.cn/static/katex/katex.min.css">
+    <script defer src="https://jyywiki.cn/static/katex/katex.min.js"></script> -->
+    <link rel="stylesheet" href="./static/katex/katex.min.css">
+    <script defer src="./static/katex/katex.min.js"></script>
+    <!-- <script defer src="https://jyywiki.cn/static/katex/auto-render.min.js"
+        integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
+        crossorigin="anonymous"></script> -->
+    <script defer src="./static/katex/auto-render.min.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            renderMathInElement(document.body, {
+                // customised options
+                // &#8226; auto-render specific keys, e.g.:
+                delimiters: [
+                    { left: '$$', right: '$$', display: true },
+                    { left: '$', right: '$', display: false },
+                    { left: '\\(', right: '\\)', display: false },
+                    { left: '\\[', right: '\\]', display: true }
+                ],
+                // &#8226; rendering keys, e.g.:
+                throwOnError: false
+            });
+        });
+    </script>
+
+    <link rel="stylesheet" href="./static/reveal/reveal.css">
+    <link rel="stylesheet" href="./static/reveal/theme/simple.css" id="theme">
+    <link rel="stylesheet" href="./static/jyy/jyy.css">
+
+</head>
+
+<body class="d-flex flex-column h-100">
+
+    <div class="reveal">
+        <div class="slides">
+            <section><section><div class="center middle"><div style="width:100%"><div><h1 id="mini_linux" class="text-2xl mt-2 font-sans">构建mini_linux</h1>
+<h2 id="_1" class="text-xl mt-2 pb-2 font-sans">概述</h2>
+<ul class="list-disc font-serif">
+<li class="ml-8">关于<a href="https://www.busybox.net/">busybox</a>/<a href="https://landley.net/toybox/">toybox</a></li>
+<li class="ml-8">编译<a href="https://www.kernel.org/">linux kernel</a></li>
+<li class="ml-8">从<a href="https://www.qemu.org/">qemu</a>启动mini_linux  </li>
+</ul></div></div></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="busyboxtoybox" class="text-2xl mt-2 font-sans">关于busybox/toybox</h1>
+<p class="font-serif my-1">本质上还是程序，包含了Linux命令行的实现</p></div></div></div></section><section><div><h2 id="linux" class="text-xl mt-2 pb-2 font-sans">可能有最精简的Linux命令行工具</h2>
+<blockquote>
+<p class="font-serif my-1">我们这次不使用包管理，而是从源码来编译</p>
+</blockquote>
+<p class="font-serif my-1"><a href="www.gnu.org/software/make/manual/make.html">makefile</a><br/></p>
+<p class="font-serif my-1">makefile 除了一些基本的语法外，<blue>本质上就是在使用shell</blue></p>
+<p class="font-serif my-1">会命令行，在很大程序上就会makefile</p>
+<p class="font-serif my-1">makefile 可以很方便?序那让其他人使用make命令来构建项目
+<del>虽然对自己不太友好</del></p>
+<p class="font-serif my-1">先创建mini_linux文件夹。</p>
+<div class="codehilite"><pre class="bg-gray-100 overflow-x-auto rounded p-2 mb-2 mt-2"><span/><code><span class="c1"># 当前文件夹树</span>
+&gt;<span class="w"> </span>mini_linux
+</code></pre></div>
+
+<p class="font-serif my-1"><red>拉取源码编译，要开始了。</red></p></div></section><section><div><h2 id="box" class="text-xl mt-2 pb-2 font-sans">尝试拉取box源码</h2>
+<p class="font-serif my-1"><a href="https://busybox.net/downloads/busybox-1.36.1.tar.bz2">busybox1.36.1压缩包</a><br/></p>
+<div class="codehilite"><pre class="bg-gray-100 overflow-x-auto rounded p-2 mb-2 mt-2"><span/><code>wget<span class="w"> </span>https://busybox.net/downloads/busybox-1.36.1.tar.bz2
+<span class="c1"># 当前文件夹树</span>
+&gt;<span class="w"> </span>mini_linux
+<span class="w">    </span>└──<span class="w"> </span>busybox-1.36.1.tar.bz2
+</code></pre></div>
+
+<div class="codehilite"><pre class="bg-gray-100 overflow-x-auto rounded p-2 mb-2 mt-2"><span/><code><span class="c1"># 解压</span>
+tar<span class="w"> </span>-jxvf<span class="w"> </span>busybox-1.36.1.tar.bz2
+<span class="nb">cd</span><span class="w"> </span>busybox-1.36.1<span class="w"> </span>
+mkdir<span class="w"> </span>build<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>make<span class="w"> </span><span class="nv">O</span><span class="o">=</span>./build<span class="w"> </span>defconfig
+<span class="c1"># 开始编译配置</span>
+<span class="nb">cd</span><span class="w"> </span>build<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>make<span class="w"> </span>menuconfig
+<span class="c1">#配置 </span>
+<span class="c1">#Settings ---&gt; Build Options ---&gt; Build static binary (no shared libs) ---&gt; yes</span>
+<span class="nb">time</span><span class="w"> </span>make<span class="w"> </span>-j8<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>make<span class="w"> </span>install
+<span class="c1"># 就可以看到很多linux基础命令了</span>
+ls<span class="w"> </span>_install/bin
+</code></pre></div></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="linux-kernel" class="text-2xl mt-2 font-sans">编译Linux kernel</h1>
+<p class="font-serif my-1">就像编译普通的c程序那样编译它</p></div></div></div></section><section><div><h2 id="linux-kernel" class="text-xl mt-2 pb-2 font-sans">拉取Linux kernel源码</h2>
+<p class="font-serif my-1"><a href="https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.5.9.tar.xz">linux-6.5.9</a></p>
+<div class="codehilite"><pre class="bg-gray-100 overflow-x-auto rounded p-2 mb-2 mt-2"><span/><code>tar<span class="w"> </span>-vxf<span class="w"> </span>linux-6.5.9.tar.xz
+<span class="nb">cd</span><span class="w"> </span>linux-6.5.9<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>mkdir<span class="w"> </span>build
+make<span class="w"> </span><span class="nv">O</span><span class="o">=</span>./build<span class="w"> </span>allnoconfig<span class="w"> </span>
+<span class="nb">cd</span><span class="w"> </span>build<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>make<span class="w"> </span>menuconfig
+<span class="c1"># 配置</span>
+<span class="c1">#64-bit kernel ---&gt; yes</span>
+<span class="c1">#General setup ---&gt; Initial RAM filesystem and RAM disk (initramfs/initrd) support ---&gt; yes</span>
+<span class="c1">#General setup ---&gt; Configure standard kernel features ---&gt; Enable support for printk ---&gt; yes</span>
+<span class="c1">#Executable file formats / Emulations ---&gt; Kernel support for ELF binaries ---&gt; yes</span>
+<span class="c1">#Executable file formats / Emulations ---&gt; Kernel support for scripts starting with #! ---&gt; yes</span>
+<span class="c1">#Device Drivers ---&gt; Generic Driver Options ---&gt; Maintain a devtmpfs filesystem to mount at /dev ---&gt; yes</span>
+<span class="c1">#Device Drivers ---&gt; Generic Driver Options ---&gt; Automount devtmpfs at /dev, after the kernel mounted the rootfs ---&gt; yes</span>
+<span class="c1">#Device Drivers ---&gt; Character devices ---&gt; Enable TTY ---&gt; yes</span>
+<span class="c1">#Device Drivers ---&gt; Character devices ---&gt; Serial drivers ---&gt; 8250/16550 and compatible serial support ---&gt; yes</span>
+<span class="c1">#Device Drivers ---&gt; Character devices ---&gt; Serial drivers ---&gt; Console on 8250/16550 and compatible serial port ---&gt; yes</span>
+<span class="c1">#File systems ---&gt; Pseudo filesystems ---&gt; /proc file system support ---&gt; yes</span>
+<span class="c1">#File systems ---&gt; Pseudo filesystems ---&gt; sysfs file system support ---&gt; yes</span>
+<span class="nb">time</span><span class="w"> </span>make<span class="w"> </span>-j8
+</code></pre></div></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="qemumini_linux" class="text-2xl mt-2 font-sans">从qemu启动mini_linux</h1>
+<p class="font-serif my-1"><a href="../mini_linux/init">init</a></p>
+<div class="codehilite"><pre class="bg-gray-100 overflow-x-auto rounded p-2 mb-2 mt-2"><span/><code>mkdir initramfs 
+<span class="gh">#</span> 把init文件放到initramfs文件夹里面
+cd initramfs &amp;&amp; chmod +x init
+mkdir -p bin sbin etc proc sys usr/bin usr/sbin
+cp -a ../boxbusy-1.36.1/build/_install/* .
+find . -print0 | cpio --null -ov --format=newc \
+  | gzip -9 &gt; ./initramfs.cpio.gz
+</code></pre></div>
+
+<p class="font-serif my-1">现在可以尝试运行了
+<a href="../mini_linux/run.sh">run</a></p>
+<div class="codehilite"><pre class="bg-gray-100 overflow-x-auto rounded p-2 mb-2 mt-2"><span/><code><span class="nb">cd</span><span class="w"> </span>..<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>./run.sh
+</code></pre></div></div></div></div></section></section>
+        </div>
+    </div>
+
+    <script src="./static/reveal/reveal.js"></script>
+
+    <script>
+        Reveal.initialize({
+
+            width: 1024, height: 768,
+
+            slideNumber: 'c/t',
+            controlsTutorial: false,
+            progress: false,
+            hash: true,
+            center: false,
+            autoAnimateUnmatched: true,
+            autoAnimateEasing: 'ease-out',
+            autoAnimateDuration: 0.3,
+            transitionSpeed: 'fast'
+        });
+    </script>
+</body>
+
+</html>
