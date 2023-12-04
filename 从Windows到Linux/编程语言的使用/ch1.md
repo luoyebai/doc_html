@@ -222,6 +222,8 @@ void qsort( void *ptr, size_t count, size_t size,
 ```
 > 你们肯定<red>不想用这样复杂</red>的api，但标准库提供了
 
+[简单的整数排序代码](../code/sort.c)
+
 ----
 ### 现代的C语言
 
