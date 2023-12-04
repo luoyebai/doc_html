@@ -64,6 +64,103 @@ poweroff
 
 ----
 
+## shell的调用控制和运算
+
++ <blue>调用</blue>：使用存在的部分
+    - 变量
+    - 函数
+    - 可执行文件：通常为二进制文件（ELF）或脚本
+
++ <blue>控制</blue>：主要包括循环和选择
+
++ <blue>运算</blue>：shell中最智能的地方，主要在运算符方面
+
+> 这三者构成了shell这门语言最基本的部分
+
+----
+
+### shell的调用
+
+主要讲一下<blue>可执行文件</blue>，暂时<red>避开变量和函数</red>
+
++ <blue>调用</blue><br>
+
+    - <blue>直接执行的命令</blue><br>
+        shell会在PATH路径下一个一个找过去，也就是说几乎所有的命令都可以在PATH下找到，
+        也可以把自己编译得到的命令放到某个PATH下。
+
+    - <blue>指定路径执行的命令</blue><br>
+        shell会在PATH路径下一个一个找过去，也就是说几乎所有的命令都可以在PATH下找到，
+        shell也可以通过在二进制文件或脚本的绝对路径或相对路径前加.来执行该文件命令<br>
+
+> <blue>ps：cd命令是对系统调用的封装，不是PATH下的二进制文件</blue>
+
+----
+### shell的调用例子
+
+```shell
+# 查看所有的PATH
+echo $PATH
+# 查看ls命令所在位置
+which ls 
+# 执行某个可执行文件
+./<可执行文件路径>
+#变量 ps：等于号前后不能为空格
+STR="Hello World"
+# 函数
+sayHello(){echo "$STR"}; sayHello;
+```
+> PATH其实是shell的变量
+----
+### shell的控制
+
++ 选择
+    - if
+    - if else
+    - if elif else
++ 循环 
+    - for
+    - while
+    - do while
+
+> 老生常谈，放个链接自己看
+
+[菜鸟教程](https://www.runoob.com/linux/linux-shell-process-control.html)
+
+----
+### shell的运算
+shell 的运算很独特，除了加减乘除且或等<br>
+还有一类比较独特的符号---<blue>重定向符</blue>
+
+| 符号   | 功能 |
+| :----- | :--: |
+|  >  |  	将命令输出写入到文件或设备（例如打印机）中，而不是写在命令提示符窗口中。  |
+|  <  |  	从文件中而不是从键盘中读入命令输入。  |
+|  >> |  将命令输出添加到文件末尾而不删除文件中的信息。  |
+|  >& |  	将一个句柄的输出写入到另一个句柄的输入中。  |
+|  <& |  	从一个句柄读取输入并将其写入到另一个句柄输出中。  |
+|  \| |  	从一个命令中读取输出并将其写入另一个命令的输入中。也称作管道。  |
+
+----
+### shell的运算例子
+
+```shell
+# 把当前目录下的内容写入 tmp.txt文件
+tree > tmp.txt
+# 等同于cat tmp.txt
+cat < tmp.txt
+# 在tmp.txt追加日期
+date >> tmp.txt
+# 在tmp.txt追加日期
+date >> tmp.txt
+# 查看当前目录下的cpp文件
+ls | grep *.cpp
+```
+> 通过复合使用这些符号，利用<blue>简单</blue>的工具完成<red>复杂</red>的任务
+
+----
+## 更现代的shell命令
+
 - 试试fish
 
 ```shell
@@ -94,18 +191,50 @@ ipython
 
 ----
 
-## C适合做什么?
+## C语言适合做什么?
 
 > 接近底层的低抽象程序设计。
 
 个人观点：用C语言写数学题完全是<red>浪费时间</red>。<br>
 C语言做底层封装更合适，比如
 
-+ <blue>封装大数</blue>
++ <blue>封装计算</blue>
 + <blue>内存分配器</blue>
 + <blue>线程池</blue>
 
 简单来说，C语言的模型接近**状态机**，是控制状态的过程。
+
+----
+### 熟悉而陌生的C语言
+
+C语言里有很多你们可能<red>手动实现</red>过，但其实是<blue>标准库</blue>有的东西<br>
+比如：
+
+- 字符串 [点击查看](https://zh.cppreference.com/w/c/string)
+- 数值相关 [点击查看](https://zh.cppreference.com/w/c/numeric)
+
+还有些你们<red>不喜欢的东西</red>：
+
+- 排序 [点击查看](https://zh.cppreference.com/w/c/algorithm/qsort)
+```c
+void qsort( void *ptr, size_t count, size_t size,
+            int (*comp)(const void *, const void *) );
+```
+> 你们肯定<red>不想用这样复杂</red>的api，但标准库提供了
+
+----
+### 现代的C语言
+
+还有些偏现代的特性：
+
+- 泛型数学 [点击查看](https://zh.cppreference.com/w/c/numeric/tgmath)
+- 并发支持 [点击查看](https://zh.cppreference.com/w/c/thread)
+
+> 你们<red>不会自己去实现的东西</red>，C标准库也提供了
+
+说起现代，不可避免地要说到C++，它是一门现代的语言<br>
+很多人不喜欢C++，觉得它破坏了C的<blue>小而美</blue><br>
+但也许我们应该<blue>辩证地看待C++</blue>，不过是一门语言，试试又何妨。<br>
 
 ----
 
@@ -122,6 +251,55 @@ C++ 的抽象能力很强，有多种编程范式，面向对象，元编程，�
 C++适合设计，但它最大的毛病也在于此，限制太少，<br>
 容易写出满是bug的代码，所以**不适合**新手。<br>
 <del>ps:已经会C语言就不是新手了</del><br>
+
+----
+
+## C++，噩梦的开始
+
+### 也许C++没有那么难
+
+> C++ 很难学这个概念，似乎在人们心中根深蒂固，但真的是这样吗？
+
+回到前面的C语言，C语言的排序很复杂， 正常人不会想用那种api
+
+- 排序 [点击查看](https://zh.cppreference.com/w/cpp/algorithm/sort)
+
+```c++
+# s是stl容器
+std::sort(s.begin(), s.end());
+# customLess 自定义的比较方式
+std::sort(s.begin(), s.end(), customLess);
+```
+> 比C清爽很多，不是吗？C++<red>并没有想象中那么难</red>
+
+----
+### C++也<blue>不总是那么简单</blue>
+
+- 元编程 [点击查看](https://zh.cppreference.com/w/cpp/meta)
+- 迭代器 [点击查看](https://zh.cppreference.com/w/cpp/iterator)
+- 并发支持 [点击查看](https://zh.cppreference.com/w/cpp/thread)
+- 内存管理 [点击查看](https://zh.cppreference.com/w/cpp/memory)
+- 通用工具 [点击查看](https://zh.cppreference.com/w/cpp/utility#.E9.80.9A.E7.94.A8.E5.B7.A5.E5.85.B7)
+
+> 比C简单的api背后，是海量的代码在支持，所以说C++难
+
+----
+### C++很复杂，但并非困难
+
+- 零开销原则 [点击查看](https://zh.cppreference.com/w/cpp/language/Zero-overhead_principle)
+
+> 所以你<blue>几乎不用担心</blue>，C++那么复杂，学不完怎么办
+
+```c++
+# 一切不过是对底层的抽象和封装
+std::cout << "Hello World\n";
+```
+
+那么，C++作为高性能的代表，至今仍有一个问题困扰各C++程序员<br>
+
+### <red>包管理</red>
+
+提到包管理，那一定绕不开<blue>python</blue>
 
 ----
 
@@ -144,6 +322,25 @@ Out[5]: 3125/(x**2 + 1)
 In [6]: y.integrate()
 Out[6]: 3125*x*atan(x) - 3125*log(x**2 + 1)/2
 ```
+
+----
+## python的包管理
+
+```shell
+pip3 install xxx
+```
+> <blue>简单友好</blue>的工具总是受到大家的青睐
+
+python很适合做些小东西，同样地
+
+> 比C++简单的api背后，是海量的代码在支持（但并非官方提供的）
+
+所以各行各业都比较喜欢使用python来开发<br>
+但python也有很难绕开的毛病：<red>慢</red><br>
+
+所以python虽然在某些时候很好用，但偶尔<br>
+程序员宁愿自己用C++实现相同的功能，也不愿使用python<br>
+大材小用地讲，python<red>至少是个很厉害的计算器</red><br>
 
 ---
 

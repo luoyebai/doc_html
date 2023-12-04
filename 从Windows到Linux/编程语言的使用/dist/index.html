@@ -67,19 +67,19 @@
 <li class="ml-8"><strong>Q2</strong> C-&gt;C++-&gt;python</li>
 <li class="ml-8"><strong>Q3</strong> 什么时候用什么语言</li>
 </ul>
-<p class="font-serif my-1"><img class="center" src="./static/img/760ac57f8d3c417793e46caa014091b2.png"/></p>
-<!-- ![](./static/img/4dfef7f367884f21859463bb75f4d20b.png) --></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="1shell" class="text-2xl mt-2 font-sans">1：shell的使用？</h1></div></div></div></section><section><div><blockquote>
+<p class="font-serif my-1"><img class="center" src="./static/img/3ed53bf43285496e9957d72fc70ac1c0.png"/></p>
+<!-- ![](./static/img/1c184cca30804f88ba901b2f4847a50b.png) --></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="1shell" class="text-2xl mt-2 font-sans">1：shell的使用？</h1></div></div></div></section><section><div><blockquote>
 <p class="font-serif my-1">为什么要先说shell?</p>
 </blockquote>
 <p class="font-serif my-1"><strong>shell</strong> 是早些年代<del>（当然现在也用</del> 的一款语言，
 它会从<blue>命令行</blue>读取命令然后执行。
 使用Linux少不了shell的陪伴，在介绍其他语言前，自然得先说一下陪伴我们最多的shell。</p>
-<p class="font-serif my-1"><img alt="" src="./static/img/1ea942f466a94d1ea03298ede4a2ca60.png"/></p></div></section><section><div><p class="font-serif my-1">shell 的进化历史</p>
+<p class="font-serif my-1"><img alt="" src="./static/img/be982f7e40984ea992dd5a790d420ba0.png"/></p></div></section><section><div><p class="font-serif my-1">shell 的进化历史</p>
 <blockquote>
 <p class="font-serif my-1">sh -&gt; bash -&gt; zsh/fish （个人推荐使用新手fish）</p>
 </blockquote>
 <p class="font-serif my-1"><a href="https://fishshell.com/">fish官网</a></p>
-<p class="font-serif my-1"><img alt="" src="./static/img/1d2e1b888c584e138949de4dbc4cee1f.png"/></p></div></section><section><div><p class="font-serif my-1">当然为了解shell的历史，还是得看看bash</p>
+<p class="font-serif my-1"><img alt="" src="./static/img/c60e8b2eb3ac41bab5dfa2849ef6862c.png"/></p></div></section><section><div><p class="font-serif my-1">当然为了解shell的历史，还是得看看bash</p>
 <p class="font-serif my-1"><a href="https://manpages.debian.org/unstable/manpages-zh/bash.1.zh_CN.html">点击查看bash</a></p>
 <blockquote>
 <p class="font-serif my-1">也许是更好的文档(但全英文)</p>
@@ -98,7 +98,132 @@
 <span class="c1"># ex2:我想关机?</span>
 poweroff
 <span class="c1">#  我还想...</span>
-</code></pre></div></div></section><section><div><ul class="list-disc font-serif">
+</code></pre></div></div></section><section><div><h2 id="shell" class="text-xl mt-2 pb-2 font-sans">shell的调用控制和运算</h2>
+<ul class="list-disc font-serif">
+<li class="ml-8">
+<p class="font-serif my-1"><blue>调用</blue>：使用存在的部分</p>
+<ul class="list-disc font-serif">
+<li class="ml-8">变量</li>
+<li class="ml-8">函数</li>
+<li class="ml-8">可执行文件：通常为二进制文件（ELF）或脚本</li>
+</ul>
+</li>
+<li class="ml-8">
+<p class="font-serif my-1"><blue>控制</blue>：主要包括循环和选择</p>
+</li>
+<li class="ml-8">
+<p class="font-serif my-1"><blue>运算</blue>：shell中最智能的地方，主要在运算符方面</p>
+</li>
+</ul>
+<blockquote>
+<p class="font-serif my-1">这三者构成了shell这门语言最基本的部分</p>
+</blockquote></div></section><section><div><h3 id="shell">shell的调用</h3>
+<p class="font-serif my-1">主要讲一下<blue>可执行文件</blue>，暂时<red>避开变量和函数</red></p>
+<ul class="list-disc font-serif">
+<li class="ml-8">
+<p class="font-serif my-1"><blue>调用</blue><br/></p>
+<ul class="list-disc font-serif">
+<li class="ml-8">
+<p class="font-serif my-1"><blue>直接执行的命令</blue><br/>
+    shell会在PATH路径下一个一个找过去，也就是说几乎所有的命令都可以在PATH下找到，
+    也可以把自己编译得到的命令放到某个PATH下。</p>
+</li>
+<li class="ml-8">
+<p class="font-serif my-1"><blue>指定路径执行的命令</blue><br/>
+    shell会在PATH路径下一个一个找过去，也就是说几乎所有的命令都可以在PATH下找到，
+    shell也可以通过在二进制文件或脚本的绝对路径或相对路径前加.来执行该文件命令<br/></p>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p class="font-serif my-1"><blue>ps：cd命令是对系统调用的封装，不是PATH下的二进制文件</blue></p>
+</blockquote></div></section><section><div><h3 id="shell">shell的调用例子</h3>
+<div class="codehilite"><pre class="bg-gray-100 overflow-x-auto rounded p-2 mb-2 mt-2"><span/><code><span class="c1"># 查看所有的PATH</span>
+<span class="nb">echo</span><span class="w"> </span><span class="nv">$PATH</span>
+<span class="c1"># 查看ls命令所在位置</span>
+which<span class="w"> </span>ls<span class="w"> </span>
+<span class="c1"># 执行某个可执行文件</span>
+./&lt;可执行文件路径&gt;
+<span class="c1">#变量 ps：等于号前后不能为空格</span>
+<span class="nv">STR</span><span class="o">=</span><span class="s2">"Hello World"</span>
+<span class="c1"># 函数</span>
+sayHello<span class="o">(){</span><span class="nb">echo</span><span class="w"> </span><span class="s2">"</span><span class="nv">$STR</span><span class="s2">"</span><span class="o">}</span><span class="p">;</span><span class="w"> </span>sayHello<span class="p">;</span>
+</code></pre></div>
+
+<blockquote>
+<p class="font-serif my-1">PATH其实是shell的变量</p>
+</blockquote></div></section><section><div><h3 id="shell">shell的控制</h3>
+<ul class="list-disc font-serif">
+<li class="ml-8">选择<ul class="list-disc font-serif">
+<li class="ml-8">if</li>
+<li class="ml-8">if else</li>
+<li class="ml-8">if elif else</li>
+</ul>
+</li>
+<li class="ml-8">循环 <ul class="list-disc font-serif">
+<li class="ml-8">for</li>
+<li class="ml-8">while</li>
+<li class="ml-8">do while</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p class="font-serif my-1">老生常谈，放个链接自己看</p>
+</blockquote>
+<p class="font-serif my-1"><a href="https://www.runoob.com/linux/linux-shell-process-control.html">菜鸟教程</a></p></div></section><section><div><h3 id="shell">shell的运算</h3>
+<p class="font-serif my-1">shell 的运算很独特，除了加减乘除且或等<br/>
+还有一类比较独特的符号---<blue>重定向符</blue></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">符号</th>
+<th style="text-align: center;">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">&gt;</td>
+<td style="text-align: center;">将命令输出写入到文件或设备（例如打印机）中，而不是写在命令提示符窗口中。</td>
+</tr>
+<tr>
+<td style="text-align: left;">&lt;</td>
+<td style="text-align: center;">从文件中而不是从键盘中读入命令输入。</td>
+</tr>
+<tr>
+<td style="text-align: left;">&gt;&gt;</td>
+<td style="text-align: center;">将命令输出添加到文件末尾而不删除文件中的信息。</td>
+</tr>
+<tr>
+<td style="text-align: left;">&gt;&amp;</td>
+<td style="text-align: center;">将一个句柄的输出写入到另一个句柄的输入中。</td>
+</tr>
+<tr>
+<td style="text-align: left;">&lt;&amp;</td>
+<td style="text-align: center;">从一个句柄读取输入并将其写入到另一个句柄输出中。</td>
+</tr>
+<tr>
+<td style="text-align: left;">|</td>
+<td style="text-align: center;">从一个命令中读取输出并将其写入另一个命令的输入中。也称作管道。</td>
+</tr>
+</tbody>
+</table></div></section><section><div><h3 id="shell">shell的运算例子</h3>
+<div class="codehilite"><pre class="bg-gray-100 overflow-x-auto rounded p-2 mb-2 mt-2"><span/><code><span class="c1"># 把当前目录下的内容写入 tmp.txt文件</span>
+tree<span class="w"> </span>&gt;<span class="w"> </span>tmp.txt
+<span class="c1"># 等同于cat tmp.txt</span>
+cat<span class="w"> </span>&lt;<span class="w"> </span>tmp.txt
+<span class="c1"># 在tmp.txt追加日期</span>
+date<span class="w"> </span>&gt;&gt;<span class="w"> </span>tmp.txt
+<span class="c1"># 在tmp.txt追加日期</span>
+date<span class="w"> </span>&gt;&gt;<span class="w"> </span>tmp.txt
+<span class="c1"># 查看当前目录下的cpp文件</span>
+ls<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>*.cpp
+</code></pre></div>
+
+<blockquote>
+<p class="font-serif my-1">通过复合使用这些符号，利用<blue>简单</blue>的工具完成<red>复杂</red>的任务</p>
+</blockquote></div></section><section><div><h2 id="shell" class="text-xl mt-2 pb-2 font-sans">更现代的shell命令</h2>
+<ul class="list-disc font-serif">
 <li class="ml-8">试试fish</li>
 </ul>
 <div class="codehilite"><pre class="bg-gray-100 overflow-x-auto rounded p-2 mb-2 mt-2"><span/><code>fish
@@ -120,18 +245,46 @@ ipython
 <blockquote>
 <p class="font-serif my-1">也许ipython可以让你重新认识python</p>
 </blockquote></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="2c-c-python" class="text-2xl mt-2 font-sans">2：C-&gt;C++-&gt;python</h1>
-<p class="font-serif my-1"><img class="center" src="./static/img/87d36424e99e48a8a0593e7c862b12a3.png"/></p></div></div></div></section><section><div><h2 id="c" class="text-xl mt-2 pb-2 font-sans">C适合做什么?</h2>
+<p class="font-serif my-1"><img class="center" src="./static/img/0276e2f1665e42feb43d1276180e9347.png"/></p></div></div></div></section><section><div><h2 id="c" class="text-xl mt-2 pb-2 font-sans">C语言适合做什么?</h2>
 <blockquote>
 <p class="font-serif my-1">接近底层的低抽象程序设计。</p>
 </blockquote>
 <p class="font-serif my-1">个人观点：用C语言写数学题完全是<red>浪费时间</red>。<br/>
 C语言做底层封装更合适，比如</p>
 <ul class="list-disc font-serif">
-<li class="ml-8"><blue>封装大数</blue></li>
+<li class="ml-8"><blue>封装计算</blue></li>
 <li class="ml-8"><blue>内存分配器</blue></li>
 <li class="ml-8"><blue>线程池</blue></li>
 </ul>
-<p class="font-serif my-1">简单来说，C语言的模型接近<strong>状态机</strong>，是控制状态的过程。</p></div></section><section><div><h2 id="c" class="text-xl mt-2 pb-2 font-sans">C++适合做什么?</h2>
+<p class="font-serif my-1">简单来说，C语言的模型接近<strong>状态机</strong>，是控制状态的过程。</p></div></section><section><div><h3 id="c">熟悉而陌生的C语言</h3>
+<p class="font-serif my-1">C语言里有很多你们可能<red>手动实现</red>过，但其实是<blue>标准库</blue>有的东西<br/>
+比如：</p>
+<ul class="list-disc font-serif">
+<li class="ml-8">字符串 <a href="https://zh.cppreference.com/w/c/string">点击查看</a></li>
+<li class="ml-8">数值相关 <a href="https://zh.cppreference.com/w/c/numeric">点击查看</a></li>
+</ul>
+<p class="font-serif my-1">还有些你们<red>不喜欢的东西</red>：</p>
+<ul class="list-disc font-serif">
+<li class="ml-8">排序 <a href="https://zh.cppreference.com/w/c/algorithm/qsort">点击查看</a></li>
+</ul>
+<div class="codehilite"><pre class="bg-gray-100 overflow-x-auto rounded p-2 mb-2 mt-2"><span/><code><span class="kt">void</span><span class="w"> </span><span class="nf">qsort</span><span class="p">(</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">count</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">size</span><span class="p">,</span>
+<span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">comp</span><span class="p">)(</span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+</code></pre></div>
+
+<blockquote>
+<p class="font-serif my-1">你们肯定<red>不想用这样复杂</red>的api，但标准库提供了</p>
+</blockquote></div></section><section><div><h3 id="c">现代的C语言</h3>
+<p class="font-serif my-1">还有些偏现代的特性：</p>
+<ul class="list-disc font-serif">
+<li class="ml-8">泛型数学 <a href="https://zh.cppreference.com/w/c/numeric/tgmath">点击查看</a></li>
+<li class="ml-8">并发支持 <a href="https://zh.cppreference.com/w/c/thread">点击查看</a></li>
+</ul>
+<blockquote>
+<p class="font-serif my-1">你们<red>不会自己去实现的东西</red>，C标准库也提供了</p>
+</blockquote>
+<p class="font-serif my-1">说起现代，不可避免地要说到C++，它是一门现代的语言<br/>
+很多人不喜欢C++，觉得它破坏了C的<blue>小而美</blue><br/>
+但也许我们应该<blue>辩证地看待C++</blue>，不过是一门语言，试试又何妨。<br/></p></div></section><section><div><h2 id="c" class="text-xl mt-2 pb-2 font-sans">C++适合做什么?</h2>
 <blockquote>
 <p class="font-serif my-1">高性能计算和高抽象设计</p>
 </blockquote>
@@ -143,7 +296,47 @@ C语言做底层封装更合适，比如</p>
 </ul>
 <p class="font-serif my-1">C++适合设计，但它最大的毛病也在于此，限制太少，<br/>
 容易写出满是bug的代码，所以<strong>不适合</strong>新手。<br/>
-<del>ps:已经会C语言就不是新手了</del><br/></p></div></section><section><div><h2 id="python" class="text-xl mt-2 pb-2 font-sans">python适合做什么?</h2>
+<del>ps:已经会C语言就不是新手了</del><br/></p></div></section><section><div><h2 id="c" class="text-xl mt-2 pb-2 font-sans">C++，噩梦的开始</h2>
+<h3 id="c_1">也许C++没有那么难</h3>
+<blockquote>
+<p class="font-serif my-1">C++ 很难学这个概念，似乎在人们心中根深蒂固，但真的是这样吗？</p>
+</blockquote>
+<p class="font-serif my-1">回到前面的C语言，C语言的排序很复杂， 正常人不会想用那种api</p>
+<ul class="list-disc font-serif">
+<li class="ml-8">排序 <a href="https://zh.cppreference.com/w/cpp/algorithm/sort">点击查看</a></li>
+</ul>
+<div class="codehilite"><pre class="bg-gray-100 overflow-x-auto rounded p-2 mb-2 mt-2"><span/><code><span class="cp"># s是stl容器</span>
+<span class="n">std</span><span class="o">::</span><span class="n">sort</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+<span class="cp"># customLess 自定义的比较方式</span>
+<span class="n">std</span><span class="o">::</span><span class="n">sort</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="w"> </span><span class="n">customLess</span><span class="p">);</span>
+</code></pre></div>
+
+<blockquote>
+<p class="font-serif my-1">比C清爽很多，不是吗？C++<red>并没有想象中那么难</red></p>
+</blockquote></div></section><section><div><h3 id="c">C++也<blue>不总是那么简单</blue></h3>
+<ul class="list-disc font-serif">
+<li class="ml-8">元编程 <a href="https://zh.cppreference.com/w/cpp/meta">点击查看</a></li>
+<li class="ml-8">迭代器 <a href="https://zh.cppreference.com/w/cpp/iterator">点击查看</a></li>
+<li class="ml-8">并发支持 <a href="https://zh.cppreference.com/w/cpp/thread">点击查看</a></li>
+<li class="ml-8">内存管理 <a href="https://zh.cppreference.com/w/cpp/memory">点击查看</a></li>
+<li class="ml-8">通用工具 <a href="https://zh.cppreference.com/w/cpp/utility#.E9.80.9A.E7.94.A8.E5.B7.A5.E5.85.B7">点击查看</a></li>
+</ul>
+<blockquote>
+<p class="font-serif my-1">比C简单的api背后，是海量的代码在支持，所以说C++难</p>
+</blockquote></div></section><section><div><h3 id="c">C++很复杂，但并非困难</h3>
+<ul class="list-disc font-serif">
+<li class="ml-8">零开销原则 <a href="https://zh.cppreference.com/w/cpp/language/Zero-overhead_principle">点击查看</a></li>
+</ul>
+<blockquote>
+<p class="font-serif my-1">所以你<blue>几乎不用担心</blue>，C++那么复杂，学不完怎么办</p>
+</blockquote>
+<div class="codehilite"><pre class="bg-gray-100 overflow-x-auto rounded p-2 mb-2 mt-2"><span/><code><span class="cp"># 一切不过是对底层的抽象和封装</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"Hello World</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+</code></pre></div>
+
+<p class="font-serif my-1">那么，C++作为高性能的代表，至今仍有一个问题困扰各C++程序员<br/></p>
+<h3 id="_1"><red>包管理</red></h3>
+<p class="font-serif my-1">提到包管理，那一定绕不开<blue>python</blue></p></div></section><section><div><h2 id="python" class="text-xl mt-2 pb-2 font-sans">python适合做什么?</h2>
 <blockquote>
 <p class="font-serif my-1">简单小巧的任务</p>
 </blockquote>
@@ -159,11 +352,26 @@ In<span class="w"> </span><span class="o">[</span><span class="m">5</span><span 
 Out<span class="o">[</span><span class="m">5</span><span class="o">]</span>:<span class="w"> </span><span class="m">3125</span>/<span class="o">(</span>x**2<span class="w"> </span>+<span class="w"> </span><span class="m">1</span><span class="o">)</span>
 In<span class="w"> </span><span class="o">[</span><span class="m">6</span><span class="o">]</span>:<span class="w"> </span>y.integrate<span class="o">()</span>
 Out<span class="o">[</span><span class="m">6</span><span class="o">]</span>:<span class="w"> </span><span class="m">3125</span>*x*atan<span class="o">(</span>x<span class="o">)</span><span class="w"> </span>-<span class="w"> </span><span class="m">3125</span>*log<span class="o">(</span>x**2<span class="w"> </span>+<span class="w"> </span><span class="m">1</span><span class="o">)</span>/2
-</code></pre></div></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="3" class="text-2xl mt-2 font-sans">3：什么时候用什么语言</h1>
+</code></pre></div></div></section><section><div><h2 id="python" class="text-xl mt-2 pb-2 font-sans">python的包管理</h2>
+<div class="codehilite"><pre class="bg-gray-100 overflow-x-auto rounded p-2 mb-2 mt-2"><span/><code>pip3<span class="w"> </span>install<span class="w"> </span>xxx
+</code></pre></div>
+
+<blockquote>
+<p class="font-serif my-1"><blue>简单友好</blue>的工具总是受到大家的青睐</p>
+</blockquote>
+<p class="font-serif my-1">python很适合做些小东西，同样地</p>
+<blockquote>
+<p class="font-serif my-1">比C++简单的api背后，是海量的代码在支持（但并非官方提供的）</p>
+</blockquote>
+<p class="font-serif my-1">所以各行各业都比较喜欢使用python来开发<br/>
+但python也有很难绕开的毛病：<red>慢</red><br/></p>
+<p class="font-serif my-1">所以python虽然在某些时候很好用，但偶尔<br/>
+程序员宁愿自己用C++实现相同的功能，也不愿使用python<br/>
+大材小用地讲，python<red>至少是个很厉害的计算器</red><br/></p></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="3" class="text-2xl mt-2 font-sans">3：什么时候用什么语言</h1>
 <blockquote>
 <p class="font-serif my-1">不要有语言歧视，每种语言都有适合自己的领域</p>
 </blockquote>
-<p class="font-serif my-1"><img class="center" src="./static/img/258d5b2bab6340b4842f676ffb8fef33.png"/></p></div></div></div></section><section><div><p class="font-serif my-1">C++可以应付大部分场景<br/></p>
+<p class="font-serif my-1"><img class="center" src="./static/img/e304c0ebaf5249c1a0af629731993181.png"/></p></div></div></div></section><section><div><p class="font-serif my-1">C++可以应付大部分场景<br/></p>
 <ul class="list-disc font-serif">
 <li class="ml-8">但是如果涉及较多<strong>系统调用</strong>我会先考虑C语言<br/></li>
 <li class="ml-8">如果要做稍微<strong>复杂一点的计算</strong>，我会考虑python<br/></li>
@@ -172,7 +380,7 @@ Out<span class="o">[</span><span class="m">6</span><span class="o">]</span>:<spa
 <blockquote>
 <p class="font-serif my-1">接下来来点干货（推荐</p>
 </blockquote>
-<p class="font-serif my-1"><img class="center" src="./static/img/feccbf4a6a4e4256ab153e34a2521766.png"/></p></div></section><section><div><ul class="list-disc font-serif">
+<p class="font-serif my-1"><img class="center" src="./static/img/3e15f8f2526a4239ae5ae5718aea3126.png"/></p></div></section><section><div><ul class="list-disc font-serif">
 <li class="ml-8">通用<ul class="list-disc font-serif">
 <li class="ml-8"><a href="https://chat.openai.com/">ChatGPT</a> </li>
 <li class="ml-8"><a href="https://github.com/PKUFlyingPig/cs-self-learning/blob/master/docs/%E5%BF%85%E5%AD%A6%E5%B7%A5%E5%85%B7/tools.md">工具箱</a></li>
@@ -210,7 +418,7 @@ Out<span class="o">[</span><span class="m">6</span><span class="o">]</span>:<spa
 <li class="ml-8"><a href="https://colab.research.google.com/?pli=1#scrollTo=Nma_JWh-W-IF">谷歌免费机器学习训练</a></li>
 </ul>
 </li>
-</ul></div></section><section><div><p class="font-serif my-1"><img class="center" src="./static/img/e2207a3e13654c36bc68347a0d96f69d.png"/></p>
+</ul></div></section><section><div><p class="font-serif my-1"><img class="center" src="./static/img/e9bb20ef8f6c47118d5dabfac8409549.png"/></p>
 <blockquote>
 <p class="font-serif my-1">最后希望大家使用更现代的工具，更好地编程（解决问题）</p>
 </blockquote></div></section></section>
