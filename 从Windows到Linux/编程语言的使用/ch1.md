@@ -275,13 +275,17 @@ std::sort(s.begin(), s.end(), customLess);
 ----
 ### C++也<blue>不总是那么简单</blue>
 
+<img class="float-right" src="./img/08.png">
+
 - 元编程 [点击查看](https://zh.cppreference.com/w/cpp/meta)
 - 迭代器 [点击查看](https://zh.cppreference.com/w/cpp/iterator)
 - 并发支持 [点击查看](https://zh.cppreference.com/w/cpp/thread)
 - 内存管理 [点击查看](https://zh.cppreference.com/w/cpp/memory)
 - 通用工具 [点击查看](https://zh.cppreference.com/w/cpp/utility#.E9.80.9A.E7.94.A8.E5.B7.A5.E5.85.B7)
+<br><br> <br><br> <br><br> <br><br>
 
 > 比C简单的api背后，是海量的代码在支持，所以说C++难
+
 
 ----
 ### C++很复杂，但并非困难
