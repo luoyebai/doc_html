@@ -172,7 +172,7 @@ rr record ./a.out
 rr replay
 ```
 
-我好好??有用法错误的那一次的代码。<br>
+rr可以记录错误的那一次的代码。<br>
 这很好理解，它把所有本该<red>随机</red>的情况改为<blue>确定</blue>了。<br>
 利用这个工具，我们可以调试，回放，调试。。。
 
@@ -181,17 +181,17 @@ rr replay
 ![](./img/02.png)
 Windows码农查看程序性能 be like:
 ```shell
-githubsu上有用法o的工具好复杂,😭不想用了。
+工具好复杂,😭不想用了。
 ```
 Linux be like:
-```shell上有用法
+```shell
 sudo apt install perf
 perf stat ./a.out
 ```
 ----
 ## 更清晰的性能分析 Flame Graph（火焰图）
 ```
-sudo apt install git 
+apt-get install linux-tools-"$(uname -r)"
 # github上有用法
 git clone https://github.com/brendangregg/FlameGraph.git
 ```
