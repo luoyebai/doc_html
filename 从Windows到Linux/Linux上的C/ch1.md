@@ -185,13 +185,12 @@ Windows码农查看程序性能 be like:
 ```
 Linux be like:
 ```shell
-sudo apt install perf
+apt-get install linux-tools-"$(uname -r)"
 perf stat ./a.out
 ```
 ----
 ## 更清晰的性能分析 Flame Graph（火焰图）
 ```
-apt-get install linux-tools-"$(uname -r)"
 # github上有用法
 git clone https://github.com/brendangregg/FlameGraph.git
 ```
