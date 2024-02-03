@@ -10,9 +10,12 @@ int main() {
     // for i in range(3):
     // print(f"PUTSX({i}[x]); PUTSX(x[{i}]);")
 
-    PUTSX(0 [x]); PUTSX(x[0]);
-    PUTSX(1 [x]); PUTSX(x[1]);
-    PUTSX(2 [x]); PUTSX(x[2]);
+    PUTSX(0 [x]);
+    PUTSX(x[0]);
+    PUTSX(1 [x]);
+    PUTSX(x[1]);
+    PUTSX(2 [x]);
+    PUTSX(x[2]);
 
     printf("x[2]初始值: %d\n", x[2]);
     //! Error

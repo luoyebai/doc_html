@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="./static/css/base.css" rel="stylesheet">
+    <link href="./static/css/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.font.im/css?family=Source+Serif+Pro%7CLato%7CInconsolata" rel="stylesheet"
+        type="text/css">
+    <title> main </title>
+    <!-- browser favicon -->
+    <link rel="shortcut icon" href="./static/img/favicon.png">
+    <style>
+        .font-sans {
+            font-family: 'Lato', 'SimHei', 'STHeiti', 'SimHei', 'Serif';
+        }
+
+        .font-serif {
+            font-family: 'Source Serif Pro', 'Songti SC', 'SimSun', 'Serif', serif;
+        }
+    </style>
+    <!-- <link rel="stylesheet" href="https://jyywiki.cn/static/katex/katex.min.css">
+    <script defer src="https://jyywiki.cn/static/katex/katex.min.js"></script> -->
+    <link rel="stylesheet" href="./static/katex/katex.min.css">
+    <script defer src="./static/katex/katex.min.js"></script>
+    <!-- <script defer src="https://jyywiki.cn/static/katex/auto-render.min.js"
+        integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
+        crossorigin="anonymous"></script> -->
+    <script defer src="./static/katex/auto-render.min.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            renderMathInElement(document.body, {
+                // customised options
+                // &#8226; auto-render specific keys, e.g.:
+                delimiters: [
+                    { left: '$$', right: '$$', display: true },
+                    { left: '$', right: '$', display: false },
+                    { left: '\\(', right: '\\)', display: false },
+                    { left: '\\[', right: '\\]', display: true }
+                ],
+                // &#8226; rendering keys, e.g.:
+                throwOnError: false
+            });
+        });
+    </script>
+
+    <link rel="stylesheet" href="./static/reveal/reveal.css">
+    <link rel="stylesheet" href="./static/reveal/theme/simple.css" id="theme">
+    <link rel="stylesheet" href="./static/jyy/jyy.css">
+
+</head>
+
+<body class="d-flex flex-column h-100">
+
+    <div class="reveal">
+        <div class="slides">
+            <section><section><div class="center middle"><div style="width:100%"><div><h1 id="_1" class="text-2xl mt-2 font-sans"><a href="https://zh.wikipedia.org/wiki/%E8%A8%88%E7%AE%97%E6%A9%9F%E5%B7%A5%E7%A8%8B">计算机工程</a>的构建与维护</h1>
+<blockquote>
+<p class="font-serif my-1">计算机工程需要可维护性</p>
+</blockquote></div></div></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">概述</h2>
+<ol>
+<li class="ml-8">从简单又常用的工具开始学习</li>
+<li class="ml-8">CPP工具的学习</li>
+<li class="ml-8">编程范式与设计模式</li>
+</ol></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="1" class="text-2xl mt-2 font-sans">1.简单的工具</h1>
+<blockquote>
+<p class="font-serif my-1">Simplicity is prerequisite for reliability --- Edsger Dijkstra</p>
+</blockquote></div></div></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">工程的各种工具</h2>
+<ul class="list-disc font-serif">
+<li class="ml-8">构建工具:通过指定参数对项目进行构建生成,如:<a href="https://www.gnu.org/software/make/">make 点击查看</a></li>
+<li class="ml-8">生成工具:通过项目文本或指定内容生成文件,如:<a href="https://www.doxygen.nl/index.html">doxygen 点击查看</a></li>
+<li class="ml-8">调试工具:在程序的执行过程中,暂停,插入,修改,查看其内容,如<a href="https://sourceware.org/gdb/">gdb 点击查看</a></li>
+<li class="ml-8">管理工具:管理代码版本和内容,方便维护代码,如:<a href="https://git-scm.com/">git 点击查看</a></li>
+<li class="ml-8">静态检查器:检查代码格式及内容,找出显而易见的错误和不规范编码内容,如:<a href="http://cppcheck.net/">cppcheck/cpplint</a></li>
+<li class="ml-8">动态分析器:对涉及执行相关程序的分析,可以获得程序的大量信息,如:<a href="https://spinroot.com/spin/whatispin.html">spin 点击查看</a></li>
+<li class="ml-8">打包工具:对制作好的程序进行包装部署,简化部署流程,如<a href="https://www.docker.com/">docker 点击查看</a></li>
+</ul>
+<blockquote>
+<p class="font-serif my-1">这些工具共同作用于程工程项目,提供一个良好的工程环境,即流程的可维护性</p>
+</blockquote></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="2-cpptodo" class="text-2xl mt-2 font-sans">2. CPP工程中的工具学习<br/><red>(TODO:待更新)</red></h1>
+<blockquote>
+<p class="font-serif my-1">好的工程能准确地传达工程师的思想与目的</p>
+</blockquote></div></div></div></section><section><div><h2 id="makeninjacmakexmake" class="text-xl mt-2 pb-2 font-sans">构建工具:make,ninja,cmake,xmake</h2></div></section><section><div><h2 id="doxygen" class="text-xl mt-2 pb-2 font-sans">文档生成器:doxygen</h2></div></section><section><div><h2 id="gdb" class="text-xl mt-2 pb-2 font-sans">调试器:gdb</h2></div></section><section><div><h2 id="git" class="text-xl mt-2 pb-2 font-sans">项目管理:git</h2></div></section><section><div><h2 id="cppcheck" class="text-xl mt-2 pb-2 font-sans">静态检查器:cppcheck</h2></div></section><section><div><h2 id="spinperfboost-test" class="text-xl mt-2 pb-2 font-sans">动态分析器:spin,perf,boost test</h2></div></section><section><div><h2 id="docker" class="text-xl mt-2 pb-2 font-sans">打包部署工具:docker</h2></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="3-todo" class="text-2xl mt-2 font-sans">3. 编程范式与设计模式的思考<br/><red>(TODO:待更新)</red></h1>
+<blockquote>
+<p class="font-serif my-1">没有结构组织的代码只会是混乱不堪的散沙</p>
+</blockquote></div></div></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">系统地处理可维护性</h2>
+<p class="font-serif my-1">回到工程的主体,代码身上,编程范式和设计模式往往贯穿代码始终<br/></p>
+<ul class="list-disc font-serif">
+<li class="ml-8"><a href="https://zh.wikipedia.org/wiki/%E7%BC%96%E7%A8%8B%E8%8C%83%E5%9E%8B">编程范式 点击查看</a><br/></li>
+<li class="ml-8"><a href="https://zh.wikipedia.org/wiki/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F(%E8%AE%A1%E7%AE%97%E6%9C%BA)">设计模式 点击查看</a></li>
+</ul>
+<p class="font-serif my-1">编程范式侧重思考问题的角度:<a href="https://www.indicative.com/resource/programming-paradigm/">点击查看</a><br/>
+设计模式则侧重代码之间的设计结构:<a href="https://refactoringguru.cn/">点击查看</a></p></div></section></section>
+        </div>
+    </div>
+
+    <script src="./static/reveal/reveal.js"></script>
+
+    <script>
+        Reveal.initialize({
+
+            width: 1024, height: 768,
+
+            slideNumber: 'c/t',
+            controlsTutorial: false,
+            progress: false,
+            hash: true,
+            center: false,
+            autoAnimateUnmatched: true,
+            autoAnimateEasing: 'ease-out',
+            autoAnimateDuration: 0.3,
+            transitionSpeed: 'fast'
+        });
+    </script>
+</body>
+
+</html>
