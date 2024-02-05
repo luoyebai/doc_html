@@ -1,0 +1,8 @@
+{
+    zig_arch_x86_64_plat_linux = {
+        arch = "x86_64",
+        plat = "linux",
+        __global = true,
+        zig = "/usr/bin/zig"
+    }
+}

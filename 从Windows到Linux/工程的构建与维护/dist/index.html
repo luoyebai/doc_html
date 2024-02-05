@@ -69,7 +69,7 @@
 </ol></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="1" class="text-2xl mt-2 font-sans">1.简单的工具</h1>
 <blockquote>
 <p class="font-serif my-1">Simplicity is prerequisite for reliability --- Edsger Dijkstra</p>
-</blockquote></div></div></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">工程的各种工具</h2>
+</blockquote></div></div></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">工程中的各种"简单"工具</h2>
 <ul class="list-disc font-serif">
 <li class="ml-8">构建工具:通过指定参数对项目进行构建生成,如:<a href="https://www.gnu.org/software/make/">make 点击查看</a></li>
 <li class="ml-8">生成工具:通过项目文本或指定内容生成文件,如:<a href="https://www.doxygen.nl/index.html">doxygen 点击查看</a></li>
@@ -84,7 +84,130 @@
 </blockquote></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="2-cpptodo" class="text-2xl mt-2 font-sans">2. CPP工程中的工具学习<br/><red>(TODO:待更新)</red></h1>
 <blockquote>
 <p class="font-serif my-1">好的工程能准确地传达工程师的思想与目的</p>
-</blockquote></div></div></div></section><section><div><h2 id="makeninjacmakexmake" class="text-xl mt-2 pb-2 font-sans">构建工具:make,ninja,cmake,xmake</h2></div></section><section><div><h2 id="doxygen" class="text-xl mt-2 pb-2 font-sans">文档生成器:doxygen</h2></div></section><section><div><h2 id="gdb" class="text-xl mt-2 pb-2 font-sans">调试器:gdb</h2></div></section><section><div><h2 id="git" class="text-xl mt-2 pb-2 font-sans">项目管理:git</h2></div></section><section><div><h2 id="cppcheck" class="text-xl mt-2 pb-2 font-sans">静态检查器:cppcheck</h2></div></section><section><div><h2 id="spinperfboost-test" class="text-xl mt-2 pb-2 font-sans">动态分析器:spin,perf,boost test</h2></div></section><section><div><h2 id="docker" class="text-xl mt-2 pb-2 font-sans">打包部署工具:docker</h2></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="3-todo" class="text-2xl mt-2 font-sans">3. 编程范式与设计模式的思考<br/><red>(TODO:待更新)</red></h1>
+</blockquote></div></div></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">好的工具是工程师实现与传递思想的武器</h2>
+<p class="font-serif my-1">一个工程问题,有什么工具就在很大程度上意味着需要做什么<br/></p>
+<ul class="list-disc font-serif">
+<li class="ml-8">工具是工程实现流程的体现</li>
+<li class="ml-8">知道需要什么工具可能比工具本身更重要</li>
+</ul></div></section></section><section><section><div><h2 id="makeninjacmakexmake" class="text-xl mt-2 pb-2 font-sans">构建工具:<a href="https://www.gnu.org/software/make/">make</a>,<a href="https://ninja-build.org/">ninja</a>,<a href="https://cmake.org/">cmake</a>,<a href="https://xmake.io/#/zh-cn/">xmake</a></h2>
+<p class="font-serif my-1">先讲讲构建工具<br/>
+Q1:构建为什么是必要的流程?<br/>
+Q2:如何更好地构建?<br/></p>
+<p class="font-serif my-1">回答这两个问题,从具体的工具出发可能会更清晰<br/>
+先看看使用makefile构建的这样一个工程<br/></p>
+<div class="codehilite"><pre class="bg-gray-100 overflow-x-auto rounded p-2 mb-2 mt-2"><span/><code>.<span class="o">/</span><span class="nv">code</span><span class="o">/</span>
+├──<span class="w"> </span><span class="nv">build</span>
+│<span class="w">   </span>├──<span class="w"> </span><span class="nv">main</span>
+│<span class="w">   </span>└──<span class="w"> </span><span class="nv">sum</span>.<span class="nv">o</span>
+├──<span class="w"> </span><span class="k">include</span>
+│<span class="w">   </span>└──<span class="w"> </span><span class="nv">sum</span>.<span class="nv">h</span>
+├──<span class="w"> </span><span class="nv">makefile</span>
+└──<span class="w"> </span><span class="nv">src</span>
+<span class="w">    </span>├──<span class="w"> </span><span class="nv">main</span>.<span class="nv">c</span>
+<span class="w">    </span>└──<span class="w"> </span><span class="nv">sum</span>.<span class="nv">c</span>
+<span class="mi">4</span><span class="w"> </span><span class="nv">directories</span>,<span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="nv">files</span>
+</code></pre></div></div></section><section><div><h2 id="makefile" class="text-xl mt-2 pb-2 font-sans">看看makefile</h2>
+<p class="font-serif my-1">这样一个工程很简单,使用make编译就好<br/>
+顺便看看<a href="../code/makefile">makefile文件</a><br/></p>
+<div class="codehilite"><pre class="bg-gray-100 overflow-x-auto rounded p-2 mb-2 mt-2"><span/><code><span class="nv">TARGET</span><span class="o">=</span>main
+<span class="nv">OBJS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>sum.o
+<span class="nv">CC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>g++
+<span class="nv">INCLUDE_DIR</span><span class="o">=</span>include
+<span class="nv">SRC_DIR</span><span class="o">=</span>src
+<span class="nv">BUILD_DIR</span><span class="o">=</span>build
+<span class="nv">CFLAGS</span><span class="o">=</span>-I<span class="k">$(</span>INCLUDE_DIR<span class="k">)</span><span class="w"> </span>-O2<span class="w"> </span>-o
+
+<span class="nf">main</span><span class="o">:</span><span class="w"> </span><span class="k">$(</span><span class="nv">OBJS</span><span class="k">)</span> <span class="k">$(</span><span class="nv">SRC_DIR</span><span class="k">)</span>/<span class="n">main</span>.<span class="n">c</span>
+<span class="w">    </span><span class="k">$(</span>CC<span class="k">)</span><span class="w"> </span><span class="k">$(</span>BUILD_DIR<span class="k">)</span>/*.o<span class="w"> </span><span class="k">$(</span>SRC_DIR<span class="k">)</span>/main.c<span class="w"> </span><span class="k">$(</span>CFLAGS<span class="k">)</span><span class="w"> </span><span class="k">$(</span>BUILD_DIR<span class="k">)</span>/<span class="k">$(</span>TARGET<span class="k">)</span>
+
+<span class="nf">sum.o</span><span class="o">:</span><span class="w"> </span><span class="k">$(</span><span class="nv">SRC_DIR</span><span class="k">)</span>/<span class="n">sum</span>.<span class="n">c</span>
+<span class="w">    </span><span class="k">$(</span>CC<span class="k">)</span><span class="w"> </span>-c<span class="w"> </span><span class="k">$(</span>SRC_DIR<span class="k">)</span>/sum.c<span class="w"> </span><span class="k">$(</span>CFLAGS<span class="k">)</span><span class="w"> </span><span class="k">$(</span>BUILD_DIR<span class="k">)</span>/sum.o
+
+<span class="nf">.PHONY </span><span class="o">:</span><span class="w"> </span><span class="n">clean</span>
+<span class="nf">clean </span><span class="o">:</span>
+<span class="w">    </span>rm<span class="w"> </span>-rf<span class="w"> </span><span class="k">$(</span>BUILD_DIR<span class="k">)</span>/*
+</code></pre></div></div></section><section><div><h2 id="q1" class="text-xl mt-2 pb-2 font-sans">Q1:构建为什么是必要的流程<br/></h2>
+<p class="font-serif my-1">从makefile中我们可以得到很多信息<br/>
+这是在.c和.h代码中很难得到的信息,这个makefile它告诉了我们<br/></p>
+<ul class="list-disc font-serif">
+<li class="ml-8">程序的结构<ul class="list-disc font-serif">
+<li class="ml-8">源码-&gt;src</li>
+<li class="ml-8">头文件-&gt;include</li>
+<li class="ml-8">生成文件-&gt;build</li>
+</ul>
+</li>
+<li class="ml-8">编译的参数<ul class="list-disc font-serif">
+<li class="ml-8">使用g++命令编译,而不是gcc(这意味着之后可能引入cpp文件)</li>
+<li class="ml-8">-O2 使用等级为2的优化,而且没有-g,意味着这不是debug模式</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p class="font-serif my-1">构建这一步骤不仅仅是提供了方便,而且给出了很多源码没有的信息,这也许更为重要</p>
+</blockquote></div></section><section><div><h2 id="q2" class="text-xl mt-2 pb-2 font-sans">Q2:如何更好的构建<br/></h2>
+<p class="font-serif my-1">上述的构建模式很好,这像极了从<blue>汇编到c</blue>的过程<br/>
+我们有一套很不错的构建模式了</p>
+<ul class="list-disc font-serif">
+<li class="ml-8">但也正如c一般,我们可以做的更好</li>
+<li class="ml-8"><red>如c到c++一般,makefile便要到cmake了</red></li>
+</ul>
+<blockquote>
+<p class="font-serif my-1">从makefile到cmake,构建体系逐渐完善</p>
+</blockquote></div></section><section><div><h2 id="makefile-cmake" class="text-xl mt-2 pb-2 font-sans">makefile-&gt;cmake</h2>
+<p class="font-serif my-1">makefile很方便了,在上面可以指定编译的工具,文件位置等参数<br/>
+有几个.o我就写几个.o<br/></p>
+<blockquote>
+<p class="font-serif my-1">但是这种构造合理吗? 或者说有没有可能更好?</p>
+</blockquote>
+<ul class="list-disc font-serif">
+<li class="ml-8">makefile貌似没什么缺点,写下命令就可以自动化工作<br/></li>
+<li class="ml-8">makefile在这点和c很像,没有特别复杂的特性,但一个东西如果过于简单,一定为存在的两个问题<ol>
+<li class="ml-8">因为简易性而带来的<red>信息不足</red><br/>
+    这个问题可以用注释,规范,和大量的变量去解决</li>
+<li class="ml-8">因为简单性而导致的<red>抽象不足</red></li>
+</ol>
+</li>
+</ul>
+<p class="font-serif my-1">但面对第二个问题,抽象不足带来的最大毛病则是,工程量变大时<br/>
+makefile的手写会很麻烦,而且想要跨平台也很复杂<br/></p></div></section><section><div><p class="font-serif my-1">根据我们从工程中汲取的经验,是时候换一种方式:<br/>
+写一个专门生成makefile的"语言"了<br/>
+<a href="https://cmake.org/cmake/help/latest/guide/tutorial/index.html">cmake教程 点击查看</a><br/>
+<a href="./code/CMakeLists.txt">CMakeLists.txt例子 点击查看</a></p>
+<p class="font-serif my-1">事实上cmake也很好地接过了makefile的"部分工作"<br/>
+cmake在一定程度成为了c++工程最常用的构建工具<br/>
+它成功了吗?我想并没有完全成功<br/>
+<a href="https://www.jetbrains.com/zh-cn/lp/devecosystem-2023/cpp/">c++2023生态 | jetbrains 点击查看</a></p>
+<p class="font-serif my-1">2023年的今天,CMake依然只有57%的占比,这说明构建工具在历史发展的过程中<br/>
+cmake和c++一样,没能完全拿下c的"份额"<br/></p>
+<p class="font-serif my-1">cmake已经很不错了,但是c++有个老生常谈的问题"依赖管理"<br/>
+我们很难把所有的功能都留给自己写,很显然,开发者依赖于第三方库<br/></p></div></section><section><div><h2 id="xmake" class="text-xl mt-2 pb-2 font-sans">拓展:xmake的依赖管理</h2>
+<blockquote>
+<p class="font-serif my-1">"依赖管理"是个大问题</p>
+</blockquote>
+<p class="font-serif my-1">xmake在一定程度上解决了这个问题<br/>
+并且,xmake的体感比cmake要好,这是不得不承认的</p>
+<ul class="list-disc font-serif">
+<li class="ml-8">首先它使用lua语言进行编写,语法相对简单</li>
+<li class="ml-8">其次它有自己的依赖管理:<a href="https://xmake.io/#/zh-cn/manual/package_dependencies">点击查看</a></li>
+<li class="ml-8">最后它甚至有<strong>自动生成(虽然还不太好用)</strong>:<a href="https://xmake.io/#/zh-cn/features/autogen">点击查看</a></li>
+</ul>
+<blockquote>
+<p class="font-serif my-1">这解决了cmake的一部分痛点,当然,自己体验一番是最好的</p>
+</blockquote></div></section></section><section><section><div><h2 id="doxygen" class="text-xl mt-2 pb-2 font-sans">文档生成器:doxygen</h2>
+<p class="font-serif my-1">代码中第一重要的是代码,第二重要的是什么呢?</p>
+<ul class="list-disc font-serif">
+<li class="ml-8">是注释</li>
+</ul>
+<p class="font-serif my-1">有这么一个工具,在你写了注释之后帮你生成文档<br/></p>
+<ul class="list-disc font-serif">
+<li class="ml-8">不仅可以搜索API,接口</li>
+<li class="ml-8">而且生成依赖路径,UML图</li>
+<li class="ml-8">可以显示公式,列表</li>
+</ul>
+<p class="font-serif my-1">为注释提供一个生成文档的工具,好比给写代码的时候提供LSP服务一样重要<br/></p>
+<blockquote>
+<p class="font-serif my-1">写注释都多了几分动力</p>
+</blockquote></div></section></section><section><section><div><h2 id="gdb" class="text-xl mt-2 pb-2 font-sans">调试器:gdb</h2></div></section></section><section><section><div><h2 id="git" class="text-xl mt-2 pb-2 font-sans">项目管理:git</h2></div></section></section><section><section><div><h2 id="cppcheck" class="text-xl mt-2 pb-2 font-sans">静态检查器:cppcheck</h2></div></section></section><section><section><div><h2 id="spinperfboost-test" class="text-xl mt-2 pb-2 font-sans">动态分析器:spin,perf,boost test</h2></div></section></section><section><section><div><h2 id="docker" class="text-xl mt-2 pb-2 font-sans">打包部署工具:docker</h2></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="3-todo" class="text-2xl mt-2 font-sans">3. 编程范式与设计模式的思考<br/><red>(TODO:待更新)</red></h1>
 <blockquote>
 <p class="font-serif my-1">没有结构组织的代码只会是混乱不堪的散沙</p>
 </blockquote></div></div></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">系统地处理可维护性</h2>
