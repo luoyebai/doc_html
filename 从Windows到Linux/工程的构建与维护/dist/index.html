@@ -68,47 +68,126 @@
 <li class="ml-8">编程范式与设计模式</li>
 </ol></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="1" class="text-2xl mt-2 font-sans">1.简单的工具</h1>
 <blockquote>
-<p class="font-serif my-1">Simplicity is prerequisite for reliability --- Edsger Dijkstra</p>
+<p class="font-serif my-1">Simplicity is prerequisite for weliability --- Edsger Dijkstra</p>
 </blockquote></div></div></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">工程中的各种"简单"工具</h2>
 <ul class="list-disc font-serif">
-<li class="ml-8">构建工具:通过指定参数对项目进行构建生成,如:<a href="https://www.gnu.org/software/make/">make 点击查看</a></li>
-<li class="ml-8">生成工具:通过项目文本或指定内容生成文件,如:<a href="https://www.doxygen.nl/index.html">doxygen 点击查看</a></li>
-<li class="ml-8">调试工具:在程序的执行过程中,暂停,插入,修改,查看其内容,如<a href="https://sourceware.org/gdb/">gdb 点击查看</a></li>
-<li class="ml-8">管理工具:管理代码版本和内容,方便维护代码,如:<a href="https://git-scm.com/">git 点击查看</a></li>
-<li class="ml-8">静态检查器:检查代码格式及内容,找出显而易见的错误和不规范编码内容,如:<a href="http://cppcheck.net/">cppcheck/cpplint</a></li>
-<li class="ml-8">动态分析器:对涉及执行相关程序的分析,可以获得程序的大量信息,如:<a href="https://spinroot.com/spin/whatispin.html">spin 点击查看</a></li>
-<li class="ml-8">打包工具:对制作好的程序进行包装部署,简化部署流程,如<a href="https://www.docker.com/">docker 点击查看</a></li>
+<li class="ml-8">构建工具:通过指定参数对项目进行构建生成. <br/>
+如:<ul class="list-disc font-serif">
+<li class="ml-8"><a href="https://www.gnu.org/software/make/">make 点击查看</a></li>
+<li class="ml-8"><a href="https://cmake.org/">cmake 点击查看</a></li>
+<li class="ml-8"><a href="https://ninja-build.org/">ninja 点击查看</a></li>
+<li class="ml-8"><a href="https://bazel.build/?hl=zh-cn">bazel 点击查看</a></li>
+<li class="ml-8"><a href="https://xmake.io/#/zh-cn/">xmake 点击查看</a></li>
+</ul>
+</li>
+<li class="ml-8">生成工具:通过项目文本或指定内容生成文件.<br/>
+如:<ul class="list-disc font-serif">
+<li class="ml-8"><a href="https://www.doxygen.nl/index.html">doxygen 点击查看</a></li>
+<li class="ml-8"><a href="https://github.com/features/copilot">copilot 点击查看</a></li>
+<li class="ml-8"><a href="https://codegeex.cn/zh-CN">codegeex 点击查看</a></li>
+</ul>
+</li>
+</ul></div></section><section><div><ul class="list-disc font-serif">
+<li class="ml-8">动态分析器:对涉及执行相关程序的分析.<br/><ul class="list-disc font-serif">
+<li class="ml-8">模型检验:<a href="https://zh.wikipedia.org/wiki/%E5%BD%A2%E5%BC%8F%E8%AF%AD%E8%A8%80">形式语义wiki 点击查看</a><ul class="list-disc font-serif">
+<li class="ml-8"><a href="https://spinroot.com/spin/whatispin.html">spin 点击查看</a></li>
+<li class="ml-8"><a href="https://is.ifmo.ru/books/_principles_of_model_checking.pdf">model-check相关书籍 点击查看</a></li>
+</ul>
+</li>
+<li class="ml-8">单元测试:<ul class="list-disc font-serif">
+<li class="ml-8"><a href="https://google.github.io/googletest/">google-test 点击查看</a></li>
+<li class="ml-8"><a href="https://cppunit.sourceforge.net/doc/1.8.0/">cppunit 点击查看</a></li>
+</ul>
+</li>
+<li class="ml-8">调试工具:在程序的执行过程中,暂停,插入,修改,查看其内容.<br/><ul class="list-disc font-serif">
+<li class="ml-8"><a href="https://sourceware.org/gdb/">gdb 点击查看</a></li>
+<li class="ml-8"><a href="https://lldb.llvm.org/">lldb 点击查看</a></li>
+</ul>
+</li>
+<li class="ml-8">性能分析:分析程序执行过程中,各部分消耗的性能相关资源.<br/><ul class="list-disc font-serif">
+<li class="ml-8"><a href="https://www.brendangregg.com/perf.html">perf 点击查看</a></li>
+<li class="ml-8"><a href="https://www.brendangregg.com/flamegraphs.html">flame-graphs 点击查看</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul></div></section><section><div><ul class="list-disc font-serif">
+<li class="ml-8">
+<p class="font-serif my-1">静态检查器:检查代码格式,内容.输出分析结果信息.<br/></p>
+<ul class="list-disc font-serif">
+<li class="ml-8"><a href="http://cppcheck.net/">cppcheck 点击查看</a></li>
+<li class="ml-8"><a href="https://clang.llvm.org/extra/clang-tidy/">clang-tidy 点击查看</a></li>
+</ul>
+</li>
+<li class="ml-8">
+<p class="font-serif my-1">管理工具:管理代码版本和内容,方便维护代码.<br/>
+如:</p>
+<ul class="list-disc font-serif">
+<li class="ml-8"><a href="https://git-scm.com/">git 点击查看</a> </li>
+<li class="ml-8"><a href="https://tortoisesvn.net/">svn 点击查看</a></li>
+</ul>
+</li>
+<li class="ml-8">
+<p class="font-serif my-1">打包工具:对制作好的程序进行包装部署,简化部署流程.<br/>
+如:</p>
+<ul class="list-disc font-serif">
+<li class="ml-8"><a href="https://www.docker.com/">docker 点击查看</a></li>
+<li class="ml-8"><a href="https://podman.io/">podman 点击查看</a></li>
+</ul>
+</li>
 </ul>
 <blockquote>
-<p class="font-serif my-1">这些工具共同作用于程工程项目,提供一个良好的工程环境,即流程的可维护性</p>
+<p class="font-serif my-1">这些工具共同作用于程工程项目,提供一个良好的可维护环境</p>
 </blockquote></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="2-cpptodo" class="text-2xl mt-2 font-sans">2. CPP工程中的工具学习<br/><red>(TODO:待更新)</red></h1>
 <blockquote>
 <p class="font-serif my-1">好的工程能准确地传达工程师的思想与目的</p>
 </blockquote></div></div></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">好的工具是工程师实现与传递思想的武器</h2>
-<p class="font-serif my-1">一个工程问题,有什么工具就在很大程度上意味着需要做什么<br/></p>
+<ul class="list-disc font-serif">
+<li class="ml-8">
+<p class="font-serif my-1">有什么工具就在很大程度上意味着需要做什么<br/></p>
 <ul class="list-disc font-serif">
 <li class="ml-8">工具是工程实现流程的体现</li>
 <li class="ml-8">知道需要什么工具可能比工具本身更重要</li>
-</ul></div></section></section><section><section><div><h2 id="makeninjacmakexmake" class="text-xl mt-2 pb-2 font-sans">构建工具:<a href="https://www.gnu.org/software/make/">make</a>,<a href="https://ninja-build.org/">ninja</a>,<a href="https://cmake.org/">cmake</a>,<a href="https://xmake.io/#/zh-cn/">xmake</a></h2>
+</ul>
+</li>
+<li class="ml-8">
+<p class="font-serif my-1">工具代表了开发环节</p>
+<ul class="list-disc font-serif">
+<li class="ml-8">每个工具侧重的方向不同</li>
+<li class="ml-8">理解每个工具的目的才是重点</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p class="font-serif my-1">编辑器在代码编写过程中最为重要,既代码才是重中之重</p>
+</blockquote></div></section></section><section><section><div><h2 id="make-cmake-xmake" class="text-xl mt-2 pb-2 font-sans">构建工具:<a href="https://www.gnu.org/software/make/">make</a>-&gt;<a href="https://cmake.org/">cmake</a>-&gt;<a href="https://xmake.io/#/zh-cn/">xmake</a></h2>
+<ul class="list-disc font-serif">
+<li class="ml-8">
 <p class="font-serif my-1">先讲讲构建工具<br/>
 Q1:构建为什么是必要的流程?<br/>
 Q2:如何更好地构建?<br/></p>
+</li>
+<li class="ml-8">
 <p class="font-serif my-1">回答这两个问题,从具体的工具出发可能会更清晰<br/>
 先看看使用makefile构建的这样一个工程<br/></p>
-<div class="codehilite"><pre class="bg-gray-100 overflow-x-auto rounded p-2 mb-2 mt-2"><span/><code>.<span class="o">/</span><span class="nv">code</span><span class="o">/</span>
+</li>
+</ul>
+<div class="codehilite"><pre class="bg-gray-100 overflow-x-auto rounded p-2 mb-2 mt-2"><span/><code>.<span class="o">/</span><span class="nv">code</span>
 ├──<span class="w"> </span><span class="nv">build</span>
 │<span class="w">   </span>├──<span class="w"> </span><span class="nv">main</span>
 │<span class="w">   </span>└──<span class="w"> </span><span class="nv">sum</span>.<span class="nv">o</span>
 ├──<span class="w"> </span><span class="k">include</span>
-│<span class="w">   </span>└──<span class="w"> </span><span class="nv">sum</span>.<span class="nv">h</span>
+│<span class="w">   </span>└──<span class="w"> </span><span class="nv">sum</span>.<span class="nv">h</span>
 ├──<span class="w"> </span><span class="nv">makefile</span>
 └──<span class="w"> </span><span class="nv">src</span>
 <span class="w">    </span>├──<span class="w"> </span><span class="nv">main</span>.<span class="nv">c</span>
 <span class="w">    </span>└──<span class="w"> </span><span class="nv">sum</span>.<span class="nv">c</span>
 <span class="mi">4</span><span class="w"> </span><span class="nv">directories</span>,<span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="nv">files</span>
-</code></pre></div></div></section><section><div><h2 id="makefile" class="text-xl mt-2 pb-2 font-sans">看看makefile</h2>
-<p class="font-serif my-1">这样一个工程很简单,使用make编译就好<br/>
-顺便看看<a href="../code/makefile">makefile文件</a><br/></p>
+</code></pre></div></div></section><section><div><h3 id="makefile">看看makefile</h3>
+<ul class="list-disc font-serif">
+<li class="ml-8">这样一个工程很简单,使用make编译就好<br/>
+顺便看看<a href="../code/makefile">makefile文件</a><br/></li>
+</ul>
 <div class="codehilite"><pre class="bg-gray-100 overflow-x-auto rounded p-2 mb-2 mt-2"><span/><code><span class="nv">TARGET</span><span class="o">=</span>main
 <span class="nv">OBJS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>sum.o
 <span class="nv">CC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>g++
@@ -122,15 +201,15 @@ Q2:如何更好地构建?<br/></p>
 
 <span class="nf">sum.o</span><span class="o">:</span><span class="w"> </span><span class="k">$(</span><span class="nv">SRC_DIR</span><span class="k">)</span>/<span class="n">sum</span>.<span class="n">c</span>
 <span class="w">    </span><span class="k">$(</span>CC<span class="k">)</span><span class="w"> </span>-c<span class="w"> </span><span class="k">$(</span>SRC_DIR<span class="k">)</span>/sum.c<span class="w"> </span><span class="k">$(</span>CFLAGS<span class="k">)</span><span class="w"> </span><span class="k">$(</span>BUILD_DIR<span class="k">)</span>/sum.o
-
-<span class="nf">.PHONY </span><span class="o">:</span><span class="w"> </span><span class="n">clean</span>
-<span class="nf">clean </span><span class="o">:</span>
-<span class="w">    </span>rm<span class="w"> </span>-rf<span class="w"> </span><span class="k">$(</span>BUILD_DIR<span class="k">)</span>/*
-</code></pre></div></div></section><section><div><h2 id="q1" class="text-xl mt-2 pb-2 font-sans">Q1:构建为什么是必要的流程<br/></h2>
+</code></pre></div></div></section><section><div><h3 id="q1">Q1:构建为什么是必要的流程<br/></h3>
+<ul class="list-disc font-serif">
+<li class="ml-8">
 <p class="font-serif my-1">从makefile中我们可以得到很多信息<br/>
 这是在.c和.h代码中很难得到的信息,这个makefile它告诉了我们<br/></p>
+</li>
+<li class="ml-8">
+<p class="font-serif my-1">程序的结构</p>
 <ul class="list-disc font-serif">
-<li class="ml-8">程序的结构<ul class="list-disc font-serif">
 <li class="ml-8">源码-&gt;src</li>
 <li class="ml-8">头文件-&gt;include</li>
 <li class="ml-8">生成文件-&gt;build</li>
@@ -144,70 +223,126 @@ Q2:如何更好地构建?<br/></p>
 </ul>
 <blockquote>
 <p class="font-serif my-1">构建这一步骤不仅仅是提供了方便,而且给出了很多源码没有的信息,这也许更为重要</p>
-</blockquote></div></section><section><div><h2 id="q2" class="text-xl mt-2 pb-2 font-sans">Q2:如何更好的构建<br/></h2>
+</blockquote></div></section><section><div><h3 id="q2">Q2:如何更好的构建<br/></h3>
+<ul class="list-disc font-serif">
+<li class="ml-8">
 <p class="font-serif my-1">上述的构建模式很好,这像极了从<blue>汇编到c</blue>的过程<br/>
 我们有一套很不错的构建模式了</p>
-<ul class="list-disc font-serif">
-<li class="ml-8">但也正如c一般,我们可以做的更好</li>
+</li>
+<li class="ml-8">
+<p class="font-serif my-1">但也正如c语言完成了历史任务一般,我们可以做的更好</p>
+</li>
 <li class="ml-8"><red>如c到c++一般,makefile便要到cmake了</red></li>
 </ul>
 <blockquote>
 <p class="font-serif my-1">从makefile到cmake,构建体系逐渐完善</p>
-</blockquote></div></section><section><div><h2 id="makefile-cmake" class="text-xl mt-2 pb-2 font-sans">makefile-&gt;cmake</h2>
-<p class="font-serif my-1">makefile很方便了,在上面可以指定编译的工具,文件位置等参数<br/>
-有几个.o我就写几个.o<br/></p>
+</blockquote>
+<h4 id="makefilecmake">为什么要从makefile到cmake?</h4>
+<ul class="list-disc font-serif">
+<li class="ml-8">makefile很方便了,在上面可以指定编译的工具,文件位置等参数<br/>
+貌似没什么缺点,写下命令就可以自动化工作.<br/></li>
+</ul>
 <blockquote>
 <p class="font-serif my-1">但是这种构造合理吗? 或者说有没有可能更好?</p>
-</blockquote>
+</blockquote></div></section><section><div><h4 id="makefile">makefile带来的缺点</h4>
 <ul class="list-disc font-serif">
-<li class="ml-8">makefile貌似没什么缺点,写下命令就可以自动化工作<br/></li>
-<li class="ml-8">makefile在这点和c很像,没有特别复杂的特性,但一个东西如果过于简单,一定为存在的两个问题<ol>
+<li class="ml-8">
+<p class="font-serif my-1">makefile的缺点和c语言很像,没有深层次的特性和抽象<br/>
+即过于简单,而带来的两个问题</p>
+<ul class="list-disc font-serif">
 <li class="ml-8">因为简易性而带来的<red>信息不足</red><br/>
-    这个问题可以用注释,规范,和大量的变量去解决</li>
+ 这个问题可以用注释,规范,和大量的变量去解决</li>
 <li class="ml-8">因为简单性而导致的<red>抽象不足</red></li>
-</ol>
+</ul>
+</li>
+<li class="ml-8">
+<p class="font-serif my-1">但面对第二个问题,抽象不足带来的最大毛病则是,工程量变大时
+makefile的手写会很麻烦,而且想要跨平台也很复杂<br/></p>
+<ul class="list-disc font-serif">
+<li class="ml-8">根据我们从工程中汲取的经验,是时候换一种方式:<br/>
+    写一个专门生成makefile的"语言"了<br/></li>
+</ul>
+</li>
+</ul></div></section><section><div><h4 id="makefile-cmake">makefile-&gt;cmake</h4>
+<ul class="list-disc font-serif">
+<li class="ml-8">
+<p class="font-serif my-1">文档相关</p>
+<ul class="list-disc font-serif">
+<li class="ml-8"><a href="https://cmake.org/cmake/help/latest/guide/tutorial/index.html">cmake教程 点击查看</a><br/></li>
+<li class="ml-8"><a href="./code/CMakeLists.txt">CMakeLists.txt例子 点击查看</a></li>
+</ul>
+</li>
+<li class="ml-8">
+<p class="font-serif my-1">事实上cmake也很好地接过了makefile的"部分工作", 而且在一定程度成为了c++工程最常用的构建工具<br/></p>
+<ul class="list-disc font-serif">
+<li class="ml-8">它可以跨平台构建,生成makefile,所以,它成功了吗?</li>
+</ul>
 </li>
 </ul>
-<p class="font-serif my-1">但面对第二个问题,抽象不足带来的最大毛病则是,工程量变大时<br/>
-makefile的手写会很麻烦,而且想要跨平台也很复杂<br/></p></div></section><section><div><p class="font-serif my-1">根据我们从工程中汲取的经验,是时候换一种方式:<br/>
-写一个专门生成makefile的"语言"了<br/>
-<a href="https://cmake.org/cmake/help/latest/guide/tutorial/index.html">cmake教程 点击查看</a><br/>
-<a href="./code/CMakeLists.txt">CMakeLists.txt例子 点击查看</a></p>
-<p class="font-serif my-1">事实上cmake也很好地接过了makefile的"部分工作"<br/>
-cmake在一定程度成为了c++工程最常用的构建工具<br/>
-它成功了吗?我想并没有完全成功<br/>
-<a href="https://www.jetbrains.com/zh-cn/lp/devecosystem-2023/cpp/">c++2023生态 | jetbrains 点击查看</a></p>
-<p class="font-serif my-1">2023年的今天,CMake依然只有57%的占比,这说明构建工具在历史发展的过程中<br/>
-cmake和c++一样,没能完全拿下c的"份额"<br/></p>
-<p class="font-serif my-1">cmake已经很不错了,但是c++有个老生常谈的问题"依赖管理"<br/>
-我们很难把所有的功能都留给自己写,很显然,开发者依赖于第三方库<br/></p></div></section><section><div><h2 id="xmake" class="text-xl mt-2 pb-2 font-sans">拓展:xmake的依赖管理</h2>
+<blockquote>
+<p class="font-serif my-1"><strong>我想,并没有完全成功</strong></p>
+</blockquote></div></section><section><div><h4 id="2023">2023年的今天</h4>
+<ul class="list-disc font-serif">
+<li class="ml-8">
+<p class="font-serif my-1">2023年的今天,<strong>CMake依然只有57%的占比</strong></p>
+<ul class="list-disc font-serif">
+<li class="ml-8"><a href="https://www.jetbrains.com/zh-cn/lp/devecosystem-2023/cpp/">c++2023生态 | jetbrains 点击查看</a></li>
+<li class="ml-8">重复历史一般地,如同c++没有取代c,cmake也没有取代make</li>
+</ul>
+</li>
+<li class="ml-8">
+<p class="font-serif my-1">但是cmake已经做的很好了,解决了makefile的许多问题.</p>
+<ul class="list-disc font-serif">
+<li class="ml-8">但是仍有个老生常谈的问题没能解决---"依赖管理"</li>
+<li class="ml-8">我们很难把所有的功能都留给自己写,很显然</li>
+<li class="ml-8">大量的开发者依赖于第三方库</li>
+</ul>
+</li>
+<li class="ml-8">
+<p class="font-serif my-1">所以涌现了许多"新新势力"</p>
+<ul class="list-disc font-serif">
+<li class="ml-8">其中最为出名的则是<blue>xmake</blue></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p class="font-serif my-1">当然,构建工具的发展是必然的</p>
+</blockquote></div></section><section><div><h3 id="xmake">本节仅为拓展:xmake的依赖管理</h3>
 <blockquote>
 <p class="font-serif my-1">"依赖管理"是个大问题</p>
 </blockquote>
-<p class="font-serif my-1">xmake在一定程度上解决了这个问题<br/>
-并且,xmake的体感比cmake要好,这是不得不承认的</p>
 <ul class="list-disc font-serif">
+<li class="ml-8">xmake在一定程度上解决了这个问题<br/></li>
+<li class="ml-8">并且,xmake的体感比cmake要好,这是不得不承认的<ul class="list-disc font-serif">
 <li class="ml-8">首先它使用lua语言进行编写,语法相对简单</li>
 <li class="ml-8">其次它有自己的依赖管理:<a href="https://xmake.io/#/zh-cn/manual/package_dependencies">点击查看</a></li>
 <li class="ml-8">最后它甚至有<strong>自动生成(虽然还不太好用)</strong>:<a href="https://xmake.io/#/zh-cn/features/autogen">点击查看</a></li>
 </ul>
-<blockquote>
-<p class="font-serif my-1">这解决了cmake的一部分痛点,当然,自己体验一番是最好的</p>
-</blockquote></div></section></section><section><section><div><h2 id="doxygen" class="text-xl mt-2 pb-2 font-sans">文档生成器:doxygen</h2>
-<p class="font-serif my-1">代码中第一重要的是代码,第二重要的是什么呢?</p>
+</li>
+<li class="ml-8">虽然它解决了cmake一部分痛点</li>
+<li class="ml-8">到底是否应该使用xmake还需要自己体验后,再决定</li>
+</ul></div></section></section><section><section><div><h2 id="doxygen" class="text-xl mt-2 pb-2 font-sans">文档生成器:doxygen</h2>
+<ul class="list-disc font-serif">
+<li class="ml-8">代码中第一重要的是代码</li>
+<li class="ml-8">
+<p class="font-serif my-1">那第二重要的是什么呢?</p>
 <ul class="list-disc font-serif">
 <li class="ml-8">是注释</li>
-</ul>
-<p class="font-serif my-1">有这么一个工具,在你写了注释之后帮你生成文档<br/></p>
-<ul class="list-disc font-serif">
+<li class="ml-8">有这么一个工具,在你写了注释之后帮你生成文档<ul class="list-disc font-serif">
 <li class="ml-8">不仅可以搜索API,接口</li>
 <li class="ml-8">而且生成依赖路径,UML图</li>
 <li class="ml-8">可以显示公式,列表</li>
 </ul>
+</li>
+</ul>
+</li>
+<li class="ml-8">
 <p class="font-serif my-1">为注释提供一个生成文档的工具,好比给写代码的时候提供LSP服务一样重要<br/></p>
+</li>
+</ul>
 <blockquote>
 <p class="font-serif my-1">写注释都多了几分动力</p>
-</blockquote></div></section></section><section><section><div><h2 id="gdb" class="text-xl mt-2 pb-2 font-sans">调试器:gdb</h2></div></section></section><section><section><div><h2 id="git" class="text-xl mt-2 pb-2 font-sans">项目管理:git</h2></div></section></section><section><section><div><h2 id="cppcheck" class="text-xl mt-2 pb-2 font-sans">静态检查器:cppcheck</h2></div></section></section><section><section><div><h2 id="spinperfboost-test" class="text-xl mt-2 pb-2 font-sans">动态分析器:spin,perf,boost test</h2></div></section></section><section><section><div><h2 id="docker" class="text-xl mt-2 pb-2 font-sans">打包部署工具:docker</h2></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="3-todo" class="text-2xl mt-2 font-sans">3. 编程范式与设计模式的思考<br/><red>(TODO:待更新)</red></h1>
+</blockquote></div></section></section><section><section><div><h2 id="gdb" class="text-xl mt-2 pb-2 font-sans">调试器:gdb</h2></div></section></section><section><section><div><h2 id="cppcheck" class="text-xl mt-2 pb-2 font-sans">静态检查器:cppcheck</h2></div></section></section><section><section><div><h2 id="spinperfboost-test" class="text-xl mt-2 pb-2 font-sans">动态分析器:spin,perf,boost test</h2></div></section></section><section><section><div><h2 id="git" class="text-xl mt-2 pb-2 font-sans">项目管理:git</h2></div></section></section><section><section><div><h2 id="docker" class="text-xl mt-2 pb-2 font-sans">打包部署工具:docker</h2></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="3-todo" class="text-2xl mt-2 font-sans">3. 编程范式与设计模式的思考<br/><red>(TODO:待更新)</red></h1>
 <blockquote>
 <p class="font-serif my-1">没有结构组织的代码只会是混乱不堪的散沙</p>
 </blockquote></div></div></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">系统地处理可维护性</h2>
@@ -217,7 +352,15 @@ cmake和c++一样,没能完全拿下c的"份额"<br/></p>
 <li class="ml-8"><a href="https://zh.wikipedia.org/wiki/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F(%E8%AE%A1%E7%AE%97%E6%9C%BA)">设计模式 点击查看</a></li>
 </ul>
 <p class="font-serif my-1">编程范式侧重思考问题的角度:<a href="https://www.indicative.com/resource/programming-paradigm/">点击查看</a><br/>
-设计模式则侧重代码之间的设计结构:<a href="https://refactoringguru.cn/">点击查看</a></p></div></section></section>
+设计模式则侧重代码之间的设计结构:<a href="https://refactoringguru.cn/">点击查看</a></p></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">编程语言相关</h2>
+<ul class="list-disc font-serif">
+<li class="ml-8">文档<ul class="list-disc font-serif">
+<li class="ml-8"><a href="https://zh.wikipedia.org/wiki/%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80%E7%90%86%E8%AB%96">编程语言理论wiki 点击查看</a><br/></li>
+<li class="ml-8"><a href="https://github.com/FrankHB/pl-docs/tree/master/zh-CN">某些plt相关文档 点击查看</a></li>
+</ul>
+</li>
+<li class="ml-8"/>
+</ul></div></section></section>
         </div>
     </div>
 
