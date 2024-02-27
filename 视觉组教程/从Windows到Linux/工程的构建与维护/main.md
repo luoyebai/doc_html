@@ -245,11 +245,15 @@ makefile的手写会很麻烦,而且想要跨平台也很复杂<br>
         - 可以显示公式,列表
 
 - 为注释提供一个生成文档的工具,好比给写代码的时候提供LSP服务一样重要<br>
+- 这里提供一份[doxygen file](../code/Doxyfile)
 
 > 写注释都多了几分动力
 
 ---
 ## 调试器:gdb
+
+- 调试工具应该都用过,IDE打断点都会
+- 这些IDE实际上是对gdb或其他调试工具进行了包装
 
 
 ---
@@ -288,6 +292,7 @@ makefile的手写会很麻烦,而且想要跨平台也很复杂<br>
 ----
 ## 编程语言相关
 - 文档
-    - [编程语言理论wiki 点击查看](https://zh.wikipedia.org/wiki/%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80%E7%90%86%E8%AB%96)<br>
+    - [编程语言理论wiki 点击查看](https://zh.wikipedia.org/wiki/%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80%E7%90%86%E8%AB%96)
     - [某些plt相关文档 点击查看](https://github.com/FrankHB/pl-docs/tree/master/zh-CN)
+    - [PFDS 点击查看](https://en.wikipedia.org/wiki/Purely_functional_data_structure)
 

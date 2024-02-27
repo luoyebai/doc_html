@@ -29,3 +29,9 @@
 ## <red>OS</red>
 
 1.[构建mini linux](./OS/构建mini_linux/dist/index.html)
+
+---
+
+## 关于学习的思考
+
+- [属性及其原因](./关于学习的思考/属性及其原因/dist/index.html)

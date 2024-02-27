@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="./static/css/base.css" rel="stylesheet">
+    <link href="./static/css/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.font.im/css?family=Source+Serif+Pro%7CLato%7CInconsolata" rel="stylesheet"
+        type="text/css">
+    <title> main </title>
+    <!-- browser favicon -->
+    <link rel="shortcut icon" href="./static/img/favicon.png">
+    <style>
+        .font-sans {
+            font-family: 'Lato', 'SimHei', 'STHeiti', 'SimHei', 'Serif';
+        }
+
+        .font-serif {
+            font-family: 'Source Serif Pro', 'Songti SC', 'SimSun', 'Serif', serif;
+        }
+    </style>
+    <!-- <link rel="stylesheet" href="https://jyywiki.cn/static/katex/katex.min.css">
+    <script defer src="https://jyywiki.cn/static/katex/katex.min.js"></script> -->
+    <link rel="stylesheet" href="./static/katex/katex.min.css">
+    <script defer src="./static/katex/katex.min.js"></script>
+    <!-- <script defer src="https://jyywiki.cn/static/katex/auto-render.min.js"
+        integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
+        crossorigin="anonymous"></script> -->
+    <script defer src="./static/katex/auto-render.min.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            renderMathInElement(document.body, {
+                // customised options
+                // &#8226; auto-render specific keys, e.g.:
+                delimiters: [
+                    { left: '$$', right: '$$', display: true },
+                    { left: '$', right: '$', display: false },
+                    { left: '\\(', right: '\\)', display: false },
+                    { left: '\\[', right: '\\]', display: true }
+                ],
+                // &#8226; rendering keys, e.g.:
+                throwOnError: false
+            });
+        });
+    </script>
+
+    <link rel="stylesheet" href="./static/reveal/reveal.css">
+    <link rel="stylesheet" href="./static/reveal/theme/simple.css" id="theme">
+    <link rel="stylesheet" href="./static/jyy/jyy.css">
+
+</head>
+
+<body class="d-flex flex-column h-100">
+
+    <div class="reveal">
+        <div class="slides">
+            <section><section><div class="center middle"><div style="width:100%"><div><h1 id="_1" class="text-2xl mt-2 font-sans">属性及其原因</h1></div></div></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">概述</h2>
+<ol>
+<li class="ml-8">属性是什么?</li>
+<li class="ml-8">原因是什么?</li>
+<li class="ml-8">为什么理解原因要高于理解属性?</li>
+</ol></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="_1" class="text-2xl mt-2 font-sans">特性是什么?</h1></div></div></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">属性的介绍</h2>
+<ul class="list-disc font-serif">
+<li class="ml-8"><a href="https://zh.wikipedia.org/wiki/%E5%B1%9E%E6%80%A7">属性wiki 点击查看</a></li>
+<li class="ml-8">属性与特性类似，但是属性强调不变性,特性则强调区别性</li>
+<li class="ml-8">
+<p class="font-serif my-1">属性大部分情况下是可以证明的,例如:</p>
+<ul class="list-disc font-serif">
+<li class="ml-8">直角三角形在欧氏几何下符合勾股定理</li>
+</ul>
+</li>
+<li class="ml-8">
+<p class="font-serif my-1">如何理解,证明属性?</p>
+</li>
+</ul>
+<blockquote>
+<p class="font-serif my-1">ps:这里的属性并非特指计算机科学中的特性</p>
+</blockquote></div></section></section>
+        </div>
+    </div>
+
+    <script src="./static/reveal/reveal.js"></script>
+
+    <script>
+        Reveal.initialize({
+
+            width: 1024, height: 768,
+
+            slideNumber: 'c/t',
+            controlsTutorial: false,
+            progress: false,
+            hash: true,
+            center: false,
+            autoAnimateUnmatched: true,
+            autoAnimateEasing: 'ease-out',
+            autoAnimateDuration: 0.3,
+            transitionSpeed: 'fast'
+        });
+    </script>
+</body>
+
+</html>
