@@ -10,7 +10,7 @@
     <link href="./static/css/tailwind.min.css" rel="stylesheet">
     <link href="https://fonts.font.im/css?family=Source+Serif+Pro%7CLato%7CInconsolata" rel="stylesheet"
         type="text/css">
-    <title> ch1 </title>
+    <title> main </title>
     <!-- browser favicon -->
     <link rel="shortcut icon" href="./static/img/favicon.png">
     <style>
@@ -58,74 +58,224 @@
 
     <div class="reveal">
         <div class="slides">
-            <section><section><div class="center middle"><div style="width:100%"><div><h1 id="linux" class="text-2xl mt-2 font-sans">初识linux</h1>
-<h2 id="_1" class="text-xl mt-2 pb-2 font-sans">概述</h2>
+            <section><section><div class="center middle"><div style="width:100%"><div><h1 id="linux" class="text-2xl mt-2 font-sans">初识<a href="https://zh.wikipedia.org/wiki/Linux"><strong><em>linux(点击查看)</em></strong></a></h1><p class="font-serif my-1">
+    <include src="Slides_Author">
+        <div class="py-16">
+            <p class="font-serif my-1">
+                <a href="http://luoyebai.cn:7890" class=" text-amber-900">
+                    作者：谭嘉淳
+                </a>
+            </p>
+        </div>
+        <div class="row">
+            <p class="font-serif my-1"/>
+            
+            <div class="author-affiliation">
+                <a href="https://github.com/torvalds/linux" class=" text-amber-900">
+                    <p class="font-serif my-1">
+                        Linux-Github
+                    </p>
+                    <img class="inline-img h-24" src="./static/img/6d3b64a2578d4144ae8a14c18db88d9a.jpg" style="display: inline-block;"/>
+                </a>
+            </div>
+            
+            <div class="author-affiliation">
+                <a href="https://cn.ubuntu.com/" class=" text-amber-900">
+                    <p class="font-serif my-1">
+                        Ubuntu
+                    </p>
+                    <img class="inline-img h-24" src="./static/img/9fed1b06b21041acb7df0799c8921ef8.jpg" style="display: inline-block;"/>
+                </a>
+            </div>
+            
+            <div class="author-affiliation">
+                <a href="https://www.kernel.org/" class=" text-amber-900">
+                    <p class="font-serif my-1">
+                        Linux　Kernel
+                    </p>
+                    <img class="inline-img h-24" src="./static/img/cc209b7577164d5b8a2955b42f61ecb0.png" style="display: inline-block;"/>
+                </a>
+            </div>
+            
+        </div>
+    </include>
+</p></div></div></div></section><section><div><h2 id="overview" class="text-xl mt-2 pb-2 font-sans">概述<strong><em>（Overview）</em></strong></h2>
 <ul class="list-disc font-serif">
-<li class="ml-8"><strong>Q1</strong> 什么是linux？</li>
-<li class="ml-8"><strong>Q2</strong> 为什么要使用linux？</li>
-<li class="ml-8"><strong>Q3</strong> linux如何<del>启动</del>使用？</li>
+<li class="ml-8"><strong>Q1</strong> 为什么要使用<strong><em>Linux？（Why）</em></strong></li>
+<li class="ml-8"><strong>Q2</strong> 什么是<strong><em>Linux？（What）</em></strong></li>
+<li class="ml-8"><strong>Q3</strong> 如何启动<strong><em>Linux？（How）</em></strong></li>
 </ul>
-<p class="font-serif my-1"><img class="float-right" src="./static/img/69f236cb23b9427fbca7954d055ad0b4.png"/></p></div></div></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="q1linux" class="text-2xl mt-2 font-sans">Q1：什么是linux？</h1></div></div></div></section><section><div><p class="font-serif my-1">你在此处不要走动，我去翻翻维基百科<br/>
-<a href="https://zh.wikipedia.org/wiki/Linux">点击查看linux</a></p>
-<p class="font-serif my-1">所以，什么是linux？
-<del>其实就是一堆c代码(</del><br/>
-其实就是一堆很🐮的c代码写出来的操作系统内核<br/>
-<br/>
-而且你可以在github上阅读linux源代码<br/>
-<a href="https://github.com/torvalds/linux">放心大胆地读源码吧！<del>反正看不懂</del></a><br/>
-<br/>
-然后，各大厂商在Linux内核代码的基础上，开发出了一些操作系统。</p></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="q2-linux" class="text-2xl mt-2 font-sans">Q2 为什么要使用linux？</h1>
-<p class="font-serif my-1">说到操作系统，那就不得不和Windows对比一下了。<br/>
-为神魔药用Linux而不是Windows呢？</p></div></div></div></section><section><div><h2 id="windows-vs-linux" class="text-xl mt-2 pb-2 font-sans">Windows VS Linux</h2>
-<p class="font-serif my-1"><img class="float-right" src="./static/img/5065343c248945dea69f4aa43b41b495.png"/></p></div></section><section><div><blockquote>
-<h3 id="_1">第一回合！</h3>
-</blockquote>
-<p class="font-serif my-1">Windows <strong>要钱</strong> <del>虽然这难不倒中国用户</del><br/>
-Linux <strong>免费！自由！</strong>double free<br/>
-Linux 这波，遥遥领先。</p>
-<p class="font-serif my-1"><img class="float-left" src="./static/img/d1cece7fd93c41cb93caf8bbea96e4a2.png"/></p></div></section><section><div><blockquote>
-<h3 id="_1">第二回合！</h3>
-</blockquote>
-<p class="font-serif my-1">Windows 不如 Linux 流畅、稳定、安全<br/></p>
-<p class="font-serif my-1">Linux对开发者十分友好，而且便捷<br/></p>
-<p class="font-serif my-1">ex: 大部分Linux发行版自带python</p>
-<p class="font-serif my-1">Linux 继续领先！<br/></p></div></section><section><div><blockquote>
-<h3 id="_1">让我们直接进入第三回合！</h3>
-</blockquote>
-<p class="font-serif my-1">让我们看看Windows怎么说<br/>
-Windows: 我对英伟达支持友好。<br/>
-Linus(Linux它爹):<strong>so nvidia fxxk you!</strong>
-<img class="float-left" src="./static/img/821878b3fc074950a701a02d55a86197.png"/></p></div></section><section><div><h3 id="_1">好好，让我暂时先忽略刚才的图片</h3>
-<p class="font-serif my-1">总而言之，Linux对程序员来说，是很不错的一个系统。<br/>
-而说到 Linux 各大发行版，作为 Arch 神教的一员。<br/>
-<br/>
-给各位推荐的发行版自然是----<strong>Ubuntu 22.04</strong><br/>
-<del>(初学者用什么arch，真的是)</del><br/>
-<br/>
-等学得差不多了，也可以尝试一下其他的发行版。<br/>
-<a href="https://distrochooser.de/zh-hans">测试一下你最适合哪个发行版</a>
-<br/><br/>
-终于还是到了这个时候吗？<br/>
-是时候了，Linux，启动！</p></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="q3linux" class="text-2xl mt-2 font-sans">Q3:linux如何<del>启动</del>使用？</h1>
-<p class="font-serif my-1">以Ubuntu22.04为例，尝试安装</p></div></div></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">启动盘制作</h2>
-<p class="font-serif my-1">先准备好一个16G左右的U盘，制作成Ventoy。<br/>
-U盘会被格式化，请提前做好文件备份。<br/>
-<a href="https://www.ventoy.net/cn/doc_start.html">这里是教程</a>
-<br/></p>
-<p class="font-serif my-1">制作好的U盘名字会变成Ventoy</p>
-<p class="font-serif my-1"><img alt="如图" src="./static/img/2597cad8cc6a443ab1ca38a91a937c40.png"/></p></div></section><section><div><h2 id="ubuntu" class="text-xl mt-2 pb-2 font-sans">Ubuntu镜像下载</h2>
-<p class="font-serif my-1"><a href="https://releases.ubuntu.com/22.04/ubuntu-22.04.3-desktop-amd64.iso">这是ubuntu22.04.3的ISO镜像</a><br/>
-把ubuntu的ISO镜像拖到制作好的U盘上即可。<br/>
-查询自己电脑的Bios启动按钮，然后在开机的时候多次按，通常为F10,F2之类的。<br/>
-接下来插上U盘，尝试通过U盘来启动ubuntu安装程序。<br/>
-大概长这样：
-<a href="https://cn.linux-console.net/common-images/use-ventoy/Ventoy-boot-screen.png">启动界面</a>
-然后按照指引一步一步走就好了。</p></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">注意事项</h2>
+<p class="font-serif my-1"><img class="float-right" src="./static/img/30041c4526f545938acaf7a98c2e3dd8.png"/>
+<br/><br/><br/><br/><br/><br/><br/><br/></p>
+<blockquote>
+<p class="font-serif my-1"><strong><em>Software is like sex: it's better when it's free. ——— Linus Torvalds</em></strong></p>
+</blockquote></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="q1-linuxwhy" class="text-2xl mt-2 font-sans"><strong>Q1</strong> 为什么要使用<strong><em>Linux？（Why）</em></strong></h1><div class="fragment" data-fragment-index="1"><blockquote>
+<p class="font-serif my-1"><strong><em>When you say, ‘I wrote a program that crashed Windows,’ 
+people just stare at you blankly and say, ‘Hey, I got those with the system, for free.’ 
+——— Linus Torvalds</em></strong></p>
+</blockquote></div></div></div></div></section><section><div><h2 id="windows" class="text-xl mt-2 pb-2 font-sans">显然，我们都在用<strong><em>Windows</em></strong>操作系统</h2>
+<p class="font-serif my-1">某些<strong>前置知识</strong> <strong><em>（Some pre-knowledge）</em></strong></p>
 <ul class="list-disc font-serif">
-<li class="ml-8"><a href="https://zhuanlan.zhihu.com/p/60704389">解除磁盘锁</a></li>
-<li class="ml-8"><a href="https://zhuanlan.zhihu.com/p/146554549">初始分配空间不够，扩磁盘空间</a></li>
-<li class="ml-8"><a href="https://zhuanlan.zhihu.com/p/94105263">timeshift备份，防止系统崩溃，环境重配</a></li>
-<li class="ml-8"><a href="https://zhuanlan.zhihu.com/p/393152883">安装显卡驱动！<strong>慎重</strong>，一定要做好备份</a></li>
+<li class="ml-8"><strong>也许要了解一下</strong><a href="https://zh.wikipedia.org/wiki/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F">操作系统<strong><em>（英语：Operating System，缩写：OS）(点击查看)</em></strong></a><ul class="list-disc font-serif">
+<li class="ml-8"><strong><del>也许不用</del></strong> 在我们了解什么是<a href="https://zh.wikipedia.org/wiki/Microsoft_Windows"><strong><em>Windows(点击查看)</em></strong></a>之前我们就在使用<strong><em>Windows</em></strong>了</li>
+</ul>
+</li>
+<li class="ml-8">$Windows \neq OS$ <ul class="list-disc font-serif">
+<li class="ml-8"><strong><em>But</em></strong> $Window \in OS$ </li>
+<li class="ml-8"><strong><em>And</em></strong> $Linux \in UNIX$</li>
+<li class="ml-8"><strong><em>And</em></strong> $ UNIX \in  OS$<ul class="list-disc font-serif">
+<li class="ml-8"><strong><em>So Linux ∈  OS</em></strong></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p class="font-serif my-1">那为什么，我们在以前的人生中，从来没有见过<strong><em>Linux</em></strong>呢？</p>
+</blockquote></div></section><section><div><h2 id="windows-vs-linux" class="text-xl mt-2 pb-2 font-sans">不可避免地对比：<strong><em>Windows VS Linux</em></strong></h2>
+<p class="font-serif my-1">如果从来没有见过<strong><em>xxx</em></strong>，那有一种可能是：</p>
+<ul class="list-disc font-serif">
+<li class="ml-8">那玩意确实<strong>不好用</strong></li>
+</ul>
+<p class="font-serif my-1">当然，还有一种可能：</p>
+<ul class="list-disc font-serif">
+<li class="ml-8">它确实很好用，但是不<a href="https://zh.wikipedia.org/wiki/%E6%98%93%E7%94%A8%E6%80%A7">易用<strong><em>（英语：Usability）(点击查看)</em></strong></a></li>
+</ul>
+<!-- <img class="float-right" src="./static/img/627205e011aa45ab9f652d71eb4d1f22.png"> -->
+<p class="font-serif my-1"><img class="center" src="./static/img/2d28aa30ff494f2f868916229e39fd7c.png"/></p></div></section><section><div><h2 id="windowslinux" class="text-xl mt-2 pb-2 font-sans">第一回合比试：<strong><em>Windows比Linux易用</em></strong></h2>
+<p class="font-serif my-1"><strong><em>Windows</em></strong>提供了桌面系统，即<a href="https://zh.wikipedia.org/wiki/%E5%9B%BE%E5%BD%A2%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2">图形用户界面<strong><em>（英语：Graphical User Interface，缩写：GUI）(点击查看)</em></strong></a></p>
+<ul class="list-disc font-serif">
+<li class="ml-8">当然Windows是<strong>商业产品（收费）</strong> </li>
+<li class="ml-8"><del>虽然这难不倒中国用户</del></li>
+</ul>
+<p class="font-serif my-1"><strong><em>Linux</em></strong>发行版也提供了<strong><em>GUI</em></strong></p>
+<ul class="list-disc font-serif">
+<li class="ml-8"><strong><em>Linux</em></strong>的发行版，有些收费，有些免费<ul class="list-disc font-serif">
+<li class="ml-8">有些不仅免费，还开源，<a href="https://www.gnu.org/distros/free-distros.zh-cn.html">自由的<strong><em>GNU/Linux发行版(点击查看)</em></strong></a></li>
+</ul>
+</li>
+<li class="ml-8"><strong><em>Linux</em></strong> 这波，“<strong>遥遥领先”</strong>。</li>
+<li class="ml-8"><strong><em>Linux</em></strong>这么“好用”，那它还没被大众熟知的原因也就很清晰了<ul class="list-disc font-serif">
+<li class="ml-8"><strong><em>Linux继承了<a href="https://zh.wikipedia.org/wiki/UNIX"><strong><em>UNIX(点击查看)</em></strong></a>的不易用性</em></strong></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p class="font-serif my-1">所以有一些笑话<a href="https://www.gnu.org/fun/humor.zh-cn.html"><strong><em>GNU Humor(点击查看)</em></strong></a></p>
+</blockquote></div></section><section><div><h2 id="linuxwindows" class="text-xl mt-2 pb-2 font-sans">第二回合比试：<strong><em>Linux比Windows安全、稳定、流畅</em></strong></h2>
+<p class="font-serif my-1"><strong><em>Linux</em></strong>更安全（全球程序员的<strong>审查</strong>）、更稳定、更流畅：</p>
+<ul class="list-disc font-serif">
+<li class="ml-8"><strong><em>Linux </em></strong>继续领先！<br/></li>
+</ul>
+<p class="font-serif my-1"><img class="center" src="./static/img/6731016e06ba4dc499fadb74a332ba1c.png"/></p></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">直接进入第三回合比试！</h2>
+<p class="font-serif my-1">让我们看看<strong><em>Windows</em></strong>怎么说</p>
+<!-- - Windows: 我对英伟达支持友好 -->
+<ul class="list-disc font-serif">
+<li class="ml-8"><strong><em>Windows</em></strong>: 我装<strong><em>NVIDIA</em></strong>显卡不崩</li>
+<li class="ml-8"><strong><em>Linus：So NVIDIA fxxk you !</em></strong><ul class="list-disc font-serif">
+<li class="ml-8"><strong><em>Anyway</em></strong>，我们还是要用<strong><em>Linux</em></strong>的</li>
+</ul>
+</li>
+</ul>
+<p class="font-serif my-1"><img class="center" src="./static/img/725fc222d0d74ac5beb0eb6385bc28af.png"/></p></div></section><section><div><h2 id="not-only-windows" class="text-xl mt-2 pb-2 font-sans"><strong><em>至少多了一条路（Not only Windows）</em></strong></h2>
+<p class="font-serif my-1">至少，我们已经初步了解了如何为什么要用<strong><em>Linux</em></strong></p>
+<ul class="list-disc font-serif">
+<li class="ml-8">不易用，但好用<strong><em>（至少和Windows比起来）</em></strong></li>
+<li class="ml-8">对于<strong>CS相关从业人员</strong>来说，<strong><em>Linux</em></strong> 确实算得上是“必修课”<ul class="list-disc font-serif">
+<li class="ml-8">然而，<strong><em>Linux</em></strong>生态存在问题<ol>
+<li class="ml-8">很多软件<del>游戏</del>没有<strong><em>Linux</em></strong>版本</li>
+<li class="ml-8">即使有<strong><em>Linux</em></strong>版本，大部分也只是通过虚拟机运作</li>
+<li class="ml-8">即使支持原生<strong><em>Linux</em></strong>，也可能因为发行版不同而无法运作</li>
+</ol>
+</li>
+<li class="ml-8">即便如此我们还是要用</li>
+</ul>
+</li>
+</ul>
+<p class="font-serif my-1"><strong><em>Linux</em></strong>是专业人员要面对的<strong>“难题”</strong></p>
+<blockquote>
+<p class="font-serif my-1"><strong><em>UNIX是用户友好的，只是要成为UNIX的用户很困难</em></strong></p>
+</blockquote></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="q2-linuxwhat" class="text-2xl mt-2 font-sans"><strong>Q2</strong> 什么是<strong><em>Linux？（What）</em></strong></h1><div class="fragment" data-fragment-index="1"><blockquote>
+<p class="font-serif my-1"><strong><em>Just The Kernel</em></strong></p>
+</blockquote></div><div class="fragment" data-fragment-index="2"><blockquote>
+<p class="font-serif my-1"><strong><em>Not Only The Kernel</em></strong></p>
+</blockquote></div></div></div></div></section><section><div><h2 id="linux" class="text-xl mt-2 pb-2 font-sans">我们已经初步了解<strong><em>Linux</em></strong>了</h2>
+<p class="font-serif my-1">我们花了很多时间在为什么要用<strong><em>Linux（Why should use Linux）</em></strong>上</p>
+<ul class="list-disc font-serif">
+<li class="ml-8">然后我们知道了<strong><em>Windows、OS、UNIX……</em></strong></li>
+<li class="ml-8">但是我们貌似还不知道什么是<a href="https://zh.wikipedia.org/zh-cn/Linux"><strong><em>Linux(点击查看)</em></strong></a></li>
+</ul>
+<p class="font-serif my-1">我们现在貌似知道<strong><em>Linux</em></strong>到底是什么了</p>
+<ul class="list-disc font-serif">
+<li class="ml-8">正如前面说的<strong><em>Just The Kernel</em></strong></li>
+<li class="ml-8">也知道了<a href="https://www.gnu.org/gnu/linux-and-gnu.zh-cn.html"><strong><em>Linux和GNU</em></strong>(点击查看)</a></li>
+</ul>
+<p class="font-serif my-1"><strong><em>OK，Not Only The Kernel</em></strong></p>
+<ul class="list-disc font-serif">
+<li class="ml-8">我们在知道<strong><em>Linux</em></strong>之前，就在用<strong><em>Linux</em></strong>了<ul class="list-disc font-serif">
+<li class="ml-8">大部分服务器</li>
+<li class="ml-8">一些<a href="https://zh.wikipedia.org/wiki/%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F">嵌入式系统<strong><em>（embedded system）(点击查看)</em></strong></a>应用</li>
+<li class="ml-8">手机的系统<a href="https://zh.wikipedia.org/wiki/Android"><strong><em>Android</em></strong>(点击查看)</a></li>
+</ul>
+</li>
+</ul></div></section><section><div><h2 id="guignulinux" class="text-xl mt-2 pb-2 font-sans">我们也知道了一些发行版<strong><em>（带GUI的GNU/Linux）</em></strong></h2>
+<p class="font-serif my-1">暂时<strong>先不要纠结选什么发行版，选择其实不止一种</strong></p>
+<ul class="list-disc font-serif">
+<li class="ml-8">如果你要使用<strong><em>Linux</em></strong>的话<strong>（如果只有一台电脑）</strong><ul class="list-disc font-serif">
+<li class="ml-8">虚拟机或直接<strong>租服务器</strong></li>
+<li class="ml-8">双系统<strong><em>（Windows和Linux同时在电脑上）</em></strong></li>
+<li class="ml-8"><a href="https://zh.wikipedia.org/wiki/%E9%80%82%E7%94%A8%E4%BA%8ELinux%E7%9A%84Windows%E5%AD%90%E7%B3%BB%E7%BB%9F"><strong><em>WSL（英语：Windows Subsystem for Linux，简称WSL）(点击查看)</em></strong></a>
+对于新手，一般推荐安装并使用<strong><em>Ubuntu</em></strong></li>
+</ul>
+</li>
+<li class="ml-8">也可以尝试一下<strong>其他的发行版</strong><ul class="list-disc font-serif">
+<li class="ml-8"><a href="https://distrochooser.de/zh-hans">测测什么发行版适合你(点击查看)</a></li>
+<li class="ml-8">是时候了,<strong><em>Linux启动！</em></strong></li>
+</ul>
+</li>
+</ul></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="q3-linuxhow" class="text-2xl mt-2 font-sans"><strong>Q3</strong> 如何启动<strong><em>Linux？（How）</em></strong></h1>
+<blockquote>
+<p class="font-serif my-1">以<strong><em>Ubuntu</em></strong>为例，尝试安装</p>
+</blockquote><div class="fragment" data-fragment-index="1"><blockquote>
+<p class="font-serif my-1"><strong>现实中的恐怖，远比不上想象中的恐怖那么可怕———亚伯拉罕·林肯</strong></p>
+</blockquote></div></div></div></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans"><strong><a href="https://zh.wikipedia.org/wiki/%E5%90%AF%E5%8A%A8%E7%9B%98">启动盘(点击查看)</a>制作</strong></h2>
+<ul class="list-disc font-serif">
+<li class="ml-8">先准备好一个16G左右的U盘，制作成<a href="https://zh.wikipedia.org/wiki/Ventoy"><strong><em>Ventoy(点击查看)</em></strong></a><br/></li>
+<li class="ml-8"><strong>U盘会被格式化，请提前做好文件备份</strong></li>
+<li class="ml-8"><a href="https://www.ventoy.net/cn/doc_start.html"><strong>这里是教程(点击查看)</strong></a></li>
+</ul>
+<p class="font-serif my-1"><img class="center" src="./static/img/9c4f84d21a6b4d38a3d577df1d95380a.png"/></p>
+<blockquote>
+<p class="font-serif my-1">制作好的U盘名字会变成<strong><em>Ventoy</em></strong></p>
+</blockquote></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans"><strong><em>镜像下载和安装</em></strong></h2>
+<p class="font-serif my-1">选择要下载的镜像版本（通常使用第二新的<strong>长期维护</strong>版本）</p>
+<ul class="list-disc font-serif">
+<li class="ml-8"><a href="https://mirrors.tuna.tsinghua.edu.cn/ubuntu-releases/"><strong><em>清华源Ubuntu镜像(点击查看)</em></strong></a><ul class="list-disc font-serif">
+<li class="ml-8">把<strong><em>Ubuntu</em></strong>镜像复制到到<strong>制作好的启动盘</strong>上即可</li>
+</ul>
+</li>
+<li class="ml-8">进入<strong><em>Bios</em></strong><ul class="list-disc font-serif">
+<li class="ml-8"><a href="https://zhuanlan.zhihu.com/p/126593694"><strong><em>各大品牌电脑如何进入Bios(点击查看)</em></strong></a>启动按钮，然后在开机的时候多次按</li>
+<li class="ml-8">切换启动引导项<ul class="list-disc font-serif">
+<li class="ml-8">大概长这样：<a href="https://cn.linux-console.net/common-images/use-ventoy/Ventoy-boot-screen.png"><strong>启动引导项(点击查看)</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p class="font-serif my-1">安装系统存在风险，最好<strong>对重要文件进行备份</strong></p>
+</blockquote></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans"><red><strong><em>注意事项</em></strong></red></h2>
+<p class="font-serif my-1"><red><strong>备份</strong></red>是一个好习惯，你会在使用 <strong><em>Linux</em></strong>的过程中体会到的</p>
+<ul class="list-disc font-serif">
+<li class="ml-8"><strong><em>虽然那很可能是糟糕的体验</em></strong></li>
+</ul>
+<p class="font-serif my-1">下面是一些<red><strong>注意事项</strong></red>的链接</p>
+<ul class="list-disc font-serif">
+<li class="ml-8"><a href="https://zhuanlan.zhihu.com/p/60704389"><strong>解除磁盘锁</strong></a></li>
+<li class="ml-8"><a href="https://zhuanlan.zhihu.com/p/146554549"><strong>双系统：Linux系统磁盘空间不够，拓展磁盘空间(点击查看)</strong></a></li>
+<li class="ml-8"><a href="https://zhuanlan.zhihu.com/p/94105263"><strong>timeshift备份，防止系统崩溃，环境重配(点击查看)</strong></a></li>
+<li class="ml-8"><a href="https://zhuanlan.zhihu.com/p/393152883"><strong>安装显卡驱动！慎重，一定要做好备份(点击查看)</strong></a></li>
 </ul></div></section></section>
         </div>
     </div>
