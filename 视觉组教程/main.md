@@ -5,19 +5,19 @@
     },
     "departments": [
         {
-            "name": "Github",
-            "url": "https://github.com/",
-            "img_url": "./img/github-log.jpg"
+            "name": "OpenCV",
+            "url": "https://opencv.org/",
+            "img_url": "./img/opencv-logo.png"
         },
         {
-            "name": "CS-Self-Learning",
-            "url": "https://csdiy.wiki/",
-            "img_url": "./img/cs-self-learning.jpg"
+            "name": "ROS",
+            "url": "https://www.ros.org/",
+            "img_url": "./img/ros-logo.jpg"
         },
         {
-            "name":"Awesome Lists",
-            "url":"https://github.com/topics/awesome",
-            "img_url": "./img/awesome-logo.svg"
+            "name":"C++",
+            "url":"https://isocpp.org/",
+            "img_url": "./img/cpp-logo.png"
         }
     ]
 }
@@ -36,11 +36,22 @@
 
 <br>
 
-## opencv的使用
+## <red>从C语言到C++的转变(待更新)<red>
+
+1. 编程范式
+2. STL应用
+3. 某些工具
+
+---
+
+## OpenCV的使用
 
 1. [从简单的人脸识别开始<red>(待更新)</red>](../opencv的使用/简单的人脸识别/dist/index.html)
 
----
+<br>
+<br>
+<br>
+<br>
 
 ## <red>ROS的使用(待更新)</red>
 
@@ -48,14 +59,3 @@
 2. [节点和工具<red>(待更新)</red>](../ROS/节点和工具/dist/index.html)
 3. [仿真<red>(待更新)</red>](../ROS/仿真/dist/index.html)
 
-<br>
-
-## <red>OS</red>
-
-1.[构建mini linux](../OS/构建mini_linux/dist/index.html)
-
----
-
-## 关于学习的思考
-
-- [属性及其原因](../关于学习的思考/属性及其原因/dist/index.html)

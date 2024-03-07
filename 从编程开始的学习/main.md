@@ -29,6 +29,21 @@
 ## 简单又轻松的编程
 
 1. [编程概述](../简单又轻松的编程/编程概述/dist/index.html)
-2. [从python入手](../简单又轻松的编程/从python入手/dist/index.html)
+2. [从***Python***入手](../简单又轻松的编程/从python入手/dist/index.html)
+
+<br>
+<br>
+
+## <red>***OS***<red>
+
+1. [***mini_linux***](../OS/构建mini_linux/dist/index.html)
+2. [***mini_shell***](../OS/mini_sh/dist/index.html)
+
+---
+
+## 关于学习编程的思考
+
+1. [属性及其原因](../关于学习编程的思考/属性及其原因/dist/index.html)
+
 
 <br>
