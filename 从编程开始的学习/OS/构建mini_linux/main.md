@@ -1,4 +1,30 @@
-# 构建mini_linux
+{
+    "author": {
+        "name": "作者：谭嘉淳",
+        "url": "http://luoyebai.cn:7890"
+    },
+    "departments": [
+        {
+            "name": "CS-Self-Learning",
+            "url": "https://csdiy.wiki/",
+            "img_url": "./img/cs-self-learning.jpg"
+        },
+        {
+            "name": "Github",
+            "url": "https://github.com/",
+            "img_url": "./img/github-log.jpg"
+        },
+        {
+            "name":"Awesome Lists",
+            "url":"https://github.com/topics/awesome",
+            "img_url": "./img/awesome-logo.svg"
+        }
+    ]
+}
++++++
+# [🏠](../../../dist/index.html#/2)构建mini_linux
+
+----
 
 ## 概述 
 
@@ -133,13 +159,3 @@ find . -print0 | cpio --null -ov --format=newc \
 ```shell
 cd .. && ./run.sh
 ```
-
-
-
-
-
-
-
-
-
-

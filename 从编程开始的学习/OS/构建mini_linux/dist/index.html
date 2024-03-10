@@ -10,7 +10,7 @@
     <link href="./static/css/tailwind.min.css" rel="stylesheet">
     <link href="https://fonts.font.im/css?family=Source+Serif+Pro%7CLato%7CInconsolata" rel="stylesheet"
         type="text/css">
-    <title> ch1 </title>
+    <title> main </title>
     <!-- browser favicon -->
     <link rel="shortcut icon" href="./static/img/favicon.png">
     <style>
@@ -58,13 +58,53 @@
 
     <div class="reveal">
         <div class="slides">
-            <section><section><div class="center middle"><div style="width:100%"><div><h1 id="mini_linux" class="text-2xl mt-2 font-sans">构建mini_linux</h1>
-<h2 id="_1" class="text-xl mt-2 pb-2 font-sans">概述</h2>
+            <section><section><div class="center middle"><div style="width:100%"><div><h1 id="mini_linux" class="text-2xl mt-2 font-sans"><a href="../../../dist/index.html#/2">🏠</a>构建mini_linux</h1><p class="font-serif my-1">
+    <include src="Slides_Author">
+        <div class="py-16">
+            <p class="font-serif my-1">
+                <a href="http://luoyebai.cn:7890" class=" text-amber-900">
+                    作者：谭嘉淳
+                </a>
+            </p>
+        </div>
+        <div class="row">
+            <p class="font-serif my-1"/>
+            
+            <div class="author-affiliation">
+                <a href="https://csdiy.wiki/" class=" text-amber-900">
+                    <p class="font-serif my-1">
+                        CS-Self-Learning
+                    </p>
+                    <img class="inline-img h-24" src="./static/img/4476be3ca7ef49318db3c4ccc2ad2bb5.jpg" style="display: inline-block;"/>
+                </a>
+            </div>
+            
+            <div class="author-affiliation">
+                <a href="https://github.com/" class=" text-amber-900">
+                    <p class="font-serif my-1">
+                        Github
+                    </p>
+                    <img class="inline-img h-24" src="./static/img/87b412414f06443d80493ec7ce16fb3f.jpg" style="display: inline-block;"/>
+                </a>
+            </div>
+            
+            <div class="author-affiliation">
+                <a href="https://github.com/topics/awesome" class=" text-amber-900">
+                    <p class="font-serif my-1">
+                        Awesome　Lists
+                    </p>
+                    <img class="inline-img h-24" src="./static/img/42fd209b91854e9bbf63631ceea3684c.svg" style="display: inline-block;"/>
+                </a>
+            </div>
+            
+        </div>
+    </include>
+</p></div></div></div></section><section><div><h2 id="_1" class="text-xl mt-2 pb-2 font-sans">概述</h2>
 <ul class="list-disc font-serif">
 <li class="ml-8">关于<a href="https://www.busybox.net/">busybox</a>/<a href="https://landley.net/toybox/">toybox</a></li>
 <li class="ml-8">编译<a href="https://www.kernel.org/">linux kernel</a></li>
 <li class="ml-8">从<a href="https://www.qemu.org/">qemu</a>启动mini_linux  </li>
-</ul></div></div></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="busyboxtoybox" class="text-2xl mt-2 font-sans">关于busybox/toybox</h1>
+</ul></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="busyboxtoybox" class="text-2xl mt-2 font-sans">关于busybox/toybox</h1>
 <p class="font-serif my-1">本质上还是程序，包含了Linux命令行的实现</p></div></div></div></section><section><div><h2 id="linux" class="text-xl mt-2 pb-2 font-sans">可能有最精简的Linux命令行工具</h2>
 <blockquote>
 <p class="font-serif my-1">我们这次不使用包管理，而是从源码来编译</p>
@@ -79,7 +119,7 @@
 &gt;<span class="w"> </span>mini_linux
 </code></pre></div>
 
-<p class="font-serif my-1"><red>拉取源码编译，要开始了。</red></p></div></section><section><div><h2 id="box" class="text-xl mt-2 pb-2 font-sans">尝试拉取box源码</h2>
+<p class="font-serif my-1"><red>拉取源码编译，要开始了。</red></p></div></section><section><div class="center middle"><div style="width:100%"><div><h2 id="box" class="text-xl mt-2 pb-2 font-sans">尝试拉取box源码</h2>
 <p class="font-serif my-1"><a href="https://busybox.net/downloads/busybox-1.36.1.tar.bz2">busybox1.36.1压缩包</a><br/></p>
 <div class="codehilite"><pre class="bg-gray-100 overflow-x-auto rounded p-2 mb-2 mt-2"><span/><code>wget<span class="w"> </span>https://busybox.net/downloads/busybox-1.36.1.tar.bz2
 <span class="c1"># 当前文件夹树</span>
@@ -87,20 +127,23 @@
 <span class="w">    </span>└──<span class="w"> </span>busybox-1.36.1.tar.bz2
 </code></pre></div>
 
-<div class="codehilite"><pre class="bg-gray-100 overflow-x-auto rounded p-2 mb-2 mt-2"><span/><code><span class="c1"># 解压</span>
-tar<span class="w"> </span>-jxvf<span class="w"> </span>busybox-1.36.1.tar.bz2
-<span class="nb">cd</span><span class="w"> </span>busybox-1.36.1<span class="w"> </span>
-mkdir<span class="w"> </span>build<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>make<span class="w"> </span><span class="nv">O</span><span class="o">=</span>./build<span class="w"> </span>defconfig
-<span class="c1"># 开始编译配置</span>
-<span class="nb">cd</span><span class="w"> </span>build<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>make<span class="w"> </span>menuconfig
-<span class="c1">#配置 </span>
-<span class="c1">#Settings ---&gt; Build Options ---&gt; Build static binary (no shared libs) ---&gt; yes</span>
-<span class="nb">time</span><span class="w"> </span>make<span class="w"> </span>-j8<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>make<span class="w"> </span>install
-<span class="c1"># 就可以看到很多linux基础命令了</span>
-ls<span class="w"> </span>_install/bin
-</code></pre></div></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="linux-kernel" class="text-2xl mt-2 font-sans">编译Linux kernel</h1>
+<h1 id="linux-kernel" class="text-2xl mt-2 font-sans">编译Linux kernel</h1>
 <p class="font-serif my-1">就像编译普通的c程序那样编译它</p></div></div></div></section><section><div><h2 id="linux-kernel" class="text-xl mt-2 pb-2 font-sans">拉取Linux kernel源码</h2>
 <p class="font-serif my-1"><a href="https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.5.9.tar.xz">linux-6.5.9</a></p>
+<div class="codehilite"><pre class="bg-gray-100 overflow-x-auto rounded p-2 mb-2 mt-2"><span/><code>wget<span class="w"> </span>https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.5.9.tar.xz
+<span class="c1"># 当前文件夹树</span>
+&gt;<span class="w"> </span>mini_linux
+<span class="w">    </span>├──<span class="w"> </span>linux-6.5.9.tar.xz
+<span class="w">    </span>├──<span class="w"> </span>busybox-1.36.1.tar.bz2
+<span class="w">    </span>└──<span class="w"> </span>busybox-1.36.1
+<span class="w">    </span>│<span class="w">   </span>├──<span class="w"> </span>...
+<span class="w">    </span>│<span class="w">   </span>└──<span class="w"> </span>build
+<span class="w">    </span>│<span class="w">       </span>├──<span class="w"> </span>...
+<span class="w">            </span>├──<span class="w"> </span>busybox
+<span class="w">            </span>└──<span class="w"> </span>_install
+<span class="w">                </span>└──<span class="w"> </span>_install
+</code></pre></div>
+
 <div class="codehilite"><pre class="bg-gray-100 overflow-x-auto rounded p-2 mb-2 mt-2"><span/><code>tar<span class="w"> </span>-vxf<span class="w"> </span>linux-6.5.9.tar.xz
 <span class="nb">cd</span><span class="w"> </span>linux-6.5.9<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>mkdir<span class="w"> </span>build
 make<span class="w"> </span><span class="nv">O</span><span class="o">=</span>./build<span class="w"> </span>allnoconfig<span class="w"> </span>
@@ -119,6 +162,28 @@ make<span class="w"> </span><span class="nv">O</span><span class="o">=</span>./b
 <span class="c1">#File systems ---&gt; Pseudo filesystems ---&gt; /proc file system support ---&gt; yes</span>
 <span class="c1">#File systems ---&gt; Pseudo filesystems ---&gt; sysfs file system support ---&gt; yes</span>
 <span class="nb">time</span><span class="w"> </span>make<span class="w"> </span>-j8
+</code></pre></div>
+
+<div class="codehilite"><pre class="bg-gray-100 overflow-x-auto rounded p-2 mb-2 mt-2"><span/><code><span class="c1"># 当前文件夹树</span>
+&gt;<span class="w"> </span>mini_linux
+<span class="w">    </span>├──<span class="w"> </span>linux-6.5.9.tar.xz
+<span class="w">    </span>├──<span class="w"> </span>busybox-1.36.1.tar.bz2
+<span class="w">    </span>├──<span class="w"> </span>linux-6.5.9
+<span class="w">    </span>│<span class="w">   </span>└──<span class="w"> </span>build
+<span class="w">    </span>│<span class="w">       </span>├──<span class="w"> </span>...
+<span class="w">    </span>│<span class="w">       </span>├──<span class="w"> </span>arch
+<span class="w">    </span>│<span class="w">       </span>├──<span class="w"> </span>├──<span class="w"> </span>...
+<span class="w">    </span>│<span class="w">       </span>└──<span class="w"> </span>└──<span class="w"> </span>x86_64
+<span class="w">    </span>│<span class="w">       </span>├──<span class="w"> </span>├──<span class="w"> </span>├──<span class="w"> </span>...
+<span class="w">    </span>│<span class="w">       </span>└──<span class="w"> </span>└──<span class="w"> </span>└──<span class="w"> </span>boot
+<span class="w">    </span>│<span class="w">       </span>├──<span class="w"> </span>├──<span class="w"> </span>├──<span class="w"> </span>├──<span class="w"> </span>...
+<span class="w">    </span>│<span class="w">       </span>└──<span class="w"> </span>└──<span class="w"> </span>└──<span class="w"> </span>└──<span class="w"> </span>bzImage
+<span class="w">    </span>└──<span class="w"> </span>busybox-1.36.1
+<span class="w">        </span>├──<span class="w"> </span>...
+<span class="w">        </span>└──<span class="w"> </span>build
+<span class="w">            </span>├──<span class="w"> </span>...
+<span class="w">            </span>├──<span class="w"> </span>busybox
+<span class="w">            </span>└──<span class="w"> </span>_install
 </code></pre></div></div></section></section><section><section><div class="center middle"><div style="width:100%"><div><h1 id="qemumini_linux" class="text-2xl mt-2 font-sans">从qemu启动mini_linux</h1>
 <p class="font-serif my-1"><a href="../mini_linux/init">init</a></p>
 <div class="codehilite"><pre class="bg-gray-100 overflow-x-auto rounded p-2 mb-2 mt-2"><span/><code>mkdir initramfs 

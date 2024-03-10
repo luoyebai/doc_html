@@ -1,4 +1,13 @@
-# [计算机工程](https://zh.wikipedia.org/wiki/%E8%A8%88%E7%AE%97%E6%A9%9F%E5%B7%A5%E7%A8%8B)的构建与维护
+{
+    "author": {
+        "name": "作者：谭嘉淳",
+        "url": "http://luoyebai.cn:7890"
+    },
+    "departments": [
+    ]
+}
++++++
+# [🏠](../../../dist/index.html#/1)[计算机工程](https://zh.wikipedia.org/wiki/%E8%A8%88%E7%AE%97%E6%A9%9F%E5%B7%A5%E7%A8%8B)的构建与维护
 
 > 计算机工程需要可维护性
 

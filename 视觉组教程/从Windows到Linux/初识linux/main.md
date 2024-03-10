@@ -22,7 +22,7 @@
     ]
 }
 +++++
-# 初识[***linux(点击查看)***](https://zh.wikipedia.org/wiki/Linux)
+# [🏠](../../../dist/index.html#/1)初识[***linux(点击查看)***](https://zh.wikipedia.org/wiki/Linux)
 
 ----
 
