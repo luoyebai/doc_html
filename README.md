@@ -58,6 +58,7 @@
 - [**在线编译器**](https://godbolt.org/)
 - [**代码速查清单**](https://quickref.cn/)
 - [**多种语言免费学习资源列表**](https://github.com/EbookFoundation/free-programming-books/tree/main)
+- [***100个gdb小技巧***](https://github.com/hellogcc/100-gdb-tips/blob/master/src/index.md)
 
 ### ***CPP***相关
 
