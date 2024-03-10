@@ -48,7 +48,7 @@ people just stare at you blankly and say, ‘Hey, I got those with the system, f
 ——— Linus Torvalds***
 
 ----
-## 显然，我们都在用***Windows***操作系统
+## 🪟 显然，我们都在用***Windows***操作系统
 
 某些**前置知识** ***（Some pre-knowledge）***
 
@@ -60,12 +60,12 @@ people just stare at you blankly and say, ‘Hey, I got those with the system, f
     - ***And*** $ UNIX \in  OS$
         - ***So Linux ∈  OS***
 
-> 那为什么，我们在以前的人生中，从来没有见过***Linux***呢？
+> 🐧 那为什么，我们在以前的人生中，从来没有见过***Linux***呢？
 
 
 ----
 
-## 不可避免地对比：***Windows VS Linux***
+## 不可避免地对比：***Windows 🆚 Linux***
 
 如果从来没有见过***xxx***，那有一种可能是：
 
@@ -93,7 +93,7 @@ people just stare at you blankly and say, ‘Hey, I got those with the system, f
 - ***Linux***这么“好用”，那它还没被大众熟知的原因也就很清晰了
     - ***Linux继承了[***UNIX(点击查看)***](https://zh.wikipedia.org/wiki/UNIX)的不易用性***
 
-> 所以有一些笑话[***GNU Humor(点击查看)***](https://www.gnu.org/fun/humor.zh-cn.html)
+> 🐮 所以有一些笑话[***GNU Humor(点击查看)***](https://www.gnu.org/fun/humor.zh-cn.html)
 
 ----
 ## 第二回合比试：***Linux比Windows安全、稳定、流畅***
@@ -109,6 +109,8 @@ people just stare at you blankly and say, ‘Hey, I got those with the system, f
 让我们看看***Windows***怎么说
 <!-- - Windows: 我对英伟达支持友好 -->
 - ***Windows***: 我装***NVIDIA***显卡不崩
+
+--
 - ***Linus：So NVIDIA fxxk you !***
     - ***Anyway***，我们还是要用***Linux***的
 
@@ -129,7 +131,7 @@ people just stare at you blankly and say, ‘Hey, I got those with the system, f
 
 ***Linux***是专业人员要面对的**“难题”**
 
-> ***UNIX是用户友好的，只是要成为UNIX的用户很困难***
+> 🤣 ***UNIX是用户友好的，只是要成为UNIX的用户很困难***
 
 ---
 
@@ -141,7 +143,7 @@ people just stare at you blankly and say, ‘Hey, I got those with the system, f
 > ***Not Only The Kernel***
 
 ----
-## 我们已经初步了解***Linux***了
+## 👶 我们已经初步了解***Linux***了
 我们花了很多时间在为什么要用***Linux（Why should use Linux）***上
 
 - 然后我们知道了***Windows、OS、UNIX……***
@@ -162,7 +164,7 @@ people just stare at you blankly and say, ‘Hey, I got those with the system, f
 ----
 ## 我们也知道了一些发行版***（带GUI的GNU/Linux）***
 
-暂时**先不要纠结选什么发行版，选择其实不止一种**
+🤔暂时**先不要纠结选什么发行版，选择其实不止一种**
 
 - 如果你要使用***Linux***的话**（如果只有一台电脑）**
     - 虚拟机或直接**租服务器**
@@ -171,7 +173,8 @@ people just stare at you blankly and say, ‘Hey, I got those with the system, f
 对于新手，一般推荐安装并使用***Ubuntu***
 - 也可以尝试一下**其他的发行版**
     - [测测什么发行版适合你(点击查看)](https://distrochooser.de/zh-hans)
-    - 是时候了,***Linux启动！***
+
+> ⌛ 是时候了，***Linux启动！***
 
 ---
 
@@ -179,7 +182,7 @@ people just stare at you blankly and say, ‘Hey, I got those with the system, f
 
 > 以***Ubuntu***为例，尝试安装
 --
-> **现实中的恐怖，远比不上想象中的恐怖那么可怕———亚伯拉罕·林肯**
+> 😨**现实中的恐怖，远比不上想象中的恐怖那么可怕———亚伯拉罕·林肯**
 
 ----
 
@@ -207,7 +210,7 @@ people just stare at you blankly and say, ‘Hey, I got those with the system, f
 > 安装系统存在风险，最好**对重要文件进行备份**
 ----
 
-## <red>***注意事项***</red>
+## ⚠️  <red>***注意事项***</red> 
 
 <red>**备份**</red>是一个好习惯，你会在使用 ***Linux***的过程中体会到的
 
@@ -220,3 +223,5 @@ people just stare at you blankly and say, ‘Hey, I got those with the system, f
 + [**timeshift备份，防止系统崩溃，环境重配(点击查看)**](https://zhuanlan.zhihu.com/p/94105263)
 + [**安装显卡驱动！慎重，一定要做好备份(点击查看)**](https://zhuanlan.zhihu.com/p/393152883)
 
+
+> ➕ [***拓展阅读：Linux-Windows-Mac(点击查看)***](https://www.yinwang.org/blog-cn/2013/03/07/linux-windows-mac)

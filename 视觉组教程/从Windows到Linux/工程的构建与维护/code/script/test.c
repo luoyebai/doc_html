@@ -1,6 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// void GotoXY(int x, int y) {
+//     printf("\033[%d;%dH", y, x);
+//     return;
+// }
+
 #define MALLOC_N(ptr, n) (typeof(ptr))malloc(n * sizeof(*ptr))
 
 struct ListNodeInt {
@@ -11,6 +16,7 @@ struct ListNodeInt {
 struct ListNodeInt* CreateListNode(int data) {
     struct ListNodeInt* node = MALLOC_N(node, 1);
     node->data = data;
+    node->next = NULL;
     return node;
 }
 
@@ -80,62 +86,52 @@ void FreeList(struct ListNodeInt** head_ptr) {
 }
 
 void PrintListNodeInfo(struct ListNodeInt* node) {
-    printf("(this node address->%p;next address->%p;data->%d.)|", node,
-           node->next, node->data);
+    if (node) printf("[%p|%d]->", node, node->data);
+    if (!node->next) printf("%p", node->next);
     return;
 }
 
+void Display(struct ListNodeInt* head, const char* promt) {
+    system("clear");
+    puts(promt);
+    ListForEach(head, PrintListNodeInfo);
+    getchar();
+}
+
 int main() {
-    printf("{\n[init]|");
     struct ListNodeInt* head = NULL;
-    struct ListNodeInt* last_head = CreateListNode(12);
-    struct ListNodeInt* last_next = CreateListNode(123);
-    ListForEach(head, PrintListNodeInfo);
-    printf("\n}\n");
+    struct ListNodeInt* last_head = CreateListNode(10);
+    struct ListNodeInt* last_next = CreateListNode(11);
 
-    printf("{\n[create head node]|");
-    head = CreateListNode(1234);
-    ListForEach(head, PrintListNodeInfo);
-    printf("\n}\n");
+    head = CreateListNode(1);
+    Display(head, "Create list head node");
 
-    printf("{\n[push next new nodes]|");
-    ListPushNextNewNode(head, 12345);
-    ListPushNextNewNode(head->next, 123456);
-    ListForEach(head, PrintListNodeInfo);
-    printf("\n}\n");
+    ListPushNextNewNode(head, 2);
+    Display(head, "Push next new node");
+    ListPushNextNewNode(head->next, 3);
+    Display(head, "Push next new node");
 
-    printf("{\n[push front new nodes]|");
-    ListPushFrontNewNode(&head, 123);
-    ListPushFrontNewNode(&head, 12);
-    ListForEach(head, PrintListNodeInfo);
-    printf("\n}\n");
+    ListPushFrontNewNode(&head, 4);
+    Display(head, "Push front new node");
+    ListPushFrontNewNode(&head, 5);
+    Display(head, "Push front new node");
 
-    printf("{\n[remove next head]|");
     ListRemoveNextNode(head);
-    ListForEach(head, PrintListNodeInfo);
-    printf("\n}\n");
+    Display(head, "Remove head next node");
 
-    printf("{\n[remove head]|");
     ListRemoveNode(&head);
-    ListForEach(head, PrintListNodeInfo);
-    printf("\n}\n");
+    Display(head, "Remove head node");
 
-    printf("{\n[push next node]|");
     last_next->next = head->next;
     ListPushNextNode(head, last_next);
     //  ListPushNextNode(last_next, head); /* this is loop */
-    ListForEach(head, PrintListNodeInfo);
-    printf("\n}\n");
+    Display(head, "Push next node");
 
-    printf("{\n[push front node]|");
     ListPushFrontNode(&head, last_head);
-    ListForEach(head, PrintListNodeInfo);
-    printf("\n}\n");
+    Display(head, "Push front node");
 
-    printf("{\n[free]|");
     FreeList(&head);
-    ListForEach(head, PrintListNodeInfo);
-    printf("\n}\n");
+    Display(head, "Free list");
 
     return 0;
 }
