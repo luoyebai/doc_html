@@ -47,7 +47,7 @@
     - [**代码速查清单**](https://quickref.cn/)
     - [**多种语言免费学习资源列表**](https://github.com/EbookFoundation/free-programming-books/tree/main)
 
-3. ***C++***相关
+3. ***CPP***相关
     - [***C++核心准则***](https://isocpp.github.io/CppCoreGuidelines/)
     - [***ISOCPP***](https://isocpp.org/)
     - [***C++参考手册***](https://zh.cppreference.com/w/%E9%A6%96%E9%A1%B5)
